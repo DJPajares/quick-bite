@@ -1,5 +1,8 @@
 {
   "Home": {
     "title": "Hello world!"
+  },
+  "Button": {
+    "continue": "Continue"
   }
 }

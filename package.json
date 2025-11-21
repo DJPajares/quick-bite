@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "if [ \"$VERCEL\" != \"1\" ]; then husky install; fi",
+    "prettier": "prettier --write ."
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
