@@ -2,16 +2,16 @@
 
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { use, useState } from 'react';
+import { useState } from 'react';
 
 export default function SearchPage() {
   const [query, setQuery] = useState('');
 
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Search Menu</h1>
+    <div className="mx-auto max-w-xl p-4">
+      <h1 className="mb-4 text-2xl font-bold">Search Menu</h1>
       <form
-        className="flex gap-2 mb-6"
+        className="mb-6 flex gap-2"
         onSubmit={(e) => {
           e.preventDefault();
           // Add search logic here

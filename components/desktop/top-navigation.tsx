@@ -1,64 +1,73 @@
 'use client';
 
-import { Bell } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
 
-export function TopNavigation() {
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from '@/components/ui/sidebar';
+import { Label } from '@/components/ui/label';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+
+import { SideNav } from '@/components/desktop/sidebar';
+import NavDropdownMenu from '@/components/desktop/navigation-dropdown-menu';
+
+interface TopNavigationProps {
+  children?: React.ReactNode;
+}
+
+export function TopNavigation({ children }: TopNavigationProps) {
   const t = useTranslations();
 
+  const [isVisible, setIsVisible] = useState(true);
+
+  const lastScrollRef = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll <= 0) {
+        setIsVisible(true); // Show navbar at the top of the page
+      } else if (currentScroll > lastScrollRef.current) {
+        setIsVisible(false); // Hide navbar on scroll down
+      } else {
+        setIsVisible(true); // Show navbar on scroll up
+      }
+
+      lastScrollRef.current = currentScroll;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="flex h-16 border-b bg-background items-center px-6 justify-between sticky top-0 z-40">
-      {/* Left side - Page title or breadcrumbs */}
-      <div className="flex items-center gap-4">
-        <h2 className="text-lg font-semibold">{t('Home.title')}</h2>
-      </div>
+    <SidebarProvider>
+      <SideNav />
 
-      {/* Right side - Actions */}
-      <div className="flex items-center gap-3">
-        {/* Notifications */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="relative"
+      <SidebarInset>
+        <header
+          className={`nav bg-background/85 sticky top-0 z-50 flex h-12 items-center justify-between p-3 backdrop-blur-sm transition-transform duration-300 sm:h-14 ${
+            isVisible ? 'translate-y-0' : '-translate-y-full'
+          }`}
         >
-          <Bell className="h-5 w-5" />
-          <span className="absolute top-1 right-1 h-2 w-2 bg-red-500 rounded-full" />
-        </Button>
+          <SidebarTrigger className="-ml-1" />
 
-        {/* User Menu */}
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="ghost"
-              className="gap-2"
-            >
-              <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                <span className="text-sm font-medium">JD</span>
-              </div>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent
-            align="end"
-            className="w-56"
-          >
-            <DropdownMenuLabel>{t('Navigation.myAccount')}</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>{t('Navigation.profile')}</DropdownMenuItem>
-            <DropdownMenuItem>{t('Navigation.settings')}</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>{t('Navigation.logout')}</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-    </header>
+          {/* <Label className="font-bold!">APP</Label> */}
+
+          <NavDropdownMenu>
+            <Avatar className="hover:border-primary h-8 w-8 cursor-pointer">
+              <AvatarImage src="https://i.pravatar.cc/150?u=a04258114e29026708c" />
+              <AvatarFallback>DJ</AvatarFallback>
+            </Avatar>
+          </NavDropdownMenu>
+        </header>
+
+        <div>{children}</div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

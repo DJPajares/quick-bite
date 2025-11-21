@@ -2,9 +2,6 @@
   "Home": {
     "title": "Hello world!"
   },
-  "Button": {
-    "continue": "Continue"
-  },
   "Navigation": {
     "home": "Home",
     "search": "Search",
@@ -12,6 +9,16 @@
     "profile": "Profile",
     "settings": "Settings",
     "myAccount": "My Account",
+    "logout": "Logout"
+  },
+  "Button": {
+    "continue": "Continue"
+  },
+  "MenuDropdown": {
+    "editProfile": "Edit Profile",
+    "language": "Language",
+    "currency": "Currency",
+    "darkMode": "Dark Mode",
     "logout": "Logout"
   }
 }

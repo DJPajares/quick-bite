@@ -4,8 +4,9 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from '@/components/ui/card';
+import { APP_CONSTANTS } from '@/constants/app';
 import { useTranslations } from 'next-intl';
 
 export default function Home() {
@@ -16,14 +17,14 @@ export default function Home() {
       <div className="space-y-6">
         {/* Welcome Section */}
         <div>
-          <h1 className="text-3xl font-bold mb-2">{t('Home.title')}</h1>
+          <h1 className="mb-2 text-3xl font-bold">{t('Home.title')}</h1>
           <p className="text-muted-foreground">
-            Welcome to Quick Bite - your favorite food delivery app
+            {`Welcome to ${APP_CONSTANTS.APP_NAME}`}
           </p>
         </div>
 
         {/* Sample Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Card>
             <CardHeader>
               <CardTitle>Quick Orders</CardTitle>
@@ -40,10 +41,7 @@ export default function Home() {
               <CardDescription>Trending in your area</CardDescription>
             </CardHeader>
             <CardContent>
-              <Button
-                variant="outline"
-                className="w-full"
-              >
+              <Button variant="outline" className="w-full">
                 View Menu
               </Button>
             </CardContent>
@@ -55,10 +53,7 @@ export default function Home() {
               <CardDescription>Save on your next order</CardDescription>
             </CardHeader>
             <CardContent>
-              <Button
-                variant="secondary"
-                className="w-full"
-              >
+              <Button variant="secondary" className="w-full">
                 See Deals
               </Button>
             </CardContent>
