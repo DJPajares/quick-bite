@@ -6,6 +6,7 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 import { APP_CONSTANTS } from '@/constants/app';
+import { Providers } from '@/providers/providers';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -31,13 +32,15 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <Providers>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </Providers>
       </body>
     </html>
   );

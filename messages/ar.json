@@ -1,0 +1,24 @@
+{
+  "Home": {
+    "title": "مرحبا بالعالم!"
+  },
+  "Navigation": {
+    "home": "الرئيسية",
+    "search": "بحث",
+    "orders": "الطلبات",
+    "profile": "الملف الشخصي",
+    "settings": "الإعدادات",
+    "myAccount": "حسابي",
+    "logout": "تسجيل الخروج"
+  },
+  "Button": {
+    "continue": "متابعة"
+  },
+  "MenuDropdown": {
+    "editProfile": "تعديل الملف الشخصي",
+    "language": "اللغة",
+    "currency": "العملة",
+    "darkMode": "الوضع الداكن",
+    "logout": "تسجيل الخروج"
+  }
+}
