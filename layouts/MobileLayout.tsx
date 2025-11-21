@@ -6,12 +6,12 @@ interface MobileLayoutProps {
 
 export function MobileLayout({ children }: MobileLayoutProps) {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Main Content - with bottom padding for tabs */}
-      <main className="flex-1 pb-16 overflow-y-auto">{children}</main>
+    <div className="relative flex h-screen flex-col overflow-hidden">
+      <main className="flex-1 overflow-y-auto pb-16">{children}</main>
 
-      {/* Bottom Tabs Navigator */}
-      <BottomTabsNavigator />
+      <div className="fixed right-0 bottom-0 left-0 z-50">
+        <BottomTabsNavigator />
+      </div>
     </div>
   );
 }

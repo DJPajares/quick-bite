@@ -48,7 +48,7 @@ export function TopNavigation({ children }: TopNavigationProps) {
     <SidebarProvider>
       <SideNav />
 
-      <SidebarInset>
+      <SidebarInset className="flex h-screen flex-col overflow-hidden">
         <header
           className={`nav bg-background/85 sticky top-0 z-50 flex h-12 items-center justify-between p-3 backdrop-blur-sm transition-transform duration-300 sm:h-14 ${
             isVisible ? 'translate-y-0' : '-translate-y-full'
@@ -66,7 +66,7 @@ export function TopNavigation({ children }: TopNavigationProps) {
           </NavDropdownMenu>
         </header>
 
-        <div>{children}</div>
+        <main className="flex-1 overflow-y-auto">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   );
