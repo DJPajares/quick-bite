@@ -10,6 +10,7 @@ import {
   User,
   Settings,
   UtensilsCrossedIcon,
+  UtensilsIcon,
 } from 'lucide-react';
 
 import {
@@ -29,6 +30,7 @@ import { APP_CONSTANTS } from '@/constants/app';
 
 const navigationItems = [
   { icon: Home, href: '/', label: 'Navigation.home' },
+  { icon: UtensilsIcon, href: '/menu', label: 'Navigation.menu' },
   { icon: Search, href: '/search', label: 'Navigation.search' },
   { icon: ShoppingCart, href: '/orders', label: 'Navigation.orders' },
   { icon: User, href: '/profile', label: 'Navigation.profile' },

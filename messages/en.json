@@ -4,6 +4,7 @@
   },
   "Navigation": {
     "home": "Home",
+    "menu": "Menu",
     "search": "Search",
     "orders": "Orders",
     "profile": "Profile",

@@ -14,10 +14,10 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4 md:p-8">
-      <div className="space-y-6">
+      <div className="flex flex-col gap-4">
         {/* Welcome Section */}
         <div>
-          <h1 className="mb-2 text-3xl font-bold">{t('Home.title')}</h1>
+          <h1 className="text-3xl font-bold">{t('Home.title')}</h1>
           <p className="text-muted-foreground">
             {`Welcome to ${APP_CONSTANTS.APP_NAME}`}
           </p>
