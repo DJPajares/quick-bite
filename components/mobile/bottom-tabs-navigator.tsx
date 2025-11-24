@@ -10,7 +10,7 @@ const tabs = [
   { icon: Home, href: '/', label: 'Navigation.home' },
   { icon: Search, href: '/search', label: 'Navigation.search' },
   { icon: ShoppingCart, href: '/orders', label: 'Navigation.orders' },
-  { icon: User, href: '/profile', label: 'Navigation.profile' }
+  { icon: User, href: '/profile', label: 'Navigation.profile' },
 ];
 
 export function BottomTabsNavigator() {
@@ -18,7 +18,7 @@ export function BottomTabsNavigator() {
   const t = useTranslations();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 h-16 border-t bg-background z-50">
+    <nav className="bg-background fixed right-0 bottom-0 left-0 z-50 h-16 border-t">
       <div className="flex h-full items-center justify-around px-2">
         {tabs.map(({ icon: Icon, href, label }) => {
           const isActive = pathname === href;
@@ -28,10 +28,10 @@ export function BottomTabsNavigator() {
               key={href}
               href={href}
               className={cn(
-                'flex flex-col items-center justify-center gap-1 flex-1 h-full transition-colors',
+                'flex h-full flex-1 flex-col items-center justify-center gap-1 transition-colors',
                 isActive
                   ? 'text-primary'
-                  : 'text-muted-foreground hover:text-foreground'
+                  : 'text-muted-foreground hover:text-foreground',
               )}
             >
               <Icon className="h-5 w-5" />

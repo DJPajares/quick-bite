@@ -1,19 +1,17 @@
 'use client';
 
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import {
   Home,
   Search,
   ShoppingCart,
   User,
   Settings,
-  TrendingUpIcon,
   UtensilsCrossedIcon,
 } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useTranslations } from 'next-intl';
-import { cn } from '@/lib/utils';
-import { Separator } from '@/components/ui/separator';
+
 import {
   useSidebar,
   Sidebar,
@@ -26,7 +24,7 @@ import {
   SidebarGroupLabel,
   SidebarRail,
 } from '@/components/ui/sidebar';
-import { Label } from '@/components/ui/label';
+
 import { APP_CONSTANTS } from '@/constants/app';
 
 const navigationItems = [
