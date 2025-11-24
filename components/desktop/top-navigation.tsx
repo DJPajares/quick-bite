@@ -1,14 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useTranslations } from 'next-intl';
 
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar';
-import { Label } from '@/components/ui/label';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 import { SideNav } from '@/components/desktop/sidebar';
@@ -19,8 +17,6 @@ interface TopNavigationProps {
 }
 
 export function TopNavigation({ children }: TopNavigationProps) {
-  const t = useTranslations();
-
   const [isVisible, setIsVisible] = useState(true);
 
   const lastScrollRef = useRef(0);
@@ -55,8 +51,6 @@ export function TopNavigation({ children }: TopNavigationProps) {
           }`}
         >
           <SidebarTrigger className="-ml-1" />
-
-          {/* <Label className="font-bold!">APP</Label> */}
 
           <NavDropdownMenu>
             <Avatar className="hover:border-primary h-8 w-8 cursor-pointer">
