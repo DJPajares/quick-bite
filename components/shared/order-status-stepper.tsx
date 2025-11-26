@@ -72,13 +72,16 @@ export function OrderStatusStepper({ status, className }: Props) {
     // Always show current step with label
     steps.push({ type: 'step', step: STEPS[currentIndex], showLabel: true });
 
-    // Show ellipsis if there are future steps
-    if (currentIndex < STEPS.length - 1) {
-      steps.push({ type: 'ellipsis' });
-    }
-
     // Show last step if current is not last
     if (currentIndex < STEPS.length - 1) {
+      // Check if next step is the last step (consecutive)
+      const isNextStepLast = currentIndex === STEPS.length - 2;
+
+      if (!isNextStepLast) {
+        // Show ellipsis only if there are steps between current and last
+        steps.push({ type: 'ellipsis' });
+      }
+
       steps.push({
         type: 'step',
         step: STEPS[STEPS.length - 1],
@@ -121,7 +124,7 @@ export function OrderStatusStepper({ status, className }: Props) {
             return (
               <span
                 key={`ellipsis-${idx}`}
-                className="text-muted-foreground mx-1 text-xs"
+                className="text-muted-foreground flex w-6 items-center justify-center text-xs"
               >
                 •••
               </span>
@@ -142,6 +145,20 @@ export function OrderStatusStepper({ status, className }: Props) {
                 ? 'text-primary'
                 : 'text-muted-foreground';
 
+          // Determine connector color based on the previous step
+          const getPrevStepIndex = () => {
+            if (idx > 0 && mobileSteps[idx - 1]?.type === 'step') {
+              const prevItem = mobileSteps[idx - 1];
+              if (prevItem.type === 'step') {
+                return STEPS.findIndex((s) => s.key === prevItem.step.key);
+              }
+            }
+            return -1;
+          };
+          const prevStepIndex = getPrevStepIndex();
+          const connectorIsDone =
+            prevStepIndex >= 0 && prevStepIndex < currentIndex && !isCancelled;
+
           return (
             <div key={step.key} className="flex items-center gap-2">
               {idx > 0 &&
@@ -152,7 +169,7 @@ export function OrderStatusStepper({ status, className }: Props) {
                       'h-px w-6',
                       isCancelled
                         ? 'bg-destructive/40'
-                        : isDone
+                        : connectorIsDone
                           ? 'bg-foreground/40'
                           : 'bg-muted',
                     )}
