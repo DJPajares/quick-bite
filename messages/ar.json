@@ -2,10 +2,34 @@
   "Home": {
     "title": "مرحبا بالعالم!"
   },
+  "Menu": {
+    "title": "القائمة",
+    "description": "استكشف عروضنا اللذيذة واعثر على طبقك المفضل التالي!",
+    "categories": {
+      "appetizers": "المقبلات",
+      "beverages": "المشروبات",
+      "desserts": "الحلويات",
+      "main-course": "الأطباق الرئيسية",
+      "sides": "الأطباق الجانبية",
+      "all": "الكل"
+    },
+    "messages": {
+      "searchPlaceholder": "البحث في عناصر القائمة...",
+      "searchAriaLabel": "البحث في عناصر القائمة",
+      "noSearchResults": "لم يتم العثور على عناصر في القائمة.",
+      "loadingMenu": "جاري تحميل القائمة...",
+      "noMenuItems": "لا توجد عناصر متاحة في القائمة.",
+      "errorLoadingMenu": "خطأ في تحميل القائمة. يرجى المحاولة مرة أخرى لاحقاً.",
+      "clearSearch": "مسح البحث."
+    },
+    "available": "متاح",
+    "unavailable": "غير متاح"
+  },
   "Navigation": {
     "home": "الرئيسية",
+    "menu": "القائمة",
     "search": "بحث",
-    "orders": "الطلبات",
+    "cart": "السلة",
     "profile": "الملف الشخصي",
     "settings": "الإعدادات",
     "myAccount": "حسابي",

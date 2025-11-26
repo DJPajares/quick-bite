@@ -18,7 +18,7 @@ describe('BottomTabsNavigator', () => {
     const translations: Record<string, string> = {
       'Navigation.home': 'Home',
       'Navigation.menu': 'Menu',
-      'Navigation.orders': 'Orders',
+      'Navigation.cart': 'Cart',
       'Navigation.profile': 'Profile',
     };
     return translations[key] || key;
@@ -46,7 +46,7 @@ describe('BottomTabsNavigator', () => {
 
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Menu')).toBeInTheDocument();
-    expect(screen.getByText('Orders')).toBeInTheDocument();
+    expect(screen.getByText('Cart')).toBeInTheDocument();
     expect(screen.getByText('Profile')).toBeInTheDocument();
   });
 
@@ -55,12 +55,12 @@ describe('BottomTabsNavigator', () => {
 
     const homeLink = screen.getByRole('link', { name: /home/i });
     const menuLink = screen.getByRole('link', { name: /menu/i });
-    const ordersLink = screen.getByRole('link', { name: /orders/i });
+    const cartLink = screen.getByRole('link', { name: /cart/i });
     const profileLink = screen.getByRole('link', { name: /profile/i });
 
     expect(homeLink).toHaveAttribute('href', '/');
     expect(menuLink).toHaveAttribute('href', '/menu');
-    expect(ordersLink).toHaveAttribute('href', '/orders');
+    expect(cartLink).toHaveAttribute('href', '/cart');
     expect(profileLink).toHaveAttribute('href', '/profile');
   });
 
@@ -91,12 +91,12 @@ describe('BottomTabsNavigator', () => {
     expect(homeLink).toHaveClass('text-muted-foreground');
   });
 
-  it('highlights orders tab when on orders page', () => {
-    (usePathname as jest.Mock).mockReturnValue('/orders');
+  it('highlights cart tab when on cart page', () => {
+    (usePathname as jest.Mock).mockReturnValue('/cart');
     render(<BottomTabsNavigator />);
 
-    const ordersLink = screen.getByRole('link', { name: /orders/i });
-    expect(ordersLink).toHaveClass('text-primary');
+    const cartLink = screen.getByRole('link', { name: /cart/i });
+    expect(cartLink).toHaveClass('text-primary');
   });
 
   it('highlights profile tab when on profile page', () => {

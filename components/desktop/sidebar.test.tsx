@@ -66,7 +66,7 @@ describe('SideNav', () => {
     const translations: Record<string, string> = {
       'Navigation.home': 'Home',
       'Navigation.menu': 'Menu',
-      'Navigation.orders': 'Orders',
+      'Navigation.cart': 'Cart',
       'Navigation.profile': 'Profile',
       'Navigation.settings': 'Settings',
     };
@@ -93,7 +93,7 @@ describe('SideNav', () => {
 
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Menu')).toBeInTheDocument();
-    expect(screen.getByText('Orders')).toBeInTheDocument();
+    expect(screen.getByText('Cart')).toBeInTheDocument();
     expect(screen.getByText('Profile')).toBeInTheDocument();
   });
 
@@ -121,13 +121,13 @@ describe('SideNav', () => {
 
     const homeLink = screen.getByRole('link', { name: /home/i });
     const menuLink = screen.getByRole('link', { name: /menu/i });
-    const ordersLink = screen.getByRole('link', { name: /orders/i });
+    const cartLink = screen.getByRole('link', { name: /cart/i });
     const profileLink = screen.getByRole('link', { name: /profile/i });
     const settingsLink = screen.getByRole('link', { name: /settings/i });
 
     expect(homeLink).toHaveAttribute('href', '/');
     expect(menuLink).toHaveAttribute('href', '/menu');
-    expect(ordersLink).toHaveAttribute('href', '/orders');
+    expect(cartLink).toHaveAttribute('href', '/cart');
     expect(profileLink).toHaveAttribute('href', '/profile');
     expect(settingsLink).toHaveAttribute('href', '/settings');
   });

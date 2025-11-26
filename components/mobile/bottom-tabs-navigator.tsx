@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 const tabs = [
   { icon: HomeIcon, href: '/', label: 'Navigation.home' },
   { icon: UtensilsIcon, href: '/menu', label: 'Navigation.menu' },
-  { icon: ShoppingCartIcon, href: '/orders', label: 'Navigation.orders' },
+  { icon: ShoppingCartIcon, href: '/cart', label: 'Navigation.cart' },
   { icon: UserIcon, href: '/profile', label: 'Navigation.profile' },
 ];
 

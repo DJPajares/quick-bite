@@ -30,7 +30,7 @@ import { APP_CONSTANTS } from '@/constants/app';
 const navigationItems = [
   { icon: HomeIcon, href: '/', label: 'Navigation.home' },
   { icon: UtensilsIcon, href: '/menu', label: 'Navigation.menu' },
-  { icon: ShoppingCartIcon, href: '/orders', label: 'Navigation.orders' },
+  { icon: ShoppingCartIcon, href: '/cart', label: 'Navigation.cart' },
   { icon: UserIcon, href: '/profile', label: 'Navigation.profile' },
 ];
 
