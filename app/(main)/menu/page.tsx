@@ -24,6 +24,7 @@ import {
   addToCart,
   updateCart,
   removeFromCart,
+  getCart,
 } from '@/lib/api';
 import { getSessionId } from '@/lib/session';
 
@@ -50,28 +51,38 @@ export default function MenuPage() {
     if (hasFetched.current) return;
     hasFetched.current = true;
 
-    const fetchMenu = async () => {
+    const fetchMenuAndCart = async () => {
       try {
         setIsLoading(true);
         setError(null);
-        const response = await apiClient.get<MenuResponse>(API_ENDPOINTS.menu);
+        const [menuRes, cartRes] = await Promise.all([
+          apiClient.get<MenuResponse>(API_ENDPOINTS.menu),
+          getCart(getSessionId()),
+        ]);
 
-        const { data, success } = response.data;
-
-        if (success) {
-          setMenu(data);
+        const { data: menuData, success: menuSuccess } = menuRes.data;
+        if (menuSuccess) {
+          setMenu(menuData);
         } else {
           setError('Failed to fetch menu data');
         }
+
+        if (cartRes.success && cartRes.data?.cart) {
+          const cartMap: Record<string, number> = {};
+          for (const cartItem of cartRes.data.cart) {
+            cartMap[cartItem.menuItem._id] = cartItem.quantity;
+          }
+          setCartQuantities(cartMap);
+        }
       } catch (err) {
         setError(getErrorMessage(err));
-        console.error('Error fetching menu:', err);
+        console.error('Error fetching menu/cart:', err);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchMenu();
+    fetchMenuAndCart();
   }, []);
 
   /**
