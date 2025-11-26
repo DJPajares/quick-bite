@@ -111,7 +111,7 @@ describe('BottomTabsNavigator', () => {
     render(<BottomTabsNavigator />);
 
     const nav = screen.getByRole('navigation');
-    expect(nav).toHaveClass('bg-background', 'h-16', 'border-t');
+    expect(nav).toHaveClass('bg-sidebar', 'h-16', 'border-t');
   });
 
   it('renders all icons for each tab', () => {

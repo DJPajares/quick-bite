@@ -23,7 +23,7 @@ export function BottomTabsNavigator() {
   const t = useTranslations();
 
   return (
-    <nav className="bg-background fixed right-0 bottom-0 left-0 z-50 h-16 border-t">
+    <nav className="bg-sidebar fixed right-0 bottom-0 left-0 z-50 h-16 border-t">
       <div className="flex h-full items-center justify-around px-2">
         {tabs.map(({ icon: Icon, href, label }) => {
           const isActive = pathname === href;

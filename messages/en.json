@@ -12,6 +12,14 @@
       "main-course": "Main Course",
       "sides": "Sides"
     },
+    "messages": {
+      "searchPlaceholder": "Search menu items...",
+      "searchAriaLabel": "Search through the menu items",
+      "noSearchResults": "No menu items found.",
+      "loadingMenu": "Loading menu...",
+      "noMenuItems": "No menu items available.",
+      "errorLoadingMenu": "Error loading menu. Please try again later."
+    },
     "available": "Available",
     "unavailable": "Unavailable"
   },
@@ -34,10 +42,5 @@
     "currency": "Currency",
     "darkMode": "Dark Mode",
     "logout": "Logout"
-  },
-  "Messages": {
-    "loadingMenu": "Loading menu...",
-    "noMenuItems": "No menu items available.",
-    "errorLoadingMenu": "Error loading menu. Please try again later."
   }
 }

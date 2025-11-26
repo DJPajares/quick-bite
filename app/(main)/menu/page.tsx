@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useDeferredValue, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
 import {
@@ -10,9 +11,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 
 import { API_ENDPOINTS, apiClient, getErrorMessage } from '@/lib/api';
 import { MenuItem, MenuResponse } from '@/types/api';
+import { SearchIcon } from 'lucide-react';
 
 export default function MenuPage() {
   const t = useTranslations();
@@ -21,6 +24,8 @@ export default function MenuPage() {
   const hasFetched = useRef(false);
 
   const [menu, setMenu] = useState<MenuItem[]>([]);
+  const [query, setQuery] = useState('');
+  const deferredQuery = useDeferredValue(query);
 
   useEffect(() => {
     // Prevent duplicate calls from React Strict Mode and dual layout rendering
@@ -86,24 +91,63 @@ export default function MenuPage() {
       });
   };
 
+  const filteredMenu = useMemo(() => {
+    const q = deferredQuery.trim().toLowerCase();
+    if (!q) return menu;
+
+    const matches = (item: MenuItem) => {
+      const name = item.name?.toLowerCase() ?? '';
+      const category = item.category?.toLowerCase() ?? '';
+      const description = item.description?.toLowerCase() ?? '';
+      const tags = Array.isArray(item.tags)
+        ? item.tags.map((t) => (t ?? '').toLowerCase())
+        : [];
+
+      if (name.includes(q)) return true;
+      if (category.includes(q)) return true;
+      if (description.includes(q)) return true;
+      if (tags.some((t) => t.includes(q))) return true;
+      return false;
+    };
+
+    return menu.filter(matches);
+  }, [menu, deferredQuery]);
+
   return (
-    <div className="container mx-auto p-4 md:p-8">
+    <div className="container mx-auto flex flex-col gap-4 p-4 md:p-8">
       <h1 className="text-3xl font-bold">{t('Menu.title')}</h1>
 
       <p className="text-muted-foreground">{t('Menu.description')}</p>
-      {/* Menu items would be listed here */}
-      {isLoading && <p>{t('Messages.loadingMenu')}</p>}
+
+      <div className="relative max-w-md">
+        <SearchIcon className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
+        <Input
+          className="pl-8"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t('Menu.messages.searchPlaceholder')}
+          aria-label={t('Menu.messages.searchAriaLabel')}
+        />
+      </div>
+
+      {isLoading && <p>{t('Menu.messages.loadingMenu')}</p>}
+
       {error && <p className="text-red-500">Error: {error}</p>}
 
       {!isLoading && !error && menu.length === 0 && (
         <p className="text-muted-foreground mt-4 text-sm">
-          {t('Messages.noMenuItems')}
+          {t('Menu.messages.noMenuItems')}
         </p>
       )}
 
       {!isLoading && !error && menu.length > 0 && (
         <div className="mt-6 space-y-8">
-          {groupMenuByCategory(menu).map(({ category, items }) => (
+          {filteredMenu.length === 0 && (
+            <p className="text-muted-foreground mt-4 text-sm">
+              {t('Menu.messages.noSearchResults')}
+            </p>
+          )}
+          {groupMenuByCategory(filteredMenu).map(({ category, items }) => (
             <section key={category.value || 'uncategorized'}>
               <h2 className="mb-4 text-2xl font-semibold tracking-tight">
                 {category.label}
