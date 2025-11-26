@@ -18,6 +18,36 @@ import { API_ENDPOINTS, apiClient, getErrorMessage } from '@/lib/api';
 import { MenuItem, MenuResponse } from '@/types/api';
 import { SearchIcon, X } from 'lucide-react';
 
+const PREFERRED_CATEGORY_ORDER = [
+  'appetizers',
+  'main-course',
+  'desserts',
+  'sides',
+  'beverages',
+];
+
+const sortCategoriesByPreferredOrder = (a: string, b: string) => {
+  const aLower = a.toLowerCase();
+  const bLower = b.toLowerCase();
+  const aIndex = PREFERRED_CATEGORY_ORDER.indexOf(aLower);
+  const bIndex = PREFERRED_CATEGORY_ORDER.indexOf(bLower);
+
+  // Both in preferred order
+  if (aIndex !== -1 && bIndex !== -1) {
+    return aIndex - bIndex;
+  }
+  // Only a in preferred order
+  if (aIndex !== -1) {
+    return -1;
+  }
+  // Only b in preferred order
+  if (bIndex !== -1) {
+    return 1;
+  }
+  // Neither in preferred order, sort alphabetically
+  return a.localeCompare(b);
+};
+
 export default function MenuPage() {
   const t = useTranslations();
   const [isLoading, setIsLoading] = useState(false);
@@ -60,7 +90,7 @@ export default function MenuPage() {
 
   /**
    * Group menu items by their category.
-   * Categories are returned alphabetically.
+   * Categories are sorted by preferred order, then alphabetically.
    * Each group exposes a translated category object.
    */
   const groupMenuByCategory = (menuItems: MenuItem[]) => {
@@ -73,7 +103,7 @@ export default function MenuPage() {
     }
 
     return Array.from(map.entries())
-      .sort(([a], [b]) => a.localeCompare(b))
+      .sort(([a], [b]) => sortCategoriesByPreferredOrder(a, b))
       .map(([categoryValue, items]) => {
         let label: string;
 
@@ -100,7 +130,8 @@ export default function MenuPage() {
         categorySet.add(item.category.trim());
       }
     });
-    return Array.from(categorySet).sort((a, b) => a.localeCompare(b));
+
+    return Array.from(categorySet).sort(sortCategoriesByPreferredOrder);
   }, [menu]);
 
   const filteredMenu = useMemo(() => {
