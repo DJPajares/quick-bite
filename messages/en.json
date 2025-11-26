@@ -25,6 +25,23 @@
     "available": "Available",
     "unavailable": "Unavailable"
   },
+  "Cart": {
+    "title": "Cart",
+    "tableNumber": "Table {number}",
+    "items": "Cart Items",
+    "itemCount": "{count, plural, =0 {No items} =1 {1 item} other {# items}}",
+    "specialInstructions": "Special Instructions",
+    "orderSummary": "Order Summary",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "submitOrder": "Submit Order",
+    "messages": {
+      "loadingCart": "Loading cart...",
+      "errorLoadingCart": "Error loading cart. Please try again later.",
+      "emptyCart": "Your cart is empty. Add some items from the menu!",
+      "submitOrderInfo": "Your order will be sent to the kitchen."
+    }
+  },
   "Navigation": {
     "home": "Home",
     "menu": "Menu",

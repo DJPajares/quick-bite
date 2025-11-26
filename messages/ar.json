@@ -25,6 +25,23 @@
     "available": "متاح",
     "unavailable": "غير متاح"
   },
+  "Cart": {
+    "title": "السلة",
+    "tableNumber": "طاولة {number}",
+    "items": "عناصر السلة",
+    "itemCount": "{count, plural, =0 {لا توجد عناصر} =1 {عنصر واحد} other {# عناصر}}",
+    "specialInstructions": "تعليمات خاصة",
+    "orderSummary": "ملخص الطلب",
+    "subtotal": "المجموع الفرعي",
+    "total": "الإجمالي",
+    "submitOrder": "إرسال الطلب",
+    "messages": {
+      "loadingCart": "جاري تحميل السلة...",
+      "errorLoadingCart": "خطأ في تحميل السلة. يرجى المحاولة مرة أخرى لاحقاً.",
+      "emptyCart": "سلتك فارغة. أضف بعض العناصر من القائمة!",
+      "submitOrderInfo": "سيتم إرسال طلبك إلى المطبخ."
+    }
+  },
   "Navigation": {
     "home": "الرئيسية",
     "menu": "القائمة",

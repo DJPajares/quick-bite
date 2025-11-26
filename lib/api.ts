@@ -4,6 +4,7 @@ import type {
   UpdateCartRequest,
   RemoveFromCartRequest,
   CartResponse,
+  GetCartResponse,
 } from '@/types/api';
 
 const API_BASE_URL =
@@ -20,6 +21,7 @@ export const apiClient = axios.create({
 export const API_ENDPOINTS = {
   menu: '/menu',
   cart: {
+    get: (sessionId: string) => `/cart/${sessionId}`,
     add: '/cart/add',
     update: '/cart/update',
     remove: '/cart/remove',
@@ -43,6 +45,18 @@ export function getErrorMessage(error: unknown): string {
 /**
  * Cart API functions
  */
+
+export async function getCart(sessionId: string): Promise<GetCartResponse> {
+  try {
+    const response = await apiClient.get<GetCartResponse>(
+      API_ENDPOINTS.cart.get(sessionId),
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching cart:', error);
+    throw error;
+  }
+}
 
 export async function addToCart(
   request: AddToCartRequest,

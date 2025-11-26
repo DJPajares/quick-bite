@@ -27,6 +27,31 @@ export type MenuResponse = ApiResponse<MenuItem[]>;
  * Cart Types
  */
 
+export interface CartItemDetail {
+  menuItem: {
+    _id: string;
+    name: string;
+    price: number;
+    category: string;
+    image: string;
+  };
+  quantity: number;
+  price: number;
+  specialInstructions: string;
+}
+
+export interface CartData {
+  sessionId: string;
+  tableNumber: number;
+  cart: CartItemDetail[];
+  cartTotal: number;
+}
+
+export interface GetCartResponse {
+  success: boolean;
+  data: CartData;
+}
+
 export interface CartItem {
   menuItemId: string;
   quantity: number;
