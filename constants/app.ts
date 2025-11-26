@@ -20,4 +20,16 @@ export const APP_CONSTANTS = {
     NAME: 'Quick Bite',
     SHORT_NAME: 'QB',
   },
+
+  /**
+   * Menu category ordering
+   * Categories will be displayed in this order, with others sorted alphabetically after
+   */
+  PREFERRED_CATEGORY_ORDER: [
+    'appetizers',
+    'main-course',
+    'desserts',
+    'sides',
+    'beverages',
+  ],
 } as const;

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDeferredValue, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
+import { SearchIcon, XIcon } from 'lucide-react';
 
 import {
   Card,
@@ -14,39 +15,10 @@ import {
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 
+import { sortCategoriesByPreferredOrder } from '@/lib/utils';
 import { API_ENDPOINTS, apiClient, getErrorMessage } from '@/lib/api';
+
 import { MenuItem, MenuResponse } from '@/types/api';
-import { SearchIcon, X } from 'lucide-react';
-
-const PREFERRED_CATEGORY_ORDER = [
-  'appetizers',
-  'main-course',
-  'desserts',
-  'sides',
-  'beverages',
-];
-
-const sortCategoriesByPreferredOrder = (a: string, b: string) => {
-  const aLower = a.toLowerCase();
-  const bLower = b.toLowerCase();
-  const aIndex = PREFERRED_CATEGORY_ORDER.indexOf(aLower);
-  const bIndex = PREFERRED_CATEGORY_ORDER.indexOf(bLower);
-
-  // Both in preferred order
-  if (aIndex !== -1 && bIndex !== -1) {
-    return aIndex - bIndex;
-  }
-  // Only a in preferred order
-  if (aIndex !== -1) {
-    return -1;
-  }
-  // Only b in preferred order
-  if (bIndex !== -1) {
-    return 1;
-  }
-  // Neither in preferred order, sort alphabetically
-  return a.localeCompare(b);
-};
 
 export default function MenuPage() {
   const t = useTranslations();
@@ -190,7 +162,7 @@ export default function MenuPage() {
             className="ring-offset-background focus:ring-ring absolute top-1/2 right-2 -translate-y-1/2 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
             aria-label={t('Menu.messages.clearSearch')}
           >
-            <X className="size-4" />
+            <XIcon className="size-4" />
           </button>
         )}
       </div>
