@@ -5,6 +5,8 @@ import type {
   RemoveFromCartRequest,
   CartResponse,
   GetCartResponse,
+  SubmitOrderRequest,
+  SubmitOrderResponse,
 } from '@/types/api';
 
 const API_BASE_URL =
@@ -25,6 +27,9 @@ export const API_ENDPOINTS = {
     add: '/cart/add',
     update: '/cart/update',
     remove: '/cart/remove',
+  },
+  orders: {
+    submit: '/orders/submit',
   },
   // Add more endpoints as needed
 } as const;
@@ -99,6 +104,21 @@ export async function removeFromCart(
     return response.data;
   } catch (error) {
     console.error('Error removing from cart:', error);
+    throw error;
+  }
+}
+
+export async function submitOrder(
+  request: SubmitOrderRequest,
+): Promise<SubmitOrderResponse> {
+  try {
+    const response = await apiClient.post<SubmitOrderResponse>(
+      API_ENDPOINTS.orders.submit,
+      request,
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error submitting order:', error);
     throw error;
   }
 }

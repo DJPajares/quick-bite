@@ -14,7 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
-import { getCart, getErrorMessage } from '@/lib/api';
+import { getCart, getErrorMessage, submitOrder } from '@/lib/api';
 import { getSessionId } from '@/lib/session';
 
 import type { CartData, CartItemDetail } from '@/types/api';
@@ -22,7 +22,10 @@ import type { CartData, CartItemDetail } from '@/types/api';
 export default function CartPage() {
   const t = useTranslations();
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
   const [cartData, setCartData] = useState<CartData | null>(null);
   const hasFetched = useRef(false);
 
@@ -60,9 +63,35 @@ export default function CartPage() {
     fetchCart();
   }, []);
 
-  const handleSubmitOrder = () => {
-    // TODO: Implement order submission
-    console.log('Submit order:', cartData);
+  const handleSubmitOrder = async () => {
+    if (!cartData) return;
+    const sessionId = cartData.sessionId || getSessionId();
+    if (!sessionId) return;
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(null);
+    try {
+      const result = await submitOrder({ sessionId, notes: '' });
+      if (result.success) {
+        setSubmitSuccess(result.message || 'Order submitted successfully');
+        // Clear cart locally to reflect submission
+        setCartData((prev) =>
+          prev
+            ? {
+                ...prev,
+                cart: [],
+                cartTotal: 0,
+              }
+            : prev,
+        );
+      } else {
+        setSubmitError(result.message || 'Failed to submit order');
+      }
+    } catch (err) {
+      setSubmitError(getErrorMessage(err));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isLoading) {
@@ -181,10 +210,21 @@ export default function CartPage() {
                 className="w-full"
                 size="lg"
                 onClick={handleSubmitOrder}
-                disabled={cartData.cart.length === 0}
+                disabled={cartData.cart.length === 0 || isSubmitting}
               >
-                {t('Cart.submitOrder')}
+                {isSubmitting ? 'Submitting...' : t('Cart.submitOrder')}
               </Button>
+
+              {submitError && (
+                <p className="text-destructive text-center text-xs">
+                  {submitError}
+                </p>
+              )}
+              {submitSuccess && (
+                <p className="text-center text-xs text-green-600">
+                  {submitSuccess}
+                </p>
+              )}
 
               <p className="text-muted-foreground text-center text-xs">
                 {t('Cart.messages.submitOrderInfo')}

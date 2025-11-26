@@ -81,3 +81,18 @@ export interface CartResponse {
   };
   message?: string;
 }
+
+// Order submission
+export interface SubmitOrderRequest {
+  sessionId: string;
+  notes: string;
+}
+
+export interface SubmitOrderResponse {
+  success: boolean;
+  data?: {
+    orderId: string;
+    status: string;
+  };
+  message?: string;
+}
