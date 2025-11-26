@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 
 import { Spinner } from '@/components/ui/spinner';
 import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { OrderStatusStepper } from '@/components/shared/order-status-stepper';
 import { Separator } from '@/components/ui/separator';
 
 import { getBill, getErrorMessage } from '@/lib/api';
@@ -18,9 +18,11 @@ interface BillItem {
   subtotal: number;
 }
 
+import type { OrderStatus } from '@/constants/order';
+
 interface BillOrder {
   orderNumber: string;
-  status: string;
+  status: OrderStatus;
   items: BillItem[];
   subtotal: number;
   tax: number;
@@ -105,7 +107,7 @@ export default function BillPage() {
   if (!bill) return null;
 
   return (
-    <div className="container mx-auto flex max-w-xl flex-col gap-6 p-4 md:p-8">
+    <div className="container mx-auto flex max-w-2xl flex-col gap-6 p-4 md:p-8">
       <div className="flex flex-col gap-1">
         <h1 className="text-3xl font-bold">{t('Bill.title')}</h1>
         <p className="text-muted-foreground">
@@ -119,17 +121,13 @@ export default function BillPage() {
           {bill.orders.items.map((order) => (
             <Card key={order.orderNumber} className="flex flex-col gap-4 p-4">
               <div className="flex flex-col gap-3">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-2">
                   <p className="font-medium">
                     {t('Bill.orderNumber', { number: order.orderNumber })}
                   </p>
-                  <Badge
-                    variant={
-                      order.status === 'pending' ? 'secondary' : 'default'
-                    }
-                  >
-                    {order.status}
-                  </Badge>
+                  <div className="py-4">
+                    <OrderStatusStepper status={order.status} />
+                  </div>
                 </div>
 
                 <div className="text-muted-foreground text-xs">

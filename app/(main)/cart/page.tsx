@@ -158,7 +158,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="container mx-auto flex max-w-xl flex-col gap-6 p-4 md:p-8">
+    <div className="container mx-auto flex max-w-2xl flex-col gap-6 p-4 md:p-8">
       <div className="flex flex-col gap-1">
         <h1 className="text-3xl font-bold">{t('Cart.title')}</h1>
         <p className="text-muted-foreground">
