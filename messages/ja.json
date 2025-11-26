@@ -1,0 +1,89 @@
+{
+  "Home": {
+    "title": "Hello world!"
+  },
+  "Menu": {
+    "title": "メニュー",
+    "description": "美味しい料理を探して、次のお気に入りを見つけましょう！",
+    "categories": {
+      "appetizers": "前菜",
+      "beverages": "飲み物",
+      "desserts": "デザート",
+      "main-course": "メインコース",
+      "sides": "サイド",
+      "all": "すべて"
+    },
+    "messages": {
+      "searchPlaceholder": "メニューを検索...",
+      "searchAriaLabel": "メニューアイテムを検索",
+      "noSearchResults": "メニューアイテムが見つかりませんでした。",
+      "loadingMenu": "メニューを読み込み中...",
+      "noMenuItems": "利用可能なメニューアイテムがありません。",
+      "errorLoadingMenu": "メニューの読み込みエラー。後でもう一度お試しください。",
+      "clearSearch": "検索をクリア。"
+    },
+    "available": "利用可能",
+    "unavailable": "利用不可"
+  },
+  "Cart": {
+    "title": "カート",
+    "items": "カートアイテム",
+    "itemCount": "{count, plural, =0 {アイテムなし} =1 {1アイテム} other {#アイテム}}",
+    "specialInstructions": "特別な指示",
+    "orderSummary": "注文概要",
+    "subtotal": "小計",
+    "total": "合計",
+    "submitOrder": "注文を送信",
+    "messages": {
+      "loadingCart": "カートを読み込み中...",
+      "errorLoadingCart": "カートの読み込みエラー。後でもう一度お試しください。",
+      "emptyCart": "カートは空です。メニューからアイテムを追加してください！",
+      "submitOrderInfo": "ご注文はキッチンに送信されます。"
+    },
+    "ariaLabel": {
+      "removeItem": "{itemName}をカートから削除"
+    }
+  },
+  "Bill": {
+    "title": "お会計",
+    "orderDetails": "注文詳細",
+    "orderNumber": "注文番号 #{number}"
+  },
+  "Navigation": {
+    "home": "ホーム",
+    "menu": "メニュー",
+    "search": "検索",
+    "cart": "カート",
+    "bill": "お会計",
+    "settings": "設定",
+    "myAccount": "マイアカウント",
+    "logout": "ログアウト"
+  },
+  "Button": {
+    "continue": "続ける"
+  },
+  "MenuDropdown": {
+    "editProfile": "プロフィール編集",
+    "language": "言語",
+    "currency": "通貨",
+    "darkMode": "ダークモード",
+    "logout": "ログアウト"
+  },
+  "Common": {
+    "tableNumber": "テーブル番号 {number}",
+    "subTotal": "小計",
+    "total": "合計",
+    "grandTotal": "総計",
+    "tax": "税金",
+    "serviceFee": "サービス料",
+    "summary": "概要",
+    "order": {
+      "pending": "保留中",
+      "confirmed": "確認済み",
+      "preparing": "調理中",
+      "ready": "準備完了",
+      "served": "提供済み",
+      "cancelled": "キャンセル済み"
+    }
+  }
+}

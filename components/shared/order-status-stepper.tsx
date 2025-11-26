@@ -1,7 +1,8 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
-import type { OrderStatus } from '@/constants/order';
+import { ORDER_STATUS, type OrderStatus } from '@/constants/order';
 import {
   Clock,
   CalendarCheck,
@@ -13,16 +14,21 @@ import {
 
 interface Step {
   key: OrderStatus;
-  label: string;
   Icon: React.ComponentType<React.ComponentProps<'svg'>>;
 }
 
-const STEPS: Step[] = [
-  { key: 'pending', label: 'Pending', Icon: Clock },
-  { key: 'confirmed', label: 'Confirmed', Icon: CalendarCheck },
-  { key: 'preparing', label: 'Preparing', Icon: CookingPot },
-  { key: 'ready', label: 'Ready', Icon: PackageCheck },
-  { key: 'served', label: 'Served', Icon: Utensils },
+const STEP_CONFIG: Step[] = [
+  { key: ORDER_STATUS.PENDING, Icon: Clock },
+  {
+    key: ORDER_STATUS.CONFIRMED,
+    Icon: CalendarCheck,
+  },
+  {
+    key: ORDER_STATUS.PREPARING,
+    Icon: CookingPot,
+  },
+  { key: ORDER_STATUS.READY, Icon: PackageCheck },
+  { key: ORDER_STATUS.SERVED, Icon: Utensils },
 ];
 
 type Props = {
@@ -31,14 +37,15 @@ type Props = {
 };
 
 export function OrderStatusStepper({ status, className }: Props) {
-  const isCancelled = status === 'cancelled';
+  const t = useTranslations();
+  const isCancelled = status === ORDER_STATUS.CANCELLED;
   const currentIndex = isCancelled
     ? Math.min(
-        STEPS.findIndex((s) => s.key === 'preparing'),
-        STEPS.length - 1,
+        STEP_CONFIG.findIndex((s) => s.key === ORDER_STATUS.PREPARING),
+        STEP_CONFIG.length - 1,
       )
     : Math.max(
-        STEPS.findIndex((s) => s.key === status),
+        STEP_CONFIG.findIndex((s) => s.key === status),
         0,
       );
 
@@ -50,7 +57,7 @@ export function OrderStatusStepper({ status, className }: Props) {
   > => {
     if (isCancelled) {
       return [
-        { type: 'step', step: STEPS[currentIndex], showLabel: true },
+        { type: 'step', step: STEP_CONFIG[currentIndex], showLabel: true },
         { type: 'cancelled' },
       ];
     }
@@ -61,7 +68,7 @@ export function OrderStatusStepper({ status, className }: Props) {
 
     // Show first step if current is not first
     if (currentIndex > 0) {
-      steps.push({ type: 'step', step: STEPS[0], showLabel: true });
+      steps.push({ type: 'step', step: STEP_CONFIG[0], showLabel: true });
     }
 
     // Show ellipsis if we skipped steps
@@ -70,12 +77,16 @@ export function OrderStatusStepper({ status, className }: Props) {
     }
 
     // Always show current step with label
-    steps.push({ type: 'step', step: STEPS[currentIndex], showLabel: true });
+    steps.push({
+      type: 'step',
+      step: STEP_CONFIG[currentIndex],
+      showLabel: true,
+    });
 
     // Show last step if current is not last
-    if (currentIndex < STEPS.length - 1) {
+    if (currentIndex < STEP_CONFIG.length - 1) {
       // Check if next step is the last step (consecutive)
-      const isNextStepLast = currentIndex === STEPS.length - 2;
+      const isNextStepLast = currentIndex === STEP_CONFIG.length - 2;
 
       if (!isNextStepLast) {
         // Show ellipsis only if there are steps between current and last
@@ -84,7 +95,7 @@ export function OrderStatusStepper({ status, className }: Props) {
 
       steps.push({
         type: 'step',
-        step: STEPS[STEPS.length - 1],
+        step: STEP_CONFIG[STEP_CONFIG.length - 1],
         showLabel: true,
       });
     }
@@ -113,7 +124,7 @@ export function OrderStatusStepper({ status, className }: Props) {
                     <XCircle className="text-destructive size-4" />
                   </div>
                   <span className="text-destructive text-[11px] leading-none font-medium">
-                    Cancelled
+                    {t('Common.order.cancelled')}
                   </span>
                 </div>
               </div>
@@ -133,7 +144,7 @@ export function OrderStatusStepper({ status, className }: Props) {
 
           // item.type === "step"
           const step = item.step;
-          const stepIndex = STEPS.findIndex((s) => s.key === step.key);
+          const stepIndex = STEP_CONFIG.findIndex((s) => s.key === step.key);
           const isDone = stepIndex < currentIndex && !isCancelled;
           const isCurrent = stepIndex === currentIndex && !isCancelled;
 
@@ -150,7 +161,9 @@ export function OrderStatusStepper({ status, className }: Props) {
             if (idx > 0 && mobileSteps[idx - 1]?.type === 'step') {
               const prevItem = mobileSteps[idx - 1];
               if (prevItem.type === 'step') {
-                return STEPS.findIndex((s) => s.key === prevItem.step.key);
+                return STEP_CONFIG.findIndex(
+                  (s) => s.key === prevItem.step.key,
+                );
               }
             }
             return -1;
@@ -204,7 +217,7 @@ export function OrderStatusStepper({ status, className }: Props) {
                             : 'text-muted-foreground',
                     )}
                   >
-                    {step.label}
+                    {t(`Common.order.${step.key}`)}
                   </span>
                 )}
               </div>
@@ -215,7 +228,7 @@ export function OrderStatusStepper({ status, className }: Props) {
 
       {/* Desktop: Horizontal Layout */}
       <div className="hidden items-center gap-2 md:flex">
-        {STEPS.map((step, idx) => {
+        {STEP_CONFIG.map((step, idx) => {
           const isDone = idx < currentIndex && !isCancelled;
           const isCurrent = idx === currentIndex && !isCancelled;
 
@@ -270,10 +283,10 @@ export function OrderStatusStepper({ status, className }: Props) {
                           : 'text-muted-foreground',
                   )}
                 >
-                  {step.label}
+                  {t(`Common.order.${step.key}`)}
                 </span>
               </div>
-              {idx < STEPS.length - 1 && <Connector />}
+              {idx < STEP_CONFIG.length - 1 && <Connector />}
             </div>
           );
         })}

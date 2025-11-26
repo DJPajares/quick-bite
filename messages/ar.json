@@ -27,7 +27,6 @@
   },
   "Cart": {
     "title": "السلة",
-    "tableNumber": "طاولة {number}",
     "items": "عناصر السلة",
     "itemCount": "{count, plural, =0 {لا توجد عناصر} =1 {عنصر واحد} other {# عناصر}}",
     "specialInstructions": "تعليمات خاصة",
@@ -40,14 +39,22 @@
       "errorLoadingCart": "خطأ في تحميل السلة. يرجى المحاولة مرة أخرى لاحقاً.",
       "emptyCart": "سلتك فارغة. أضف بعض العناصر من القائمة!",
       "submitOrderInfo": "سيتم إرسال طلبك إلى المطبخ."
+    },
+    "ariaLabel": {
+      "removeItem": "إزالة {itemName} من السلة"
     }
+  },
+  "Bill": {
+    "title": "فاتورتك",
+    "orderDetails": "تفاصيل الطلب",
+    "orderNumber": "طلب رقم {number}"
   },
   "Navigation": {
     "home": "الرئيسية",
     "menu": "القائمة",
     "search": "بحث",
     "cart": "السلة",
-    "profile": "الملف الشخصي",
+    "bill": "الفاتورة",
     "settings": "الإعدادات",
     "myAccount": "حسابي",
     "logout": "تسجيل الخروج"
@@ -61,5 +68,22 @@
     "currency": "العملة",
     "darkMode": "الوضع الداكن",
     "logout": "تسجيل الخروج"
+  },
+  "Common": {
+    "tableNumber": "طاولة رقم {number}",
+    "subTotal": "المجموع الفرعي",
+    "total": "الإجمالي",
+    "grandTotal": "الإجمالي الكلي",
+    "tax": "الضريبة",
+    "serviceFee": "رسوم الخدمة",
+    "summary": "الملخص",
+    "order": {
+      "pending": "قيد الانتظار",
+      "confirmed": "مؤكد",
+      "preparing": "قيد التحضير",
+      "ready": "جاهز للاستلام",
+      "served": "تم التقديم",
+      "cancelled": "ملغي"
+    }
   }
 }

@@ -76,6 +76,14 @@
     "grandTotal": "Grand Total",
     "tax": "Tax",
     "serviceFee": "Service Fee",
-    "summary": "Summary"
+    "summary": "Summary",
+    "order": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "preparing": "Preparing",
+      "ready": "Ready",
+      "served": "Served",
+      "cancelled": "Cancelled"
+    }
   }
 }
