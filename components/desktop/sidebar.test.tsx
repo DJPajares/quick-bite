@@ -65,7 +65,7 @@ describe('SideNav', () => {
   const mockTranslations = (key: string) => {
     const translations: Record<string, string> = {
       'Navigation.home': 'Home',
-      'Navigation.search': 'Search',
+      'Navigation.menu': 'Menu',
       'Navigation.orders': 'Orders',
       'Navigation.profile': 'Profile',
       'Navigation.settings': 'Settings',
@@ -92,7 +92,7 @@ describe('SideNav', () => {
     render(<SideNav />);
 
     expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('Search')).toBeInTheDocument();
+    expect(screen.getByText('Menu')).toBeInTheDocument();
     expect(screen.getByText('Orders')).toBeInTheDocument();
     expect(screen.getByText('Profile')).toBeInTheDocument();
   });
@@ -104,7 +104,7 @@ describe('SideNav', () => {
   });
 
   it('highlights the active navigation item based on pathname', () => {
-    (usePathname as jest.Mock).mockReturnValue('/search');
+    (usePathname as jest.Mock).mockReturnValue('/menu');
 
     render(<SideNav />);
 
@@ -120,13 +120,13 @@ describe('SideNav', () => {
     render(<SideNav />);
 
     const homeLink = screen.getByRole('link', { name: /home/i });
-    const searchLink = screen.getByRole('link', { name: /search/i });
+    const menuLink = screen.getByRole('link', { name: /menu/i });
     const ordersLink = screen.getByRole('link', { name: /orders/i });
     const profileLink = screen.getByRole('link', { name: /profile/i });
     const settingsLink = screen.getByRole('link', { name: /settings/i });
 
     expect(homeLink).toHaveAttribute('href', '/');
-    expect(searchLink).toHaveAttribute('href', '/search');
+    expect(menuLink).toHaveAttribute('href', '/menu');
     expect(ordersLink).toHaveAttribute('href', '/orders');
     expect(profileLink).toHaveAttribute('href', '/profile');
     expect(settingsLink).toHaveAttribute('href', '/settings');

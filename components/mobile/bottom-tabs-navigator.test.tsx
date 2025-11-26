@@ -17,7 +17,7 @@ describe('BottomTabsNavigator', () => {
   const mockTranslations = (key: string) => {
     const translations: Record<string, string> = {
       'Navigation.home': 'Home',
-      'Navigation.search': 'Search',
+      'Navigation.menu': 'Menu',
       'Navigation.orders': 'Orders',
       'Navigation.profile': 'Profile',
     };
@@ -45,7 +45,7 @@ describe('BottomTabsNavigator', () => {
     render(<BottomTabsNavigator />);
 
     expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('Search')).toBeInTheDocument();
+    expect(screen.getByText('Menu')).toBeInTheDocument();
     expect(screen.getByText('Orders')).toBeInTheDocument();
     expect(screen.getByText('Profile')).toBeInTheDocument();
   });
@@ -54,12 +54,12 @@ describe('BottomTabsNavigator', () => {
     render(<BottomTabsNavigator />);
 
     const homeLink = screen.getByRole('link', { name: /home/i });
-    const searchLink = screen.getByRole('link', { name: /search/i });
+    const menuLink = screen.getByRole('link', { name: /menu/i });
     const ordersLink = screen.getByRole('link', { name: /orders/i });
     const profileLink = screen.getByRole('link', { name: /profile/i });
 
     expect(homeLink).toHaveAttribute('href', '/');
-    expect(searchLink).toHaveAttribute('href', '/search');
+    expect(menuLink).toHaveAttribute('href', '/menu');
     expect(ordersLink).toHaveAttribute('href', '/orders');
     expect(profileLink).toHaveAttribute('href', '/profile');
   });
@@ -75,19 +75,19 @@ describe('BottomTabsNavigator', () => {
     (usePathname as jest.Mock).mockReturnValue('/');
     render(<BottomTabsNavigator />);
 
-    const searchLink = screen.getByRole('link', { name: /search/i });
-    expect(searchLink).toHaveClass('text-muted-foreground');
-    expect(searchLink).not.toHaveClass('text-primary');
+    const menuLink = screen.getByRole('link', { name: /menu/i });
+    expect(menuLink).toHaveClass('text-muted-foreground');
+    expect(menuLink).not.toHaveClass('text-primary');
   });
 
-  it('highlights search tab when on search page', () => {
-    (usePathname as jest.Mock).mockReturnValue('/search');
+  it('highlights menu tab when on menu page', () => {
+    (usePathname as jest.Mock).mockReturnValue('/menu');
     render(<BottomTabsNavigator />);
 
-    const searchLink = screen.getByRole('link', { name: /search/i });
+    const menuLink = screen.getByRole('link', { name: /menu/i });
     const homeLink = screen.getByRole('link', { name: /home/i });
 
-    expect(searchLink).toHaveClass('text-primary');
+    expect(menuLink).toHaveClass('text-primary');
     expect(homeLink).toHaveClass('text-muted-foreground');
   });
 

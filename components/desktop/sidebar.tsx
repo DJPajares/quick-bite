@@ -4,13 +4,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import {
-  Home,
-  Search,
-  ShoppingCart,
-  User,
-  Settings,
   UtensilsCrossedIcon,
   UtensilsIcon,
+  HomeIcon,
+  ShoppingCartIcon,
+  UserIcon,
+  SettingsIcon,
 } from 'lucide-react';
 
 import {
@@ -29,15 +28,14 @@ import {
 import { APP_CONSTANTS } from '@/constants/app';
 
 const navigationItems = [
-  { icon: Home, href: '/', label: 'Navigation.home' },
+  { icon: HomeIcon, href: '/', label: 'Navigation.home' },
   { icon: UtensilsIcon, href: '/menu', label: 'Navigation.menu' },
-  { icon: Search, href: '/search', label: 'Navigation.search' },
-  { icon: ShoppingCart, href: '/orders', label: 'Navigation.orders' },
-  { icon: User, href: '/profile', label: 'Navigation.profile' },
+  { icon: ShoppingCartIcon, href: '/orders', label: 'Navigation.orders' },
+  { icon: UserIcon, href: '/profile', label: 'Navigation.profile' },
 ];
 
 const bottomItems = [
-  { icon: Settings, href: '/settings', label: 'Navigation.settings' },
+  { icon: SettingsIcon, href: '/settings', label: 'Navigation.settings' },
 ];
 
 export function SideNav() {

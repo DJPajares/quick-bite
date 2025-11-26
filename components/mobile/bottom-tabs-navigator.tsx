@@ -1,16 +1,21 @@
 'use client';
 
-import { Home, Search, ShoppingCart, User } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import {
+  HomeIcon,
+  ShoppingCartIcon,
+  UserIcon,
+  UtensilsIcon,
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const tabs = [
-  { icon: Home, href: '/', label: 'Navigation.home' },
-  { icon: Search, href: '/search', label: 'Navigation.search' },
-  { icon: ShoppingCart, href: '/orders', label: 'Navigation.orders' },
-  { icon: User, href: '/profile', label: 'Navigation.profile' },
+  { icon: HomeIcon, href: '/', label: 'Navigation.home' },
+  { icon: UtensilsIcon, href: '/menu', label: 'Navigation.menu' },
+  { icon: ShoppingCartIcon, href: '/orders', label: 'Navigation.orders' },
+  { icon: UserIcon, href: '/profile', label: 'Navigation.profile' },
 ];
 
 export function BottomTabsNavigator() {
