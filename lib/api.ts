@@ -31,6 +31,9 @@ export const API_ENDPOINTS = {
   orders: {
     submit: '/orders/submit',
   },
+  bills: {
+    get: (sessionId: string) => `/bill/${sessionId}`,
+  },
   // Add more endpoints as needed
 } as const;
 
@@ -119,6 +122,57 @@ export async function submitOrder(
     return response.data;
   } catch (error) {
     console.error('Error submitting order:', error);
+    throw error;
+  }
+}
+
+export async function getBill(sessionId: string) {
+  try {
+    const response = await apiClient.get(`/bill/${sessionId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching bill:', error);
+    throw error;
+  }
+}
+
+/**
+ * Bill API functions
+ */
+export interface BillOrder {
+  orderNumber: number;
+  items: {
+    name: string;
+    quantity: number;
+    price: number;
+    total: number;
+  }[];
+  orderTotal: number;
+}
+
+export interface BillSummary {
+  subtotal: number;
+  tax: number;
+  serviceFee: number;
+  grandTotal: number;
+}
+
+export interface BillResponse {
+  success: boolean;
+  sessionId: string;
+  tableNumber: number;
+  orders: BillOrder[];
+  summary: BillSummary;
+}
+
+export async function fetchBill(sessionId: string): Promise<BillResponse> {
+  try {
+    const response = await apiClient.get<BillResponse>(
+      API_ENDPOINTS.bills.get(sessionId),
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching bill:', error);
     throw error;
   }
 }

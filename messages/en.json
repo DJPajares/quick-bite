@@ -27,7 +27,6 @@
   },
   "Cart": {
     "title": "Cart",
-    "tableNumber": "Table {number}",
     "items": "Cart Items",
     "itemCount": "{count, plural, =0 {No items} =1 {1 item} other {# items}}",
     "specialInstructions": "Special Instructions",
@@ -44,6 +43,11 @@
     "ariaLabel": {
       "removeItem": "Remove {itemName} from cart"
     }
+  },
+  "Bill": {
+    "title": "Your Bill",
+    "orderDetails": "Order Details",
+    "orderNumber": "Order #{number}"
   },
   "Navigation": {
     "home": "Home",
@@ -64,5 +68,14 @@
     "currency": "Currency",
     "darkMode": "Dark Mode",
     "logout": "Logout"
+  },
+  "Common": {
+    "tableNumber": "Table #{number}",
+    "subTotal": "Subtotal",
+    "total": "Total",
+    "grandTotal": "Grand Total",
+    "tax": "Tax",
+    "serviceFee": "Service Fee",
+    "summary": "Summary"
   }
 }
