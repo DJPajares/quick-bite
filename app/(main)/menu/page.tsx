@@ -14,9 +14,18 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { QuantityControl } from '@/components/shared/quantity-control';
 
 import { sortCategoriesByPreferredOrder } from '@/lib/utils';
-import { API_ENDPOINTS, apiClient, getErrorMessage } from '@/lib/api';
+import {
+  API_ENDPOINTS,
+  apiClient,
+  getErrorMessage,
+  addToCart,
+  updateCart,
+  removeFromCart,
+} from '@/lib/api';
+import { getSessionId } from '@/lib/session';
 
 import { MenuItem, MenuResponse } from '@/types/api';
 
@@ -30,6 +39,11 @@ export default function MenuPage() {
   const [query, setQuery] = useState('');
   const deferredQuery = useDeferredValue(query);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+  // Cart state - tracks quantity for each menu item
+  const [cartQuantities, setCartQuantities] = useState<Record<string, number>>(
+    {},
+  );
 
   useEffect(() => {
     // Prevent duplicate calls from React Strict Mode and dual layout rendering
@@ -140,6 +154,29 @@ export default function MenuPage() {
     return items;
   }, [menu, selectedCategory, deferredQuery]);
 
+  // Cart handlers
+  const handleAddToCart = async (menuItemId: string, quantity: number) => {
+    const sessionId = getSessionId();
+    await addToCart({ sessionId, menuItemId, quantity });
+    setCartQuantities((prev) => ({ ...prev, [menuItemId]: quantity }));
+  };
+
+  const handleUpdateCart = async (menuItemId: string, quantity: number) => {
+    const sessionId = getSessionId();
+    await updateCart({ sessionId, menuItemId, quantity });
+    setCartQuantities((prev) => ({ ...prev, [menuItemId]: quantity }));
+  };
+
+  const handleRemoveFromCart = async (menuItemId: string) => {
+    const sessionId = getSessionId();
+    await removeFromCart({ sessionId, menuItemId });
+    setCartQuantities((prev) => {
+      const updated = { ...prev };
+      delete updated[menuItemId];
+      return updated;
+    });
+  };
+
   return (
     <div className="container mx-auto flex flex-col gap-4 p-4 md:p-8">
       <h1 className="text-3xl font-bold">{t('Menu.title')}</h1>
@@ -224,7 +261,7 @@ export default function MenuPage() {
                 </h2>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {items.map((item) => (
-                    <Card key={item._id}>
+                    <Card key={item._id} className="flex flex-col">
                       <CardHeader className="px-4">
                         <CardTitle className="line-clamp-1">
                           {item.name}
@@ -235,21 +272,31 @@ export default function MenuPage() {
                           </CardDescription>
                         )}
                       </CardHeader>
-                      <CardContent className="relative mt-auto flex-1">
-                        <div>
-                          <p className="mt-2 font-bold">
-                            ${item.price.toFixed(2)}
-                          </p>
-                          {item.available ? (
-                            <span className="font-medium text-green-600">
-                              {t('Menu.available')}
-                            </span>
-                          ) : (
-                            <span className="font-medium text-red-600">
-                              {t('Menu.unavailable')}
-                            </span>
-                          )}
+                      <CardContent className="relative mt-auto flex flex-1 flex-col gap-3">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="font-bold">
+                              ${item.price.toFixed(2)}
+                            </p>
+                            {item.available ? (
+                              <span className="text-sm font-medium text-green-600">
+                                {t('Menu.available')}
+                              </span>
+                            ) : (
+                              <span className="text-sm font-medium text-red-600">
+                                {t('Menu.unavailable')}
+                              </span>
+                            )}
+                          </div>
                         </div>
+                        <QuantityControl
+                          menuItemId={item._id}
+                          initialQuantity={cartQuantities[item._id] || 0}
+                          disabled={!item.available}
+                          onAdd={handleAddToCart}
+                          onUpdate={handleUpdateCart}
+                          onRemove={handleRemoveFromCart}
+                        />
                       </CardContent>
                     </Card>
                   ))}

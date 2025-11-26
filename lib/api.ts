@@ -1,4 +1,10 @@
 import axios from 'axios';
+import type {
+  AddToCartRequest,
+  UpdateCartRequest,
+  RemoveFromCartRequest,
+  CartResponse,
+} from '@/types/api';
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
@@ -13,6 +19,11 @@ export const apiClient = axios.create({
 
 export const API_ENDPOINTS = {
   menu: '/menu',
+  cart: {
+    add: '/cart/add',
+    update: '/cart/update',
+    remove: '/cart/remove',
+  },
   // Add more endpoints as needed
 } as const;
 
@@ -27,4 +38,53 @@ export function getErrorMessage(error: unknown): string {
     return error.message;
   }
   return 'An unexpected error occurred';
+}
+
+/**
+ * Cart API functions
+ */
+
+export async function addToCart(
+  request: AddToCartRequest,
+): Promise<CartResponse> {
+  try {
+    const response = await apiClient.post<CartResponse>(
+      API_ENDPOINTS.cart.add,
+      request,
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error adding to cart:', error);
+    throw error;
+  }
+}
+
+export async function updateCart(
+  request: UpdateCartRequest,
+): Promise<CartResponse> {
+  try {
+    const response = await apiClient.put<CartResponse>(
+      API_ENDPOINTS.cart.update,
+      request,
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error updating cart:', error);
+    throw error;
+  }
+}
+
+export async function removeFromCart(
+  request: RemoveFromCartRequest,
+): Promise<CartResponse> {
+  try {
+    const response = await apiClient.delete<CartResponse>(
+      API_ENDPOINTS.cart.remove,
+      { data: request },
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error removing from cart:', error);
+    throw error;
+  }
 }
