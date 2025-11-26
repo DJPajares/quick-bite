@@ -166,9 +166,9 @@ export default function CartPage() {
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="flex flex-col gap-6">
         {/* Cart Items */}
-        <div className="lg:col-span-2">
+        <div>
           <Card>
             <CardHeader>
               <CardTitle>{t('Cart.items')}</CardTitle>
@@ -233,8 +233,8 @@ export default function CartPage() {
         </div>
 
         {/* Order Summary */}
-        <div className="lg:col-span-1">
-          <Card className="sticky top-4">
+        <div>
+          <Card>
             <CardHeader>
               <CardTitle>{t('Cart.orderSummary')}</CardTitle>
             </CardHeader>
