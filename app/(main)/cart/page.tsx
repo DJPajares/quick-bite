@@ -14,7 +14,12 @@ import {
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
-import { getCart, getErrorMessage, submitOrder } from '@/lib/api';
+import {
+  getCart,
+  getErrorMessage,
+  submitOrder,
+  removeFromCart,
+} from '@/lib/api';
 import { getSessionId } from '@/lib/session';
 
 import type { CartData, CartItemDetail } from '@/types/api';
@@ -27,6 +32,7 @@ export default function CartPage() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
   const [cartData, setCartData] = useState<CartData | null>(null);
+  const [removingIds, setRemovingIds] = useState<Set<string>>(new Set());
   const hasFetched = useRef(false);
 
   useEffect(() => {
@@ -91,6 +97,35 @@ export default function CartPage() {
       setSubmitError(getErrorMessage(err));
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleRemoveItem = async (menuItemId: string) => {
+    if (!cartData) return;
+    const sessionId = cartData.sessionId || getSessionId();
+    if (!sessionId) return;
+    setRemovingIds((prev) => new Set(prev).add(menuItemId));
+    try {
+      await removeFromCart({ sessionId, menuItemId });
+      setCartData((prev) =>
+        prev
+          ? {
+              ...prev,
+              cart: prev.cart.filter((c) => c.menuItem._id !== menuItemId),
+              cartTotal: prev.cart
+                .filter((c) => c.menuItem._id !== menuItemId)
+                .reduce((sum, c) => sum + c.price * c.quantity, 0),
+            }
+          : prev,
+      );
+    } catch (err) {
+      setSubmitError(getErrorMessage(err));
+    } finally {
+      setRemovingIds((prev) => {
+        const next = new Set(prev);
+        next.delete(menuItemId);
+        return next;
+      });
     }
   };
 
@@ -172,8 +207,22 @@ export default function CartPage() {
                         variant="ghost"
                         size="icon"
                         className="text-destructive hover:text-destructive size-8"
+                        onClick={() => handleRemoveItem(item.menuItem._id)}
+                        disabled={
+                          removingIds.has(item.menuItem._id) || isSubmitting
+                        }
+                        aria-label={t('Cart.ariaLabel.removeItem', {
+                          itemName: item.menuItem.name,
+                        })}
                       >
-                        <Trash2Icon className="size-4" />
+                        <Trash2Icon
+                          className={
+                            'size-4 ' +
+                            (removingIds.has(item.menuItem._id)
+                              ? 'animate-pulse'
+                              : '')
+                          }
+                        />
                       </Button>
                     </div>
                   </div>

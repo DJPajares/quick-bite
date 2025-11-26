@@ -40,6 +40,9 @@
       "errorLoadingCart": "Error loading cart. Please try again later.",
       "emptyCart": "Your cart is empty. Add some items from the menu!",
       "submitOrderInfo": "Your order will be sent to the kitchen."
+    },
+    "ariaLabel": {
+      "removeItem": "Remove {itemName} from cart"
     }
   },
   "Navigation": {
