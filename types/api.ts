@@ -11,9 +11,9 @@ export interface ApiResponse<T> {
 export interface MenuItem {
   _id: string;
   name: string;
-  description?: string;
+  description: string;
   price: number;
-  category?: string;
+  category: string;
   image?: string;
   available?: boolean;
   tags?: string[];

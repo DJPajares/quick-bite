@@ -2,6 +2,19 @@
   "Home": {
     "title": "Hello world!"
   },
+  "Menu": {
+    "title": "Menu",
+    "description": "Explore our delicious offerings and find your next favorite dish!",
+    "categories": {
+      "appetizers": "Appetizers",
+      "beverages": "Beverages",
+      "desserts": "Desserts",
+      "main-course": "Main Course",
+      "sides": "Sides"
+    },
+    "available": "Available",
+    "unavailable": "Unavailable"
+  },
   "Navigation": {
     "home": "Home",
     "menu": "Menu",
@@ -21,5 +34,10 @@
     "currency": "Currency",
     "darkMode": "Dark Mode",
     "logout": "Logout"
+  },
+  "Messages": {
+    "loadingMenu": "Loading menu...",
+    "noMenuItems": "No menu items available.",
+    "errorLoadingMenu": "Error loading menu. Please try again later."
   }
 }
