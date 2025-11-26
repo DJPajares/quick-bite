@@ -118,7 +118,7 @@ export default function BillPage() {
         <div className="flex flex-col gap-4">
           {bill.orders.items.map((order) => (
             <Card key={order.orderNumber} className="flex flex-col gap-4 p-4">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">
                   <p className="font-medium">
                     {t('Bill.orderNumber', { number: order.orderNumber })}
@@ -150,19 +150,21 @@ export default function BillPage() {
                   ))}
                 </ul>
 
-                <div className="flex justify-between text-xs">
-                  <span>{t('Common.subTotal')}</span>
-                  <span>${order.subtotal.toFixed(2)}</span>
-                </div>
+                <div className="flex flex-col gap-1">
+                  <div className="flex justify-between text-xs">
+                    <span>{t('Common.subTotal')}</span>
+                    <span>${order.subtotal.toFixed(2)}</span>
+                  </div>
 
-                <div className="flex justify-between text-xs">
-                  <span>{t('Common.tax')}</span>
-                  <span>${order.tax.toFixed(2)}</span>
-                </div>
+                  <div className="flex justify-between text-xs">
+                    <span>{t('Common.tax')}</span>
+                    <span>${order.tax.toFixed(2)}</span>
+                  </div>
 
-                <div className="flex justify-between text-xs">
-                  <span>{t('Common.serviceFee')}</span>
-                  <span>${order.serviceFee.toFixed(2)}</span>
+                  <div className="flex justify-between text-xs">
+                    <span>{t('Common.serviceFee')}</span>
+                    <span>${order.serviceFee.toFixed(2)}</span>
+                  </div>
                 </div>
               </div>
 
