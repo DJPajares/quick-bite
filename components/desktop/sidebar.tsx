@@ -8,8 +8,8 @@ import {
   UtensilsIcon,
   HomeIcon,
   ShoppingCartIcon,
-  UserIcon,
   SettingsIcon,
+  ReceiptTextIcon,
 } from 'lucide-react';
 
 import {
@@ -31,7 +31,7 @@ const navigationItems = [
   { icon: HomeIcon, href: '/', label: 'Navigation.home' },
   { icon: UtensilsIcon, href: '/menu', label: 'Navigation.menu' },
   { icon: ShoppingCartIcon, href: '/cart', label: 'Navigation.cart' },
-  { icon: UserIcon, href: '/profile', label: 'Navigation.profile' },
+  { icon: ReceiptTextIcon, href: '/bill', label: 'Navigation.bill' },
 ];
 
 const bottomItems = [

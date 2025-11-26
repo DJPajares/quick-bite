@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import {
   HomeIcon,
+  ReceiptTextIcon,
   ShoppingCartIcon,
-  UserIcon,
   UtensilsIcon,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -15,7 +15,7 @@ const tabs = [
   { icon: HomeIcon, href: '/', label: 'Navigation.home' },
   { icon: UtensilsIcon, href: '/menu', label: 'Navigation.menu' },
   { icon: ShoppingCartIcon, href: '/cart', label: 'Navigation.cart' },
-  { icon: UserIcon, href: '/profile', label: 'Navigation.profile' },
+  { icon: ReceiptTextIcon, href: '/bill', label: 'Navigation.bill' },
 ];
 
 export function BottomTabsNavigator() {

@@ -67,7 +67,7 @@ describe('SideNav', () => {
       'Navigation.home': 'Home',
       'Navigation.menu': 'Menu',
       'Navigation.cart': 'Cart',
-      'Navigation.profile': 'Profile',
+      'Navigation.bill': 'Bill',
       'Navigation.settings': 'Settings',
     };
     return translations[key] || key;
@@ -94,7 +94,7 @@ describe('SideNav', () => {
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Menu')).toBeInTheDocument();
     expect(screen.getByText('Cart')).toBeInTheDocument();
-    expect(screen.getByText('Profile')).toBeInTheDocument();
+    expect(screen.getByText('Bill')).toBeInTheDocument();
   });
 
   it('renders settings in bottom section', () => {
@@ -122,13 +122,13 @@ describe('SideNav', () => {
     const homeLink = screen.getByRole('link', { name: /home/i });
     const menuLink = screen.getByRole('link', { name: /menu/i });
     const cartLink = screen.getByRole('link', { name: /cart/i });
-    const profileLink = screen.getByRole('link', { name: /profile/i });
+    const billLink = screen.getByRole('link', { name: /bill/i });
     const settingsLink = screen.getByRole('link', { name: /settings/i });
 
     expect(homeLink).toHaveAttribute('href', '/');
     expect(menuLink).toHaveAttribute('href', '/menu');
     expect(cartLink).toHaveAttribute('href', '/cart');
-    expect(profileLink).toHaveAttribute('href', '/profile');
+    expect(billLink).toHaveAttribute('href', '/bill');
     expect(settingsLink).toHaveAttribute('href', '/settings');
   });
 

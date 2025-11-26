@@ -19,7 +19,7 @@ describe('BottomTabsNavigator', () => {
       'Navigation.home': 'Home',
       'Navigation.menu': 'Menu',
       'Navigation.cart': 'Cart',
-      'Navigation.profile': 'Profile',
+      'Navigation.bill': 'Bill',
     };
     return translations[key] || key;
   };
@@ -47,7 +47,7 @@ describe('BottomTabsNavigator', () => {
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Menu')).toBeInTheDocument();
     expect(screen.getByText('Cart')).toBeInTheDocument();
-    expect(screen.getByText('Profile')).toBeInTheDocument();
+    expect(screen.getByText('Bill')).toBeInTheDocument();
   });
 
   it('renders navigation links with correct hrefs', () => {
@@ -56,12 +56,12 @@ describe('BottomTabsNavigator', () => {
     const homeLink = screen.getByRole('link', { name: /home/i });
     const menuLink = screen.getByRole('link', { name: /menu/i });
     const cartLink = screen.getByRole('link', { name: /cart/i });
-    const profileLink = screen.getByRole('link', { name: /profile/i });
+    const billLink = screen.getByRole('link', { name: /bill/i });
 
     expect(homeLink).toHaveAttribute('href', '/');
     expect(menuLink).toHaveAttribute('href', '/menu');
     expect(cartLink).toHaveAttribute('href', '/cart');
-    expect(profileLink).toHaveAttribute('href', '/profile');
+    expect(billLink).toHaveAttribute('href', '/bill');
   });
 
   it('highlights the active tab based on pathname', () => {
@@ -99,12 +99,12 @@ describe('BottomTabsNavigator', () => {
     expect(cartLink).toHaveClass('text-primary');
   });
 
-  it('highlights profile tab when on profile page', () => {
-    (usePathname as jest.Mock).mockReturnValue('/profile');
+  it('highlights bill tab when on bill page', () => {
+    (usePathname as jest.Mock).mockReturnValue('/bill');
     render(<BottomTabsNavigator />);
 
-    const profileLink = screen.getByRole('link', { name: /profile/i });
-    expect(profileLink).toHaveClass('text-primary');
+    const billLink = screen.getByRole('link', { name: /bill/i });
+    expect(billLink).toHaveClass('text-primary');
   });
 
   it('applies correct styling to the navigation container', () => {
