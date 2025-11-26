@@ -15,7 +15,7 @@ import { Input } from '@/components/ui/input';
 
 import { API_ENDPOINTS, apiClient, getErrorMessage } from '@/lib/api';
 import { MenuItem, MenuResponse } from '@/types/api';
-import { SearchIcon } from 'lucide-react';
+import { SearchIcon, X } from 'lucide-react';
 
 export default function MenuPage() {
   const t = useTranslations();
@@ -122,12 +122,22 @@ export default function MenuPage() {
       <div className="relative max-w-md">
         <SearchIcon className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
         <Input
-          className="pl-8"
+          className="pr-8 pl-8"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t('Menu.messages.searchPlaceholder')}
           aria-label={t('Menu.messages.searchAriaLabel')}
         />
+        {query && (
+          <button
+            type="button"
+            onClick={() => setQuery('')}
+            className="ring-offset-background focus:ring-ring absolute top-1/2 right-2 -translate-y-1/2 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
+            aria-label={t('Menu.messages.clearSearch')}
+          >
+            <X className="size-4" />
+          </button>
+        )}
       </div>
 
       {isLoading && <p>{t('Menu.messages.loadingMenu')}</p>}

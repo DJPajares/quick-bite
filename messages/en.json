@@ -18,7 +18,8 @@
       "noSearchResults": "No menu items found.",
       "loadingMenu": "Loading menu...",
       "noMenuItems": "No menu items available.",
-      "errorLoadingMenu": "Error loading menu. Please try again later."
+      "errorLoadingMenu": "Error loading menu. Please try again later.",
+      "clearSearch": "Clear search."
     },
     "available": "Available",
     "unavailable": "Unavailable"
