@@ -10,7 +10,8 @@
       "beverages": "Beverages",
       "desserts": "Desserts",
       "main-course": "Main Course",
-      "sides": "Sides"
+      "sides": "Sides",
+      "all": "All"
     },
     "messages": {
       "searchPlaceholder": "Search menu items...",

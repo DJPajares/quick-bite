@@ -12,6 +12,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { Badge } from '@/components/ui/badge';
 
 import { API_ENDPOINTS, apiClient, getErrorMessage } from '@/lib/api';
 import { MenuItem, MenuResponse } from '@/types/api';
@@ -26,6 +27,7 @@ export default function MenuPage() {
   const [menu, setMenu] = useState<MenuItem[]>([]);
   const [query, setQuery] = useState('');
   const deferredQuery = useDeferredValue(query);
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   useEffect(() => {
     // Prevent duplicate calls from React Strict Mode and dual layout rendering
@@ -91,27 +93,49 @@ export default function MenuPage() {
       });
   };
 
+  const categories = useMemo(() => {
+    const categorySet = new Set<string>();
+    menu.forEach((item) => {
+      if (item.category?.trim()) {
+        categorySet.add(item.category.trim());
+      }
+    });
+    return Array.from(categorySet).sort((a, b) => a.localeCompare(b));
+  }, [menu]);
+
   const filteredMenu = useMemo(() => {
+    let items = menu;
+
+    // Filter by category
+    if (selectedCategory !== 'all') {
+      items = items.filter(
+        (item) => item.category?.trim() === selectedCategory,
+      );
+    }
+
+    // Filter by search query
     const q = deferredQuery.trim().toLowerCase();
-    if (!q) return menu;
+    if (q) {
+      const matches = (item: MenuItem) => {
+        const name = item.name?.toLowerCase() ?? '';
+        const category = item.category?.toLowerCase() ?? '';
+        const description = item.description?.toLowerCase() ?? '';
+        const tags = Array.isArray(item.tags)
+          ? item.tags.map((t) => (t ?? '').toLowerCase())
+          : [];
 
-    const matches = (item: MenuItem) => {
-      const name = item.name?.toLowerCase() ?? '';
-      const category = item.category?.toLowerCase() ?? '';
-      const description = item.description?.toLowerCase() ?? '';
-      const tags = Array.isArray(item.tags)
-        ? item.tags.map((t) => (t ?? '').toLowerCase())
-        : [];
+        if (name.includes(q)) return true;
+        if (category.includes(q)) return true;
+        if (description.includes(q)) return true;
+        if (tags.some((t) => t.includes(q))) return true;
+        return false;
+      };
 
-      if (name.includes(q)) return true;
-      if (category.includes(q)) return true;
-      if (description.includes(q)) return true;
-      if (tags.some((t) => t.includes(q))) return true;
-      return false;
-    };
+      items = items.filter(matches);
+    }
 
-    return menu.filter(matches);
-  }, [menu, deferredQuery]);
+    return items;
+  }, [menu, selectedCategory, deferredQuery]);
 
   return (
     <div className="container mx-auto flex flex-col gap-4 p-4 md:p-8">
@@ -151,51 +175,85 @@ export default function MenuPage() {
       )}
 
       {!isLoading && !error && menu.length > 0 && (
-        <div className="mt-6 space-y-8">
-          {filteredMenu.length === 0 && (
-            <p className="text-muted-foreground mt-4 text-sm">
-              {t('Menu.messages.noSearchResults')}
-            </p>
-          )}
-          {groupMenuByCategory(filteredMenu).map(({ category, items }) => (
-            <section key={category.value || 'uncategorized'}>
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight">
-                {category.label}
-              </h2>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {items.map((item) => (
-                  <Card key={item._id}>
-                    <CardHeader className="px-4">
-                      <CardTitle className="line-clamp-1">
-                        {item.name}
-                      </CardTitle>
-                      {item.description && (
-                        <CardDescription className="line-clamp-2">
-                          {item.description}
-                        </CardDescription>
-                      )}
-                    </CardHeader>
-                    <CardContent className="relative mt-auto flex-1">
-                      <div>
-                        <p className="mt-2 font-bold">
-                          ${item.price.toFixed(2)}
-                        </p>
-                        {item.available ? (
-                          <span className="font-medium text-green-600">
-                            {t('Menu.available')}
-                          </span>
-                        ) : (
-                          <span className="font-medium text-red-600">
-                            {t('Menu.unavailable')}
-                          </span>
+        <div className="mt-6 flex flex-col gap-6">
+          <div className="flex flex-wrap gap-2">
+            <Badge
+              variant={selectedCategory === 'all' ? 'default' : 'outline'}
+              className="cursor-pointer"
+              onClick={() => setSelectedCategory('all')}
+            >
+              {t('Menu.categories.all')}
+            </Badge>
+
+            {categories.map((category) => {
+              let label: string;
+              try {
+                label = t(`Menu.categories.${category}`);
+              } catch {
+                label = category;
+              }
+
+              return (
+                <Badge
+                  key={category}
+                  variant={
+                    selectedCategory === category ? 'default' : 'outline'
+                  }
+                  className="cursor-pointer"
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {label}
+                </Badge>
+              );
+            })}
+          </div>
+
+          <div className="space-y-8">
+            {filteredMenu.length === 0 && (
+              <p className="text-muted-foreground mt-4 text-sm">
+                {t('Menu.messages.noSearchResults')}
+              </p>
+            )}
+            {groupMenuByCategory(filteredMenu).map(({ category, items }) => (
+              <section key={category.value || 'uncategorized'}>
+                <h2 className="mb-4 text-2xl font-semibold tracking-tight">
+                  {category.label}
+                </h2>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {items.map((item) => (
+                    <Card key={item._id}>
+                      <CardHeader className="px-4">
+                        <CardTitle className="line-clamp-1">
+                          {item.name}
+                        </CardTitle>
+                        {item.description && (
+                          <CardDescription className="line-clamp-2">
+                            {item.description}
+                          </CardDescription>
                         )}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </section>
-          ))}
+                      </CardHeader>
+                      <CardContent className="relative mt-auto flex-1">
+                        <div>
+                          <p className="mt-2 font-bold">
+                            ${item.price.toFixed(2)}
+                          </p>
+                          {item.available ? (
+                            <span className="font-medium text-green-600">
+                              {t('Menu.available')}
+                            </span>
+                          ) : (
+                            <span className="font-medium text-red-600">
+                              {t('Menu.unavailable')}
+                            </span>
+                          )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
         </div>
       )}
     </div>
