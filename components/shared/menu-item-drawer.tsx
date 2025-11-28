@@ -42,7 +42,7 @@ export function MenuItemDrawer({
 
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
-      <DrawerContent className="max-h-[90vh]">
+      <DrawerContent className="mx-auto max-h-[90vh] max-w-lg">
         {/* Close button */}
         <DrawerClose className="absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none">
           <XIcon className="size-4" />
