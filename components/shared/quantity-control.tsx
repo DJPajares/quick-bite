@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MinusIcon, PlusIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,19 +27,25 @@ export function QuantityControl({
   const [quantity, setQuantity] = useState(initialQuantity);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Sync internal state when parent-provided initialQuantity changes
+  useEffect(() => {
+    setQuantity(initialQuantity);
+  }, [initialQuantity]);
+
   const handleQuantityChange = async (newQuantity: number) => {
     if (newQuantity < 0 || isLoading || disabled) return;
 
     setIsLoading(true);
+    let prev = quantity;
     try {
-      const oldQuantity = quantity;
+      prev = quantity;
       setQuantity(newQuantity);
 
       // Trigger callback
       onQuantityChange?.(newQuantity);
 
       // Handle API calls based on quantity changes
-      if (oldQuantity === 0 && newQuantity > 0) {
+      if (prev === 0 && newQuantity > 0) {
         // Adding to cart for the first time
         await onAdd?.(menuItemId, newQuantity);
       } else if (newQuantity === 0) {
@@ -52,7 +58,7 @@ export function QuantityControl({
     } catch (error) {
       // Revert on error
       console.error('Failed to update quantity:', error);
-      setQuantity(quantity);
+      setQuantity(prev);
     } finally {
       setIsLoading(false);
     }
