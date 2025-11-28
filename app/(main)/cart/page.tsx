@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Trash2Icon } from 'lucide-react';
 
@@ -181,8 +182,20 @@ export default function CartPage() {
                 <div key={item.menuItem._id}>
                   {index > 0 && <Separator className="my-4" />}
                   <div className="flex gap-4">
-                    {/* Item Image Placeholder */}
-                    <div className="bg-muted size-20 shrink-0 rounded-md" />
+                    {/* Item Image */}
+                    {item.menuItem.image ? (
+                      <Image
+                        src={item.menuItem.image}
+                        alt={item.menuItem.name}
+                        width={80}
+                        height={80}
+                        sizes="80px"
+                        unoptimized
+                        className="size-20 shrink-0 rounded-md object-cover"
+                      />
+                    ) : (
+                      <div className="bg-muted size-20 shrink-0 rounded-md" />
+                    )}
 
                     {/* Item Details */}
                     <div className="flex flex-1 flex-col gap-1">

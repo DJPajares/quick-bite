@@ -123,7 +123,7 @@ export function QuantityControl({
         onChange={handleInputChange}
         onBlur={handleInputBlur}
         disabled={disabled || isLoading}
-        className="h-8 w-16 [appearance:textfield] text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+        className="h-8 w-12 [appearance:textfield] text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         min="0"
         aria-label="Quantity"
       />

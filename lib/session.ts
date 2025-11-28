@@ -8,7 +8,7 @@ const SESSION_ID_KEY = 'quick-bite-session-id';
  * Generate a unique session ID
  */
 function generateSessionId(): string {
-  return 'b18f2e0c-1235-4126-b77a-8465361cf3d4'; // Replace with actual UUID generation logic
+  return '8b53afe7-f7cb-4b25-81ca-828124ed6040'; // Replace with actual UUID generation logic
 }
 
 /**

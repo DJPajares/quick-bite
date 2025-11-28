@@ -5,16 +5,9 @@ import { useDeferredValue, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { SearchIcon, XIcon } from 'lucide-react';
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { QuantityControl } from '@/components/shared/quantity-control';
+import { MenuItemCard } from '@/components/shared/menu-item-card';
 
 import { sortCategoriesByPreferredOrder } from '@/lib/utils';
 import {
@@ -67,10 +60,14 @@ export default function MenuPage() {
           setError('Failed to fetch menu data');
         }
 
-        if (cartRes.success && cartRes.data?.cart) {
+        if (cartRes.success && Array.isArray(cartRes.data?.cart)) {
           const cartMap: Record<string, number> = {};
           for (const cartItem of cartRes.data.cart) {
-            cartMap[cartItem.menuItem._id] = cartItem.quantity;
+            const id = cartItem?.menuItem?._id;
+            const qty = cartItem?.quantity ?? 0;
+            if (id && qty > 0) {
+              cartMap[id] = qty;
+            }
           }
           setCartQuantities(cartMap);
         }
@@ -270,46 +267,16 @@ export default function MenuPage() {
                 <h2 className="mb-4 text-2xl font-semibold tracking-tight">
                   {category.label}
                 </h2>
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <div className="flex flex-col gap-3">
                   {items.map((item) => (
-                    <Card key={item._id} className="flex flex-col">
-                      <CardHeader className="px-4">
-                        <CardTitle className="line-clamp-1">
-                          {item.name}
-                        </CardTitle>
-                        {item.description && (
-                          <CardDescription className="line-clamp-2">
-                            {item.description}
-                          </CardDescription>
-                        )}
-                      </CardHeader>
-                      <CardContent className="relative mt-auto flex flex-1 flex-col gap-3">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <p className="font-bold">
-                              ${item.price.toFixed(2)}
-                            </p>
-                            {item.available ? (
-                              <span className="text-sm font-medium text-green-600">
-                                {t('Menu.available')}
-                              </span>
-                            ) : (
-                              <span className="text-sm font-medium text-red-600">
-                                {t('Menu.unavailable')}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                        <QuantityControl
-                          menuItemId={item._id}
-                          initialQuantity={cartQuantities[item._id] || 0}
-                          disabled={!item.available}
-                          onAdd={handleAddToCart}
-                          onUpdate={handleUpdateCart}
-                          onRemove={handleRemoveFromCart}
-                        />
-                      </CardContent>
-                    </Card>
+                    <MenuItemCard
+                      key={item._id}
+                      item={item}
+                      cartQuantity={cartQuantities[item._id] || 0}
+                      onAdd={handleAddToCart}
+                      onUpdate={handleUpdateCart}
+                      onRemove={handleRemoveFromCart}
+                    />
                   ))}
                 </div>
               </section>
