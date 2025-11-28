@@ -11,6 +11,7 @@ interface MenuItemCardProps {
   onAdd: (menuItemId: string, quantity: number) => Promise<void>;
   onUpdate: (menuItemId: string, quantity: number) => Promise<void>;
   onRemove: (menuItemId: string) => Promise<void>;
+  onClick?: () => void;
 }
 
 export function MenuItemCard({
@@ -19,11 +20,15 @@ export function MenuItemCard({
   onAdd,
   onUpdate,
   onRemove,
+  onClick,
 }: MenuItemCardProps) {
   const t = useTranslations();
 
   return (
-    <Card className="flex h-36 flex-row gap-0 overflow-hidden p-0 transition-shadow hover:shadow-md md:h-48">
+    <Card
+      className="flex h-36 cursor-pointer flex-row gap-0 overflow-hidden p-0 transition-shadow hover:shadow-md md:h-48"
+      onClick={onClick}
+    >
       {/* Image Section - Square covering full height */}
       <div className="bg-muted relative aspect-square h-full shrink-0">
         {item.image ? (

@@ -23,7 +23,12 @@
       "clearSearch": "Clear search."
     },
     "available": "Available",
-    "unavailable": "Unavailable"
+    "unavailable": "Unavailable",
+    "tags": "Tags",
+    "quantity": "Quantity",
+    "subTotal": "SubTotal",
+    "updateCart": "Update Card",
+    "closeDetails": "Close Details"
   },
   "Cart": {
     "title": "Cart",

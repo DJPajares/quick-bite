@@ -8,6 +8,7 @@ import { SearchIcon, XIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { MenuItemCard } from '@/components/shared/menu-item-card';
+import { MenuItemDrawer } from '@/components/shared/menu-item-drawer';
 
 import { sortCategoriesByPreferredOrder } from '@/lib/utils';
 import {
@@ -38,6 +39,10 @@ export default function MenuPage() {
   const [cartQuantities, setCartQuantities] = useState<Record<string, number>>(
     {},
   );
+
+  // Drawer state
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
     // Prevent duplicate calls from React Strict Mode and dual layout rendering
@@ -185,105 +190,123 @@ export default function MenuPage() {
     });
   };
 
+  const handleCardClick = (item: MenuItem) => {
+    setSelectedItem(item);
+    setDrawerOpen(true);
+  };
+
   return (
-    <div className="container mx-auto flex flex-col gap-4 p-4 md:p-8">
-      <h1 className="text-3xl font-bold">{t('Menu.title')}</h1>
+    <>
+      <MenuItemDrawer
+        item={selectedItem}
+        open={drawerOpen}
+        onOpenChange={setDrawerOpen}
+        cartQuantity={selectedItem ? cartQuantities[selectedItem._id] || 0 : 0}
+        onAdd={handleAddToCart}
+        onUpdate={handleUpdateCart}
+        onRemove={handleRemoveFromCart}
+      />
 
-      <p className="text-muted-foreground">{t('Menu.description')}</p>
+      <div className="container mx-auto flex flex-col gap-4 p-4 md:p-8">
+        <h1 className="text-3xl font-bold">{t('Menu.title')}</h1>
 
-      <div className="relative max-w-md">
-        <SearchIcon className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
-        <Input
-          className="pr-8 pl-8"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={t('Menu.messages.searchPlaceholder')}
-          aria-label={t('Menu.messages.searchAriaLabel')}
-        />
-        {query && (
-          <button
-            type="button"
-            onClick={() => setQuery('')}
-            className="ring-offset-background focus:ring-ring absolute top-1/2 right-2 -translate-y-1/2 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
-            aria-label={t('Menu.messages.clearSearch')}
-          >
-            <XIcon className="size-4" />
-          </button>
+        <p className="text-muted-foreground">{t('Menu.description')}</p>
+
+        <div className="relative max-w-md">
+          <SearchIcon className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
+          <Input
+            className="pr-8 pl-8"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={t('Menu.messages.searchPlaceholder')}
+            aria-label={t('Menu.messages.searchAriaLabel')}
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={() => setQuery('')}
+              className="ring-offset-background focus:ring-ring absolute top-1/2 right-2 -translate-y-1/2 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none"
+              aria-label={t('Menu.messages.clearSearch')}
+            >
+              <XIcon className="size-4" />
+            </button>
+          )}
+        </div>
+
+        {isLoading && <p>{t('Menu.messages.loadingMenu')}</p>}
+
+        {error && <p className="text-red-500">Error: {error}</p>}
+
+        {!isLoading && !error && menu.length === 0 && (
+          <p className="text-muted-foreground mt-4 text-sm">
+            {t('Menu.messages.noMenuItems')}
+          </p>
+        )}
+
+        {!isLoading && !error && menu.length > 0 && (
+          <div className="mt-6 flex flex-col gap-6">
+            <div className="flex flex-wrap gap-2">
+              <Badge
+                variant={selectedCategory === 'all' ? 'default' : 'outline'}
+                className="cursor-pointer"
+                onClick={() => setSelectedCategory('all')}
+              >
+                {t('Menu.categories.all')}
+              </Badge>
+
+              {categories.map((category) => {
+                let label: string;
+                try {
+                  label = t(`Menu.categories.${category}`);
+                } catch {
+                  label = category;
+                }
+
+                return (
+                  <Badge
+                    key={category}
+                    variant={
+                      selectedCategory === category ? 'default' : 'outline'
+                    }
+                    className="cursor-pointer"
+                    onClick={() => setSelectedCategory(category)}
+                  >
+                    {label}
+                  </Badge>
+                );
+              })}
+            </div>
+
+            <div className="space-y-8">
+              {filteredMenu.length === 0 && (
+                <p className="text-muted-foreground mt-4 text-sm">
+                  {t('Menu.messages.noSearchResults')}
+                </p>
+              )}
+              {groupMenuByCategory(filteredMenu).map(({ category, items }) => (
+                <section key={category.value || 'uncategorized'}>
+                  <h2 className="mb-4 text-2xl font-semibold tracking-tight">
+                    {category.label}
+                  </h2>
+                  <div className="flex flex-col gap-3">
+                    {items.map((item) => (
+                      <MenuItemCard
+                        key={item._id}
+                        item={item}
+                        cartQuantity={cartQuantities[item._id] || 0}
+                        onAdd={handleAddToCart}
+                        onUpdate={handleUpdateCart}
+                        onRemove={handleRemoveFromCart}
+                        onClick={() => handleCardClick(item)}
+                      />
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </div>
         )}
       </div>
-
-      {isLoading && <p>{t('Menu.messages.loadingMenu')}</p>}
-
-      {error && <p className="text-red-500">Error: {error}</p>}
-
-      {!isLoading && !error && menu.length === 0 && (
-        <p className="text-muted-foreground mt-4 text-sm">
-          {t('Menu.messages.noMenuItems')}
-        </p>
-      )}
-
-      {!isLoading && !error && menu.length > 0 && (
-        <div className="mt-6 flex flex-col gap-6">
-          <div className="flex flex-wrap gap-2">
-            <Badge
-              variant={selectedCategory === 'all' ? 'default' : 'outline'}
-              className="cursor-pointer"
-              onClick={() => setSelectedCategory('all')}
-            >
-              {t('Menu.categories.all')}
-            </Badge>
-
-            {categories.map((category) => {
-              let label: string;
-              try {
-                label = t(`Menu.categories.${category}`);
-              } catch {
-                label = category;
-              }
-
-              return (
-                <Badge
-                  key={category}
-                  variant={
-                    selectedCategory === category ? 'default' : 'outline'
-                  }
-                  className="cursor-pointer"
-                  onClick={() => setSelectedCategory(category)}
-                >
-                  {label}
-                </Badge>
-              );
-            })}
-          </div>
-
-          <div className="space-y-8">
-            {filteredMenu.length === 0 && (
-              <p className="text-muted-foreground mt-4 text-sm">
-                {t('Menu.messages.noSearchResults')}
-              </p>
-            )}
-            {groupMenuByCategory(filteredMenu).map(({ category, items }) => (
-              <section key={category.value || 'uncategorized'}>
-                <h2 className="mb-4 text-2xl font-semibold tracking-tight">
-                  {category.label}
-                </h2>
-                <div className="flex flex-col gap-3">
-                  {items.map((item) => (
-                    <MenuItemCard
-                      key={item._id}
-                      item={item}
-                      cartQuantity={cartQuantities[item._id] || 0}
-                      onAdd={handleAddToCart}
-                      onUpdate={handleUpdateCart}
-                      onRemove={handleRemoveFromCart}
-                    />
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
+    </>
   );
 }
