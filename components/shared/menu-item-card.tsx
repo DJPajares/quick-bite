@@ -54,7 +54,14 @@ export function MenuItemCard({
           <div className="flex flex-row items-center justify-between">
             <p className="text-sm font-bold">${item.price.toFixed(2)}</p>
 
-            <div className="shrink-0">
+            <div
+              className="shrink-0"
+              onClick={(e) => e.stopPropagation()}
+              onMouseDown={(e) => e.stopPropagation()}
+              onTouchStart={(e) => e.stopPropagation()}
+              onPointerDown={(e) => e.stopPropagation()}
+              onKeyDown={(e) => e.stopPropagation()}
+            >
               <QuantityControl
                 menuItemId={item._id}
                 initialQuantity={cartQuantity}
