@@ -23,7 +23,16 @@
       "clearSearch": "検索をクリア。"
     },
     "available": "利用可能",
-    "unavailable": "利用不可"
+    "unavailable": "利用不可",
+    "tags": "タグ",
+    "quantity": "数量",
+    "subTotal": "小計",
+    "updateCart": "カートを更新",
+    "closeDetails": "詳細を閉じる",
+    "noDescription": "説明はありません。",
+    "updating": "更新中...",
+    "removeFromCart": "カートから削除",
+    "close": "閉じる"
   },
   "Cart": {
     "title": "カート",
@@ -84,6 +93,7 @@
       "ready": "準備完了",
       "served": "提供済み",
       "cancelled": "キャンセル済み"
-    }
+    },
+    "noImage": "画像なし"
   }
 }

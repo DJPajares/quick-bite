@@ -27,9 +27,12 @@
     "tags": "Tags",
     "quantity": "Quantity",
     "subTotal": "SubTotal",
-    "updateCart": "Update Card",
+    "updateCart": "Update Cart",
     "closeDetails": "Close Details",
-    "noDescription": "No description available."
+    "noDescription": "No description available.",
+    "updating": "Updating...",
+    "removeFromCart": "Remove from Cart",
+    "close": "Close"
   },
   "Cart": {
     "title": "Cart",

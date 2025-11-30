@@ -23,7 +23,16 @@
       "clearSearch": "مسح البحث."
     },
     "available": "متاح",
-    "unavailable": "غير متاح"
+    "unavailable": "غير متاح",
+    "tags": "العلامات",
+    "quantity": "الكمية",
+    "subTotal": "المجموع الفرعي",
+    "updateCart": "تحديث السلة",
+    "closeDetails": "إغلاق التفاصيل",
+    "noDescription": "لا يوجد وصف متاح.",
+    "updating": "جاري التحديث...",
+    "removeFromCart": "إزالة من السلة",
+    "close": "إغلاق"
   },
   "Cart": {
     "title": "السلة",
@@ -84,6 +93,7 @@
       "ready": "جاهز للاستلام",
       "served": "تم التقديم",
       "cancelled": "ملغي"
-    }
+    },
+    "noImage": "لا توجد صورة"
   }
 }
