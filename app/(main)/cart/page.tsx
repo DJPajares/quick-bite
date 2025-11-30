@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { MenuItemDrawer } from '@/components/shared/menu-item-drawer';
+import { ConfirmationDialog } from '@/components/shared/confirmation-dialog';
 
 import {
   getCart,
@@ -39,6 +40,8 @@ export default function CartPage() {
   const [removingIds, setRemovingIds] = useState<Set<string>>(new Set());
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState<CartItemDetail | null>(null);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const hasFetched = useRef(false);
 
   useEffect(() => {
@@ -103,6 +106,43 @@ export default function CartPage() {
       setSubmitError(getErrorMessage(err));
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleDeleteClick = (item: CartItemDetail) => {
+    setItemToDelete(item);
+    setShowDeleteConfirm(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!itemToDelete || !cartData) return;
+    const menuItemId = itemToDelete.menuItem._id;
+    const sessionId = cartData.sessionId || getSessionId();
+    if (!sessionId) return;
+
+    setRemovingIds((prev) => new Set(prev).add(menuItemId));
+    try {
+      await removeFromCart({ sessionId, menuItemId });
+      setCartData((prev) =>
+        prev
+          ? {
+              ...prev,
+              cart: prev.cart.filter((c) => c.menuItem._id !== menuItemId),
+              cartTotal: prev.cart
+                .filter((c) => c.menuItem._id !== menuItemId)
+                .reduce((sum, c) => sum + c.price * c.quantity, 0),
+            }
+          : prev,
+      );
+    } catch (err) {
+      setSubmitError(getErrorMessage(err));
+    } finally {
+      setRemovingIds((prev) => {
+        const next = new Set(prev);
+        next.delete(menuItemId);
+        return next;
+      });
+      setItemToDelete(null);
     }
   };
 
@@ -290,7 +330,7 @@ export default function CartPage() {
                         variant="ghost"
                         size="icon"
                         className="text-destructive hover:text-destructive size-8"
-                        onClick={() => handleRemoveItem(item.menuItem._id)}
+                        onClick={() => handleDeleteClick(item)}
                         disabled={
                           removingIds.has(item.menuItem._id) || isSubmitting
                         }
@@ -375,6 +415,25 @@ export default function CartPage() {
         onAdd={handleAddToCart}
         onUpdate={handleUpdateCartItem}
         onRemove={handleRemoveFromCart}
+      />
+
+      {/* Delete Confirmation Dialog */}
+      <ConfirmationDialog
+        open={showDeleteConfirm}
+        onOpenChange={setShowDeleteConfirm}
+        title={t('Cart.confirmDelete')}
+        description={
+          itemToDelete
+            ? t('Cart.confirmDeleteDescription', {
+                itemName: itemToDelete.menuItem.name,
+                quantity: itemToDelete.quantity,
+              })
+            : ''
+        }
+        cancelText={t('Cart.cancel')}
+        confirmText={t('Cart.delete')}
+        onConfirm={handleConfirmDelete}
+        variant="destructive"
       />
     </div>
   );

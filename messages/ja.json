@@ -59,7 +59,11 @@
     },
     "ariaLabel": {
       "removeItem": "{itemName}をカートから削除"
-    }
+    },
+    "confirmDelete": "アイテムを削除しますか？",
+    "confirmDeleteDescription": "{itemName}の{quantity}個をカートから削除してもよろしいですか？",
+    "cancel": "キャンセル",
+    "delete": "削除"
   },
   "Bill": {
     "title": "お会計",

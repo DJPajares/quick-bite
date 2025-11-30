@@ -59,7 +59,11 @@
     },
     "ariaLabel": {
       "removeItem": "إزالة {itemName} من السلة"
-    }
+    },
+    "confirmDelete": "إزالة العنصر؟",
+    "confirmDeleteDescription": "هل أنت متأكد من إزالة {quantity} {quantity, plural, =1 {عنصر} other {عناصر}} من {itemName} من سلتك؟",
+    "cancel": "إلغاء",
+    "delete": "إزالة"
   },
   "Bill": {
     "title": "فاتورتك",

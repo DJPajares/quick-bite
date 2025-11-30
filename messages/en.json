@@ -59,7 +59,11 @@
     },
     "ariaLabel": {
       "removeItem": "Remove {itemName} from cart"
-    }
+    },
+    "confirmDelete": "Remove Item?",
+    "confirmDeleteDescription": "Are you sure you want to remove {quantity} {quantity, plural, =1 {item} other {items}} of {itemName} from your cart?",
+    "cancel": "Cancel",
+    "delete": "Remove"
   },
   "Bill": {
     "title": "Your Bill",
