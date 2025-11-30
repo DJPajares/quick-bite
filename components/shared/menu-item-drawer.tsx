@@ -11,19 +11,10 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from '@/components/ui/drawer';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from '@/components/ui/alert-dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { QuantityControl } from '@/components/shared/quantity-control';
+import { ConfirmationDialog } from '@/components/shared/confirmation-dialog';
 import { XIcon } from 'lucide-react';
 import type { MenuItem } from '@/types/api';
 import { Separator } from '@/components/ui/separator';
@@ -85,7 +76,6 @@ export function MenuItemDrawer({
     if (!item) return;
 
     setIsUpdating(true);
-    setShowConfirmDialog(false);
     try {
       if (localQuantity === 0 && cartQuantity > 0) {
         // Remove from cart
@@ -106,6 +96,29 @@ export function MenuItemDrawer({
   };
 
   const hasChanges = localQuantity !== cartQuantity;
+
+  const getConfirmationTitle = () => {
+    if (localQuantity === 0) return t('Menu.confirmRemove');
+    if (cartQuantity === 0) return t('Menu.confirmAdd');
+    return t('Menu.confirmUpdate');
+  };
+
+  const getConfirmationDescription = () => {
+    if (localQuantity === 0) {
+      return t('Menu.confirmRemoveDescription', { itemName: item.name });
+    }
+    if (cartQuantity === 0) {
+      return t('Menu.confirmAddDescription', {
+        itemName: item.name,
+        quantity: localQuantity,
+      });
+    }
+    return t('Menu.confirmUpdateDescription', {
+      itemName: item.name,
+      oldQuantity: cartQuantity,
+      newQuantity: localQuantity,
+    });
+  };
 
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
@@ -238,39 +251,16 @@ export function MenuItemDrawer({
       </DrawerContent>
 
       {/* Confirmation Dialog */}
-      <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              {localQuantity === 0
-                ? t('Menu.confirmRemove')
-                : cartQuantity === 0
-                  ? t('Menu.confirmAdd')
-                  : t('Menu.confirmUpdate')}
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              {localQuantity === 0
-                ? t('Menu.confirmRemoveDescription', { itemName: item.name })
-                : cartQuantity === 0
-                  ? t('Menu.confirmAddDescription', {
-                      itemName: item.name,
-                      quantity: localQuantity,
-                    })
-                  : t('Menu.confirmUpdateDescription', {
-                      itemName: item.name,
-                      oldQuantity: cartQuantity,
-                      newQuantity: localQuantity,
-                    })}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>{t('Menu.cancel')}</AlertDialogCancel>
-            <AlertDialogAction onClick={handleConfirm}>
-              {t('Menu.confirm')}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <ConfirmationDialog
+        open={showConfirmDialog}
+        onOpenChange={setShowConfirmDialog}
+        title={getConfirmationTitle()}
+        description={getConfirmationDescription()}
+        cancelText={t('Menu.cancel')}
+        confirmText={t('Menu.confirm')}
+        onConfirm={handleConfirm}
+        variant={localQuantity === 0 ? 'destructive' : 'default'}
+      />
     </Drawer>
   );
 }
