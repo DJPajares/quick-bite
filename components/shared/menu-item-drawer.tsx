@@ -51,7 +51,7 @@ export function MenuItemDrawer({
 
         {/* Hero Image */}
         {item.image && (
-          <div className="relative -mt-6 h-56 w-full overflow-hidden rounded-t-lg sm:-mt-8 sm:h-64">
+          <div className="relative -mt-7 h-56 w-full overflow-hidden rounded-t-lg sm:-mt-8 sm:h-64">
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${item.image})` }}
