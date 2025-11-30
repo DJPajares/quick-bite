@@ -32,7 +32,15 @@
     "noDescription": "説明はありません。",
     "updating": "更新中...",
     "removeFromCart": "カートから削除",
-    "close": "閉じる"
+    "close": "閉じる",
+    "confirmRemove": "カートから削除しますか？",
+    "confirmAdd": "カートに追加しますか？",
+    "confirmUpdate": "カートを更新しますか？",
+    "confirmRemoveDescription": "{itemName}をカートから削除してもよろしいですか？",
+    "confirmAddDescription": "{itemName}を{quantity}個カートに追加しますか？",
+    "confirmUpdateDescription": "{itemName}の数量を{oldQuantity}から{newQuantity}に変更しますか？",
+    "cancel": "キャンセル",
+    "confirm": "確認"
   },
   "Cart": {
     "title": "カート",

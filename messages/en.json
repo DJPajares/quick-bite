@@ -32,7 +32,15 @@
     "noDescription": "No description available.",
     "updating": "Updating...",
     "removeFromCart": "Remove from Cart",
-    "close": "Close"
+    "close": "Close",
+    "confirmRemove": "Remove from Cart?",
+    "confirmAdd": "Add to Cart?",
+    "confirmUpdate": "Update Cart?",
+    "confirmRemoveDescription": "Are you sure you want to remove {itemName} from your cart?",
+    "confirmAddDescription": "Add {quantity} {quantity, plural, =1 {item} other {items}} of {itemName} to your cart?",
+    "confirmUpdateDescription": "Update {itemName} quantity from {oldQuantity} to {newQuantity}?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
   },
   "Cart": {
     "title": "Cart",

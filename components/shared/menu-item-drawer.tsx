@@ -11,6 +11,16 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from '@/components/ui/drawer';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { QuantityControl } from '@/components/shared/quantity-control';
@@ -40,6 +50,7 @@ export function MenuItemDrawer({
   const t = useTranslations();
   const [localQuantity, setLocalQuantity] = useState(cartQuantity);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
   // Sync local quantity with cart quantity when drawer opens
   useEffect(() => {
@@ -62,10 +73,19 @@ export function MenuItemDrawer({
     setLocalQuantity(0);
   };
 
+  const handleButtonClick = () => {
+    if (hasChanges) {
+      setShowConfirmDialog(true);
+    } else {
+      onOpenChange(false);
+    }
+  };
+
   const handleConfirm = async () => {
     if (!item) return;
 
     setIsUpdating(true);
+    setShowConfirmDialog(false);
     try {
       if (localQuantity === 0 && cartQuantity > 0) {
         // Remove from cart
@@ -203,7 +223,7 @@ export function MenuItemDrawer({
           <Button
             size="lg"
             className="mt-4 w-full"
-            onClick={handleConfirm}
+            onClick={handleButtonClick}
             disabled={(!item.available && localQuantity === 0) || isUpdating}
           >
             {isUpdating
@@ -216,6 +236,41 @@ export function MenuItemDrawer({
           </Button>
         </DrawerFooter>
       </DrawerContent>
+
+      {/* Confirmation Dialog */}
+      <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              {localQuantity === 0
+                ? t('Menu.confirmRemove')
+                : cartQuantity === 0
+                  ? t('Menu.confirmAdd')
+                  : t('Menu.confirmUpdate')}
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {localQuantity === 0
+                ? t('Menu.confirmRemoveDescription', { itemName: item.name })
+                : cartQuantity === 0
+                  ? t('Menu.confirmAddDescription', {
+                      itemName: item.name,
+                      quantity: localQuantity,
+                    })
+                  : t('Menu.confirmUpdateDescription', {
+                      itemName: item.name,
+                      oldQuantity: cartQuantity,
+                      newQuantity: localQuantity,
+                    })}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{t('Menu.cancel')}</AlertDialogCancel>
+            <AlertDialogAction onClick={handleConfirm}>
+              {t('Menu.confirm')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </Drawer>
   );
 }

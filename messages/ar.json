@@ -32,7 +32,15 @@
     "noDescription": "لا يوجد وصف متاح.",
     "updating": "جاري التحديث...",
     "removeFromCart": "إزالة من السلة",
-    "close": "إغلاق"
+    "close": "إغلاق",
+    "confirmRemove": "إزالة من السلة؟",
+    "confirmAdd": "إضافة إلى السلة؟",
+    "confirmUpdate": "تحديث السلة؟",
+    "confirmRemoveDescription": "هل أنت متأكد من إزالة {itemName} من سلتك؟",
+    "confirmAddDescription": "إضافة {quantity} {quantity, plural, =1 {عنصر} other {عناصر}} من {itemName} إلى سلتك؟",
+    "confirmUpdateDescription": "تحديث كمية {itemName} من {oldQuantity} إلى {newQuantity}؟",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد"
   },
   "Cart": {
     "title": "السلة",
