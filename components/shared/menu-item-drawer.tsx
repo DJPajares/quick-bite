@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import {
   Drawer,
@@ -37,8 +38,54 @@ export function MenuItemDrawer({
   onRemove,
 }: MenuItemDrawerProps) {
   const t = useTranslations();
+  const [localQuantity, setLocalQuantity] = useState(cartQuantity);
+  const [isUpdating, setIsUpdating] = useState(false);
+
+  // Sync local quantity with cart quantity when drawer opens
+  useEffect(() => {
+    if (open) {
+      setLocalQuantity(cartQuantity);
+    }
+  }, [open, cartQuantity]);
 
   if (!item) return null;
+
+  const handleLocalAdd = async () => {
+    setLocalQuantity((prev) => prev + 1);
+  };
+
+  const handleLocalUpdate = async (_menuItemId: string, quantity: number) => {
+    setLocalQuantity(quantity);
+  };
+
+  const handleLocalRemove = async () => {
+    setLocalQuantity(0);
+  };
+
+  const handleConfirm = async () => {
+    if (!item) return;
+
+    setIsUpdating(true);
+    try {
+      if (localQuantity === 0 && cartQuantity > 0) {
+        // Remove from cart
+        await onRemove(item._id);
+      } else if (cartQuantity === 0 && localQuantity > 0) {
+        // Add to cart
+        await onAdd(item._id, localQuantity);
+      } else if (localQuantity !== cartQuantity) {
+        // Update quantity
+        await onUpdate(item._id, localQuantity);
+      }
+      onOpenChange(false);
+    } catch (error) {
+      console.error('Error updating cart:', error);
+    } finally {
+      setIsUpdating(false);
+    }
+  };
+
+  const hasChanges = localQuantity !== cartQuantity;
 
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
@@ -133,21 +180,21 @@ export function MenuItemDrawer({
 
               <QuantityControl
                 menuItemId={item._id}
-                initialQuantity={cartQuantity}
-                disabled={!item.available}
-                onAdd={onAdd}
-                onUpdate={onUpdate}
-                onRemove={onRemove}
+                initialQuantity={localQuantity}
+                disabled={!item.available || isUpdating}
+                onAdd={handleLocalAdd}
+                onUpdate={handleLocalUpdate}
+                onRemove={handleLocalRemove}
               />
             </div>
 
-            {cartQuantity > 0 && (
+            {localQuantity > 0 && (
               <div className="flex flex-col items-end">
                 <span className="text-muted-foreground text-xs tracking-wide uppercase">
                   {t('Menu.subTotal')}
                 </span>
                 <p className="text-xl font-bold">
-                  ${(item.price * cartQuantity).toFixed(2)}
+                  ${(item.price * localQuantity).toFixed(2)}
                 </p>
               </div>
             )}
@@ -156,10 +203,16 @@ export function MenuItemDrawer({
           <Button
             size="lg"
             className="mt-4 w-full"
-            onClick={() => onOpenChange(false)}
-            disabled={!item.available && cartQuantity === 0}
+            onClick={handleConfirm}
+            disabled={(!item.available && localQuantity === 0) || isUpdating}
           >
-            {cartQuantity > 0 ? t('Menu.updateCart') : t('Menu.closeDetails')}
+            {isUpdating
+              ? t('Menu.updating')
+              : hasChanges
+                ? localQuantity > 0
+                  ? t('Menu.updateCart')
+                  : t('Menu.removeFromCart')
+                : t('Menu.close')}
           </Button>
         </DrawerFooter>
       </DrawerContent>
