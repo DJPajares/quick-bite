@@ -99,11 +99,9 @@ export function MenuItemDrawer({
           </DrawerHeader>
 
           {/* Description */}
-          {item.description && (
-            <DrawerDescription className="text-left text-base leading-relaxed">
-              {item.description}
-            </DrawerDescription>
-          )}
+          <DrawerDescription className="text-left text-base leading-relaxed">
+            {item.description || t('Menu.noDescription')}
+          </DrawerDescription>
 
           {/* Tags */}
           {item.tags && item.tags.length > 0 && (

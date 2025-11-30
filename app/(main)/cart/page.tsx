@@ -14,16 +14,19 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { MenuItemDrawer } from '@/components/shared/menu-item-drawer';
 
 import {
   getCart,
   getErrorMessage,
   submitOrder,
   removeFromCart,
+  addToCart,
+  updateCart,
 } from '@/lib/api';
 import { getSessionId } from '@/lib/session';
 
-import type { CartData, CartItemDetail } from '@/types/api';
+import type { CartData, CartItemDetail, MenuItem } from '@/types/api';
 
 export default function CartPage() {
   const t = useTranslations();
@@ -34,6 +37,8 @@ export default function CartPage() {
   const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
   const [cartData, setCartData] = useState<CartData | null>(null);
   const [removingIds, setRemovingIds] = useState<Set<string>>(new Set());
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const hasFetched = useRef(false);
 
   useEffect(() => {
@@ -130,6 +135,67 @@ export default function CartPage() {
     }
   };
 
+  const handleItemClick = (cartItem: CartItemDetail) => {
+    // Convert CartItemDetail's menuItem to MenuItem format
+    const menuItem: MenuItem = {
+      _id: cartItem.menuItem._id,
+      name: cartItem.menuItem.name,
+      description: '', // Not available in cart data
+      price: cartItem.menuItem.price,
+      category: cartItem.menuItem.category,
+      image: cartItem.menuItem.image,
+      available: true, // Assume available if in cart
+      tags: [],
+    };
+    setSelectedItem(menuItem);
+    setIsDrawerOpen(true);
+  };
+
+  const handleAddToCart = async (menuItemId: string, quantity: number) => {
+    if (!cartData) return;
+    const sessionId = cartData.sessionId || getSessionId();
+    if (!sessionId) return;
+
+    try {
+      await addToCart({ sessionId, menuItemId, quantity });
+      // Refresh cart data
+      const response = await getCart(sessionId);
+      if (response.success) {
+        setCartData(response.data);
+      }
+    } catch (err) {
+      setSubmitError(getErrorMessage(err));
+    }
+  };
+
+  const handleUpdateCartItem = async (menuItemId: string, quantity: number) => {
+    if (!cartData) return;
+    const sessionId = cartData.sessionId || getSessionId();
+    if (!sessionId) return;
+
+    try {
+      await updateCart({ sessionId, menuItemId, quantity });
+      // Refresh cart data
+      const response = await getCart(sessionId);
+      if (response.success) {
+        setCartData(response.data);
+      }
+    } catch (err) {
+      setSubmitError(getErrorMessage(err));
+    }
+  };
+
+  const handleRemoveFromCart = async (menuItemId: string) => {
+    await handleRemoveItem(menuItemId);
+  };
+
+  const getCartQuantity = (menuItemId: string): number => {
+    const cartItem = cartData?.cart.find(
+      (item) => item.menuItem._id === menuItemId,
+    );
+    return cartItem?.quantity || 0;
+  };
+
   if (isLoading) {
     return (
       <div className="container mx-auto flex flex-col gap-4 p-4 md:p-8">
@@ -191,10 +257,14 @@ export default function CartPage() {
                         height={80}
                         sizes="80px"
                         unoptimized
-                        className="size-20 shrink-0 rounded-md object-cover"
+                        className="size-20 shrink-0 cursor-pointer rounded-md object-cover transition-opacity hover:opacity-80"
+                        onClick={() => handleItemClick(item)}
                       />
                     ) : (
-                      <div className="bg-muted size-20 shrink-0 rounded-md" />
+                      <div
+                        className="bg-muted size-20 shrink-0 cursor-pointer rounded-md transition-opacity hover:opacity-80"
+                        onClick={() => handleItemClick(item)}
+                      />
                     )}
 
                     {/* Item Details */}
@@ -295,6 +365,17 @@ export default function CartPage() {
           </Card>
         </div>
       </div>
+
+      {/* Menu Item Drawer */}
+      <MenuItemDrawer
+        item={selectedItem}
+        open={isDrawerOpen}
+        onOpenChange={setIsDrawerOpen}
+        cartQuantity={selectedItem ? getCartQuantity(selectedItem._id) : 0}
+        onAdd={handleAddToCart}
+        onUpdate={handleUpdateCartItem}
+        onRemove={handleRemoveFromCart}
+      />
     </div>
   );
 }

@@ -28,7 +28,8 @@
     "quantity": "Quantity",
     "subTotal": "SubTotal",
     "updateCart": "Update Card",
-    "closeDetails": "Close Details"
+    "closeDetails": "Close Details",
+    "noDescription": "No description available."
   },
   "Cart": {
     "title": "Cart",
