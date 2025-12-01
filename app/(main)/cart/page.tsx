@@ -244,28 +244,36 @@ export default function CartPage() {
 
   if (isLoading) {
     return (
-      <div className="container mx-auto flex flex-col gap-4 p-4 md:p-8">
-        <h1 className="text-3xl font-bold">{t('Cart.title')}</h1>
-        <p>{t('Cart.messages.loadingCart')}</p>
+      <div className="container mx-auto flex max-w-2xl flex-col gap-6 p-4 md:p-8">
+        <div className="flex flex-col gap-1">
+          <h1 className="text-3xl font-bold">{t('Cart.title')}</h1>
+          <p>{t('Cart.messages.loadingCart')}</p>
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="container mx-auto flex flex-col gap-4 p-4 md:p-8">
-        <h1 className="text-3xl font-bold">{t('Cart.title')}</h1>
-        <p className="text-red-500">{t('Cart.messages.errorLoadingCart')}</p>
-        <p className="text-muted-foreground text-sm">{error}</p>
+      <div className="container mx-auto flex max-w-2xl flex-col gap-6 p-4 md:p-8">
+        <div className="flex flex-col gap-1">
+          <h1 className="text-3xl font-bold">{t('Cart.title')}</h1>
+          <p className="text-red-500">{t('Cart.messages.errorLoadingCart')}</p>
+          <p className="text-muted-foreground text-sm">{error}</p>
+        </div>
       </div>
     );
   }
 
   if (!cartData || cartData.cart.length === 0) {
     return (
-      <div className="container mx-auto flex flex-col gap-4 p-4 md:p-8">
-        <h1 className="text-3xl font-bold">{t('Cart.title')}</h1>
-        <p className="text-muted-foreground">{t('Cart.messages.emptyCart')}</p>
+      <div className="container mx-auto flex max-w-2xl flex-col gap-6 p-4 md:p-8">
+        <div className="flex flex-col gap-1">
+          <h1 className="text-3xl font-bold">{t('Cart.title')}</h1>
+          <p className="text-muted-foreground">
+            {t('Cart.messages.emptyCart')}
+          </p>
+        </div>
       </div>
     );
   }
