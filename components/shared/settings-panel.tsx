@@ -91,6 +91,7 @@ export function SettingsPanel({ currentLocale }: SettingsPanelProps) {
             {mounted ? (
               <ToggleGroup
                 type="single"
+                variant="outline"
                 value={theme}
                 onValueChange={(val) => val && setTheme(val)}
               >
@@ -121,7 +122,6 @@ export function SettingsPanel({ currentLocale }: SettingsPanelProps) {
             )}
           </div>
         </CardContent>
-        <CardFooter />
       </Card>
 
       <Card>
