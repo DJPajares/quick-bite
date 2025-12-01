@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { XIcon } from 'lucide-react';
+
+import { Separator } from '@/components/ui/separator';
 import {
   Drawer,
   DrawerClose,
@@ -15,9 +18,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { QuantityControl } from '@/components/shared/quantity-control';
 import { ConfirmationDialog } from '@/components/shared/confirmation-dialog';
-import { XIcon } from 'lucide-react';
+
+import { formatCurrency } from '@/lib/utils';
+
 import type { MenuItem } from '@/types/api';
-import { Separator } from '@/components/ui/separator';
 
 interface MenuItemDrawerProps {
   item: MenuItem | null;
@@ -163,7 +167,7 @@ export function MenuItemDrawer({
 
               <div className="shrink-0 text-right">
                 <p className="text-primary text-2xl font-bold">
-                  ${item.price.toFixed(2)}
+                  {formatCurrency({ value: item.price })}
                 </p>
               </div>
             </div>
@@ -227,7 +231,7 @@ export function MenuItemDrawer({
                   {t('Menu.subTotal')}
                 </span>
                 <p className="text-xl font-bold">
-                  ${(item.price * localQuantity).toFixed(2)}
+                  {formatCurrency({ value: item.price * localQuantity })}
                 </p>
               </div>
             )}

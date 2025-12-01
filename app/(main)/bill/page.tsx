@@ -10,6 +10,9 @@ import { Separator } from '@/components/ui/separator';
 
 import { getBill, getErrorMessage } from '@/lib/api';
 import { getSessionId } from '@/lib/session';
+import { formatCurrency } from '@/lib/utils';
+
+import type { OrderStatus } from '@/constants/order';
 
 interface BillItem {
   name: string;
@@ -17,8 +20,6 @@ interface BillItem {
   price: number;
   subtotal: number;
 }
-
-import type { OrderStatus } from '@/constants/order';
 
 interface BillOrder {
   orderNumber: string;
@@ -143,7 +144,7 @@ export default function BillPage() {
                           x{item.quantity}
                         </span>
                       </span>
-                      <span>${item.subtotal.toFixed(2)}</span>
+                      <span>{formatCurrency({ value: item.subtotal })}</span>
                     </li>
                   ))}
                 </ul>
@@ -151,17 +152,17 @@ export default function BillPage() {
                 <div className="flex flex-col gap-1">
                   <div className="flex justify-between text-xs">
                     <span>{t('Common.subTotal')}</span>
-                    <span>${order.subtotal.toFixed(2)}</span>
+                    <span>{formatCurrency({ value: order.subtotal })}</span>
                   </div>
 
                   <div className="flex justify-between text-xs">
                     <span>{t('Common.tax')}</span>
-                    <span>${order.tax.toFixed(2)}</span>
+                    <span>{formatCurrency({ value: order.tax })}</span>
                   </div>
 
                   <div className="flex justify-between text-xs">
                     <span>{t('Common.serviceFee')}</span>
-                    <span>${order.serviceFee.toFixed(2)}</span>
+                    <span>{formatCurrency({ value: order.serviceFee })}</span>
                   </div>
                 </div>
               </div>
@@ -170,7 +171,7 @@ export default function BillPage() {
 
               <div className="flex justify-between font-semibold">
                 <span>{t('Common.total')}</span>
-                <span>${order.total.toFixed(2)}</span>
+                <span>{formatCurrency({ value: order.total })}</span>
               </div>
             </Card>
           ))}
@@ -183,7 +184,7 @@ export default function BillPage() {
         <div className="flex flex-col gap-1">
           <div className="flex justify-between">
             <span>{t('Common.subTotal')}</span>
-            <span>${bill.summary.subtotal.toFixed(2)}</span>
+            <span>{formatCurrency({ value: bill.summary.subtotal })}</span>
           </div>
           <div className="flex justify-between">
             <span>
@@ -192,7 +193,7 @@ export default function BillPage() {
                 ({bill.summary.taxRate})
               </span>
             </span>
-            <span>${bill.summary.tax.toFixed(2)}</span>
+            <span>{formatCurrency({ value: bill.summary.tax })}</span>
           </div>
           <div className="flex justify-between">
             <span>
@@ -201,7 +202,7 @@ export default function BillPage() {
                 ({bill.summary.serviceFeeRate})
               </span>
             </span>
-            <span>${bill.summary.serviceFee.toFixed(2)}</span>
+            <span>{formatCurrency({ value: bill.summary.serviceFee })}</span>
           </div>
         </div>
 
@@ -209,7 +210,7 @@ export default function BillPage() {
 
         <div className="flex justify-between text-lg font-bold">
           <span>{t('Common.grandTotal')}</span>
-          <span>${bill.summary.grandTotal.toFixed(2)}</span>
+          <span>{formatCurrency({ value: bill.summary.grandTotal })}</span>
         </div>
       </Card>
     </div>

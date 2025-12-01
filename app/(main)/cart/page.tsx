@@ -26,6 +26,7 @@ import {
   updateCart,
 } from '@/lib/api';
 import { getSessionId } from '@/lib/session';
+import { formatCurrency } from '@/lib/utils';
 
 import type { CartData, CartItemDetail, MenuItem } from '@/types/api';
 
@@ -315,7 +316,8 @@ export default function CartPage() {
                     <div className="flex flex-1 flex-col gap-1">
                       <h3 className="font-semibold">{item.menuItem.name}</h3>
                       <p className="text-muted-foreground text-sm">
-                        ${item.price.toFixed(2)} × {item.quantity}
+                        {formatCurrency({ value: item.price })} ×{' '}
+                        {item.quantity}
                       </p>
                       {item.specialInstructions && (
                         <p className="text-muted-foreground text-sm italic">
@@ -328,7 +330,7 @@ export default function CartPage() {
                     {/* Item Total */}
                     <div className="flex flex-col items-end gap-2">
                       <p className="font-semibold">
-                        ${(item.price * item.quantity).toFixed(2)}
+                        {formatCurrency({ value: item.price * item.quantity })}
                       </p>
                       <Button
                         variant="ghost"
@@ -374,13 +376,13 @@ export default function CartPage() {
                   <span className="text-muted-foreground">
                     {t('Cart.subtotal')}
                   </span>
-                  <span>${cartData.cartTotal.toFixed(2)}</span>
+                  <span>{formatCurrency({ value: cartData.cartTotal })}</span>
                 </div>
                 <Separator />
                 <div className="flex justify-between font-semibold">
                   <span>{t('Cart.total')}</span>
                   <span className="text-lg">
-                    ${cartData.cartTotal.toFixed(2)}
+                    {formatCurrency({ value: cartData.cartTotal })}
                   </span>
                 </div>
               </div>

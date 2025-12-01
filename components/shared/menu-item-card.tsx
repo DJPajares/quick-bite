@@ -1,8 +1,12 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+
 import { Card } from '@/components/ui/card';
 import { QuantityControl } from '@/components/shared/quantity-control';
+
+import { formatCurrency } from '@/lib/utils';
+
 import type { MenuItem } from '@/types/api';
 
 interface MenuItemCardProps {
@@ -52,7 +56,10 @@ export function MenuItemCard({
           </h3>
 
           <div className="flex flex-row items-center justify-between">
-            <p className="text-sm font-bold">${item.price.toFixed(2)}</p>
+            {/* <p className="text-sm font-bold">${item.price.toFixed(2)}</p> */}
+            <p className="text-sm font-bold">
+              {formatCurrency({ value: item.price })}
+            </p>
 
             <div
               className="shrink-0"
