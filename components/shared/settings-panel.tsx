@@ -176,6 +176,23 @@ export function SettingsPanel({ currentLocale }: SettingsPanelProps) {
           <ResetConfirmSubmit t={t} onConfirm={handleReset} pending={pending} />
         </CardContent>
       </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>{t('Settings.admin.title')}</CardTitle>
+          <CardDescription>{t('Settings.admin.description')}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => router.push('/admin/login')}
+            className="w-full sm:w-auto"
+          >
+            {t('Settings.admin.button')}
+          </Button>
+        </CardContent>
+      </Card>
     </div>
   );
 }

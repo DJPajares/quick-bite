@@ -141,6 +141,11 @@
         "confirmText": "Yes, reset"
       }
     },
+    "admin": {
+      "title": "Admin Access",
+      "description": "Access the admin panel to manage orders, menu, and inventory.",
+      "button": "Go to Admin Login"
+    },
     "toast": {
       "languageUpdated": "Language updated",
       "preferencesReset": "Preferences reset"
