@@ -169,7 +169,8 @@
       "submit": "Sign In",
       "loading": "Signing in...",
       "success": "Login successful",
-      "error": "Invalid credentials"
+      "error": "Invalid credentials",
+      "backToMenu": "Back to Menu"
     },
     "dashboard": {
       "title": "Dashboard",
