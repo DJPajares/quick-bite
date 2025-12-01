@@ -69,7 +69,7 @@ export default function AdminInventoryPage() {
   };
 
   const isLowStock = (item: InventoryItem) => {
-    return item.stockLevel <= item.lowStockThreshold;
+    return item.stockLevel <= 5; // to-do: replace with item.lowStockThreshold when available
   };
 
   if (isLoading) {
@@ -116,10 +116,10 @@ export default function AdminInventoryPage() {
               <TableRow>
                 <TableHead>{t('table.item')}</TableHead>
                 <TableHead>{t('table.stock')}</TableHead>
-                <TableHead>{t('table.unit')}</TableHead>
-                <TableHead>{t('table.threshold')}</TableHead>
+                {/* <TableHead>{t('table.unit')}</TableHead>
+                <TableHead>{t('table.threshold')}</TableHead> */}
                 <TableHead>{t('table.status')}</TableHead>
-                <TableHead>{t('table.lastRestocked')}</TableHead>
+                {/* <TableHead>{t('table.lastRestocked')}</TableHead> */}
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -129,12 +129,10 @@ export default function AdminInventoryPage() {
                   className="hover:bg-muted/50 cursor-pointer"
                   onClick={() => handleItemClick(item)}
                 >
-                  <TableCell className="font-medium">
-                    {item.menuItemName}
-                  </TableCell>
+                  <TableCell className="font-medium">{item.name}</TableCell>
                   <TableCell>{item.stockLevel}</TableCell>
-                  <TableCell>{item.unit}</TableCell>
-                  <TableCell>{item.lowStockThreshold}</TableCell>
+                  {/* <TableCell>{item.unit}</TableCell>
+                  <TableCell>{item.lowStockThreshold}</TableCell> */}
                   <TableCell>
                     {isLowStock(item) ? (
                       <Badge
@@ -153,11 +151,11 @@ export default function AdminInventoryPage() {
                       </Badge>
                     )}
                   </TableCell>
-                  <TableCell className="text-muted-foreground text-sm">
+                  {/* <TableCell className="text-muted-foreground text-sm">
                     {item.lastRestocked
                       ? new Date(item.lastRestocked).toLocaleDateString()
                       : t('table.never')}
-                  </TableCell>
+                  </TableCell> */}
                 </TableRow>
               ))}
             </TableBody>

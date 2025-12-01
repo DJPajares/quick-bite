@@ -146,12 +146,11 @@ export interface UpdateOrderStatusResponse {
 
 export interface InventoryItem {
   _id: string;
-  menuItemId: string;
-  menuItemName: string;
+  name: string;
+  category: string;
+  available: boolean;
+  price: number;
   stockLevel: number;
-  unit: string;
-  lowStockThreshold: number;
-  lastRestocked?: string;
   updatedAt: string;
 }
 
