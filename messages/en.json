@@ -1,7 +1,4 @@
 {
-  "Home": {
-    "title": "Hello world!"
-  },
   "Menu": {
     "title": "Menu",
     "description": "Explore our delicious offerings and find your next favorite dish!",
@@ -110,5 +107,42 @@
     },
     "noImage": "No Image",
     "add": "Add"
+  },
+  "Settings": {
+    "title": "Settings",
+    "description": "Manage your preferences including theme, language and defaults.",
+    "appearance": {
+      "title": "Appearance",
+      "description": "Customize how the interface looks.",
+      "themeLabel": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "language": {
+      "title": "Language",
+      "description": "Change the display language.",
+      "selectLabel": "Select language",
+      "save": "Save Language",
+      "confirm": {
+        "title": "Change Language",
+        "description": "Are you sure you want to change the interface language? This will refresh the page.",
+        "confirmText": "Yes, change"
+      }
+    },
+    "reset": {
+      "title": "Reset",
+      "description": "Restore default preferences.",
+      "button": "Reset Settings",
+      "confirm": {
+        "title": "Reset Preferences",
+        "description": "This will restore default language and appearance preferences. Continue?",
+        "confirmText": "Yes, reset"
+      }
+    },
+    "toast": {
+      "languageUpdated": "Language updated",
+      "preferencesReset": "Preferences reset"
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { BottomTabsNavigator } from '@/components/mobile/bottom-tabs-navigator';
 import { TopNavigation } from '@/components/desktop/top-navigation';
 
-export default function HomeLayout({
+export default function MainLayout({
   children,
 }: {
   children: React.ReactNode;

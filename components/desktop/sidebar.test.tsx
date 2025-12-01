@@ -88,10 +88,9 @@ describe('SideNav', () => {
     expect(screen.getByText('QuickBite')).toBeInTheDocument();
   });
 
-  it('renders all navigation items', () => {
+  it('renders all main navigation items', () => {
     render(<SideNav />);
 
-    expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Menu')).toBeInTheDocument();
     expect(screen.getByText('Cart')).toBeInTheDocument();
     expect(screen.getByText('Bill')).toBeInTheDocument();
@@ -103,30 +102,37 @@ describe('SideNav', () => {
     expect(screen.getByText('Settings')).toBeInTheDocument();
   });
 
-  it('highlights the active navigation item based on pathname', () => {
-    (usePathname as jest.Mock).mockReturnValue('/menu');
-
+  it('highlights menu item when on root pathname', () => {
+    (usePathname as jest.Mock).mockReturnValue('/');
     render(<SideNav />);
-
-    const menuButtons = screen.getAllByTestId('sidebar-menu-button');
-    const activeButton = menuButtons.find(
-      (button) => button.getAttribute('data-active') === 'true',
+    const buttons = screen.getAllByTestId('sidebar-menu-button');
+    const activeButton = buttons.find(
+      (b) => b.getAttribute('data-active') === 'true',
     );
-
     expect(activeButton).toBeDefined();
+    expect(screen.getByRole('link', { name: /menu/i })).toBeInTheDocument();
+  });
+
+  it('highlights settings item when on settings pathname', () => {
+    (usePathname as jest.Mock).mockReturnValue('/settings');
+    render(<SideNav />);
+    const buttons = screen.getAllByTestId('sidebar-menu-button');
+    const activeButton = buttons.find(
+      (b) => b.getAttribute('data-active') === 'true',
+    );
+    expect(activeButton).toBeDefined();
+    expect(screen.getByRole('link', { name: /settings/i })).toBeInTheDocument();
   });
 
   it('renders navigation links with correct hrefs', () => {
     render(<SideNav />);
 
-    const homeLink = screen.getByRole('link', { name: /home/i });
     const menuLink = screen.getByRole('link', { name: /menu/i });
     const cartLink = screen.getByRole('link', { name: /cart/i });
     const billLink = screen.getByRole('link', { name: /bill/i });
     const settingsLink = screen.getByRole('link', { name: /settings/i });
 
-    expect(homeLink).toHaveAttribute('href', '/');
-    expect(menuLink).toHaveAttribute('href', '/menu');
+    expect(menuLink).toHaveAttribute('href', '/');
     expect(cartLink).toHaveAttribute('href', '/cart');
     expect(billLink).toHaveAttribute('href', '/bill');
     expect(settingsLink).toHaveAttribute('href', '/settings');

@@ -8,7 +8,14 @@ type ProviderProps = {
 
 export function Providers({ children }: ProviderProps) {
   return (
-    <NextThemesProvider attribute="class" defaultTheme="dark">
+    <NextThemesProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      storageKey="theme"
+      disableTransitionOnChange
+      themes={['light', 'dark']}
+    >
       {children}
     </NextThemesProvider>
   );

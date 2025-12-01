@@ -12,3 +12,8 @@ export async function getUserLocale() {
 export async function setUserLocale(locale: LocaleProps) {
   (await cookies()).set(COOKIE_NAME, locale);
 }
+
+export async function resetLocale() {
+  (await cookies()).delete(COOKIE_NAME);
+  (await cookies()).set(COOKIE_NAME, defaultLocale);
+}

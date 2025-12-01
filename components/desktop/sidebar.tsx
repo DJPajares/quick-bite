@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 import {
   UtensilsCrossedIcon,
   UtensilsIcon,
-  HomeIcon,
   ShoppingCartIcon,
   SettingsIcon,
   ReceiptTextIcon,
@@ -28,8 +27,7 @@ import {
 import { APP_CONSTANTS } from '@/constants/app';
 
 const navigationItems = [
-  { icon: HomeIcon, href: '/', label: 'Navigation.home' },
-  { icon: UtensilsIcon, href: '/menu', label: 'Navigation.menu' },
+  { icon: UtensilsIcon, href: '/', label: 'Navigation.menu' },
   { icon: ShoppingCartIcon, href: '/cart', label: 'Navigation.cart' },
   { icon: ReceiptTextIcon, href: '/bill', label: 'Navigation.bill' },
 ];

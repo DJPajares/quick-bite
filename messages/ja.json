@@ -1,7 +1,4 @@
 {
-  "Home": {
-    "title": "Hello world!"
-  },
   "Menu": {
     "title": "メニュー",
     "description": "美味しい料理を探して、次のお気に入りを見つけましょう！",
@@ -107,5 +104,42 @@
       "cancelled": "キャンセル済み"
     },
     "noImage": "画像なし"
+  },
+  "Settings": {
+    "title": "設定",
+    "description": "テーマと言語、既定設定などの環境設定を管理します。",
+    "appearance": {
+      "title": "外観",
+      "description": "インターフェースの表示をカスタマイズします。",
+      "themeLabel": "テーマ",
+      "light": "ライト",
+      "dark": "ダーク",
+      "system": "システム"
+    },
+    "language": {
+      "title": "言語",
+      "description": "表示言語を変更します。",
+      "selectLabel": "言語を選択",
+      "save": "言語を保存",
+      "confirm": {
+        "title": "言語を変更",
+        "description": "インターフェースの言語を変更してもよろしいですか？ページが再読み込みされます。",
+        "confirmText": "変更する"
+      }
+    },
+    "reset": {
+      "title": "リセット",
+      "description": "既定の設定に戻します。",
+      "button": "設定をリセット",
+      "confirm": {
+        "title": "設定をリセット",
+        "description": "言語と外観設定を既定に戻します。続行しますか？",
+        "confirmText": "リセット"
+      }
+    },
+    "toast": {
+      "languageUpdated": "言語を更新しました",
+      "preferencesReset": "設定をリセットしました"
+    }
   }
 }
