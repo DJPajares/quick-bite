@@ -292,7 +292,10 @@ export default function CartPage() {
               {cartData.cart.map((item: CartItemDetail, index: number) => (
                 <div key={item.menuItem._id}>
                   {index > 0 && <Separator className="my-4" />}
-                  <div className="flex gap-4">
+                  <div
+                    className="flex gap-4"
+                    onClick={() => handleItemClick(item)}
+                  >
                     {/* Item Image */}
                     {item.menuItem.image ? (
                       <Image
@@ -303,13 +306,9 @@ export default function CartPage() {
                         sizes="80px"
                         unoptimized
                         className="size-20 shrink-0 cursor-pointer rounded-md object-cover transition-opacity hover:opacity-80"
-                        onClick={() => handleItemClick(item)}
                       />
                     ) : (
-                      <div
-                        className="bg-muted size-20 shrink-0 cursor-pointer rounded-md transition-opacity hover:opacity-80"
-                        onClick={() => handleItemClick(item)}
-                      />
+                      <div className="bg-muted size-20 shrink-0 cursor-pointer rounded-md transition-opacity hover:opacity-80" />
                     )}
 
                     {/* Item Details */}
@@ -335,7 +334,10 @@ export default function CartPage() {
                         variant="ghost"
                         size="icon"
                         className="text-destructive hover:text-destructive size-8"
-                        onClick={() => handleDeleteClick(item)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDeleteClick(item);
+                        }}
                         disabled={
                           removingIds.has(item.menuItem._id) || isSubmitting
                         }
