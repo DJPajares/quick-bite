@@ -144,5 +144,48 @@
       "languageUpdated": "言語を更新しました",
       "preferencesReset": "設定をリセットしました"
     }
+  },
+  "Admin": {
+    "menu": {
+      "title": "メニュー管理",
+      "description": "メニューアイテムの追加、編集、削除を行います",
+      "loading": "メニューを読み込み中...",
+      "noItems": "メニューアイテムはまだありません",
+      "create": "アイテムを追加",
+      "refresh": "再読み込み",
+      "errorFetching": "メニューの取得に失敗しました",
+      "form": {
+        "createTitle": "メニューアイテムを作成",
+        "createDescription": "新しいアイテムをメニューに追加します",
+        "editTitle": "メニューアイテムを編集",
+        "editDescription": "メニューアイテムの詳細を更新します",
+        "name": "名前",
+        "namePlaceholder": "アイテム名を入力",
+        "description": "説明",
+        "descriptionPlaceholder": "メニューアイテムの説明を入力",
+        "price": "価格",
+        "category": "カテゴリ",
+        "categoryPlaceholder": "例: メインコース",
+        "imageUrl": "画像URL",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "有効な画像URLを入力してください",
+        "available": "提供可",
+        "availableDescription": "現在このアイテムは提供可能ですか？",
+        "create": "アイテムを作成",
+        "save": "変更を保存",
+        "cancel": "キャンセル",
+        "delete": "削除",
+        "saving": "保存中...",
+        "createSuccess": "メニューアイテムを作成しました",
+        "createError": "メニューアイテムの作成に失敗しました",
+        "updateSuccess": "メニューアイテムを更新しました",
+        "updateError": "メニューアイテムの更新に失敗しました",
+        "deleteSuccess": "メニューアイテムを削除しました",
+        "deleteError": "メニューアイテムの削除に失敗しました",
+        "deleteConfirmTitle": "メニューアイテムを削除",
+        "deleteConfirmDescription": "この操作は取り消せません。本当に実行しますか？",
+        "deleteConfirm": "削除"
+      }
+    }
   }
 }

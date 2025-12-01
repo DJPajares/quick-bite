@@ -144,5 +144,48 @@
       "languageUpdated": "تم تحديث اللغة",
       "preferencesReset": "تمت إعادة تعيين الإعدادات"
     }
+  },
+  "Admin": {
+    "menu": {
+      "title": "إدارة القائمة",
+      "description": "أضف أو عدّل أو احذف عناصر القائمة",
+      "loading": "جاري تحميل القائمة...",
+      "noItems": "لا توجد عناصر قائمة بعد",
+      "create": "إضافة عنصر",
+      "refresh": "تحديث",
+      "errorFetching": "فشل في جلب القائمة",
+      "form": {
+        "createTitle": "إنشاء عنصر قائمة",
+        "createDescription": "أضف عنصراً جديداً إلى القائمة",
+        "editTitle": "تعديل عنصر القائمة",
+        "editDescription": "حدّث تفاصيل عنصر القائمة",
+        "name": "الاسم",
+        "namePlaceholder": "أدخل اسم العنصر",
+        "description": "الوصف",
+        "descriptionPlaceholder": "أدخل وصف عنصر القائمة",
+        "price": "السعر",
+        "category": "الفئة",
+        "categoryPlaceholder": "مثال: الأطباق الرئيسية",
+        "imageUrl": "رابط الصورة",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "أدخل رابط صورة صالح",
+        "available": "متاح",
+        "availableDescription": "هل هذا العنصر متاح حالياً؟",
+        "create": "إنشاء العنصر",
+        "save": "حفظ التغييرات",
+        "cancel": "إلغاء",
+        "delete": "حذف",
+        "saving": "جاري الحفظ...",
+        "createSuccess": "تم إنشاء عنصر القائمة",
+        "createError": "فشل إنشاء عنصر القائمة",
+        "updateSuccess": "تم تحديث عنصر القائمة",
+        "updateError": "فشل تحديث عنصر القائمة",
+        "deleteSuccess": "تم حذف عنصر القائمة",
+        "deleteError": "فشل حذف عنصر القائمة",
+        "deleteConfirmTitle": "حذف عنصر القائمة",
+        "deleteConfirmDescription": "لا يمكن التراجع عن هذا الإجراء. هل أنت متأكد؟",
+        "deleteConfirm": "حذف"
+      }
+    }
   }
 }

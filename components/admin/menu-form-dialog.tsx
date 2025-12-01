@@ -19,6 +19,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
   Form,
   FormControl,
   FormDescription,
@@ -32,6 +39,7 @@ import { createMenuItem, updateMenuItem, deleteMenuItem } from '@/lib/api';
 import { toast } from 'sonner';
 import { ConfirmationDialog } from '@/components/shared/confirmation-dialog';
 import { useState } from 'react';
+import { MENU_CATEGORY_OPTIONS } from '@/constants/categories';
 
 const menuItemSchema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -63,6 +71,7 @@ export function MenuFormDialog({
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const t = useTranslations('Admin.menu.form');
+  const tCategories = useTranslations('Menu.categories');
 
   const form = useForm<MenuItemFormValues>({
     resolver: zodResolver(menuItemSchema),
@@ -222,12 +231,33 @@ export function MenuFormDialog({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t('category')}</FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          placeholder={t('categoryPlaceholder')}
-                        />
-                      </FormControl>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger className="w-full">
+                            <SelectValue
+                              placeholder={t('categoryPlaceholder')}
+                            />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {MENU_CATEGORY_OPTIONS.map((opt) => {
+                            let label: string;
+                            try {
+                              label = tCategories(opt.labelKey);
+                            } catch {
+                              label = opt.labelKey.replace(/-/g, ' ');
+                            }
+                            return (
+                              <SelectItem key={opt.value} value={opt.value}>
+                                {label}
+                              </SelectItem>
+                            );
+                          })}
+                        </SelectContent>
+                      </Select>
                       <FormMessage />
                     </FormItem>
                   )}

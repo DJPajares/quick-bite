@@ -79,7 +79,7 @@ export default function AdminMenuPage() {
   }
 
   return (
-    <div className="flex flex-1 flex-col gap-4 p-4 md:p-6">
+    <div className="container mx-auto flex max-w-2xl flex-col gap-6 p-4 md:p-8">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold md:text-3xl">{t('title')}</h1>
@@ -103,7 +103,7 @@ export default function AdminMenuPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="flex flex-col gap-3">
         {menuItems.map((item) => (
           <MenuItemCard
             key={item._id}
