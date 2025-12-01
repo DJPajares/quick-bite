@@ -71,6 +71,7 @@ export function OrderDetailsDrawer({
       onUpdate();
       onOpenChange(false);
     } catch (error) {
+      console.error('Failed to update order status:', error);
       toast.error(t('errorUpdating'));
     } finally {
       setIsUpdating(false);
@@ -79,117 +80,147 @@ export function OrderDetailsDrawer({
 
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
-      <DrawerContent>
-        <div className="mx-auto w-full max-w-2xl">
-          <DrawerHeader>
-            <DrawerTitle>
-              {t('details.title')} #{order.orderNumber}
-            </DrawerTitle>
-            <DrawerDescription>
-              {t('details.table')} {order.tableNumber} •{' '}
-              {format(new Date(order.createdAt), 'PPp')}
-            </DrawerDescription>
-          </DrawerHeader>
-
-          <div className="flex flex-col gap-4 p-4">
-            {/* Current Status */}
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium">{t('details.status')}</span>
+      <DrawerContent className="flex h-[95vh] flex-col">
+        <div className="mx-auto flex min-h-0 w-full max-w-2xl flex-1 flex-col">
+          <DrawerHeader className="flex-shrink-0 border-b">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1">
+                <DrawerTitle className="text-2xl">
+                  {t('details.title')} #{order.orderNumber}
+                </DrawerTitle>
+                <DrawerDescription className="mt-1.5">
+                  {t('details.table')} {order.tableNumber} •{' '}
+                  {format(new Date(order.createdAt), 'PPp')}
+                </DrawerDescription>
+              </div>
               <Badge
                 variant="outline"
-                className={statusColors[order.status] || ''}
+                className={`${statusColors[order.status] || ''} px-3 py-1.5 text-sm font-medium`}
               >
                 {t(`status.${order.status}`)}
               </Badge>
             </div>
+          </DrawerHeader>
 
-            <Separator />
-
-            {/* Items */}
-            <div className="flex flex-col gap-2">
-              <h3 className="font-semibold">{t('details.items')}</h3>
-              {order.items.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-start justify-between gap-2"
-                >
-                  <div className="flex-1">
-                    <p className="font-medium">{item.menuItem.name}</p>
-                    {item.specialInstructions && (
-                      <p className="text-muted-foreground text-sm">
-                        {item.specialInstructions}
-                      </p>
-                    )}
-                  </div>
-                  <div className="text-right">
-                    <p className="text-muted-foreground text-sm">
-                      x{item.quantity}
-                    </p>
-                    <p className="font-medium">${item.price.toFixed(2)}</p>
-                  </div>
+          <div className="min-h-0 flex-1 overflow-y-auto px-4 py-6">
+            <div className="flex flex-col gap-6">
+              {/* Items Section */}
+              <div className="flex flex-col gap-3">
+                <h3 className="flex items-center gap-2 text-lg font-semibold">
+                  {t('details.items')}
+                  <span className="text-muted-foreground text-sm font-normal">
+                    ({order.items.length}{' '}
+                    {order.items.length === 1 ? 'item' : 'items'})
+                  </span>
+                </h3>
+                <div className="flex flex-col gap-3">
+                  {order.items.map((item, index) => (
+                    <div
+                      key={index}
+                      className="bg-card hover:bg-accent/50 flex items-start justify-between gap-4 rounded-lg border p-3 transition-colors"
+                    >
+                      <div className="min-w-0 flex-1">
+                        <p className="text-base leading-tight font-medium">
+                          {item.menuItem.name}
+                        </p>
+                        {item.specialInstructions && (
+                          <p className="text-muted-foreground mt-1.5 text-sm leading-relaxed">
+                            {item.specialInstructions}
+                          </p>
+                        )}
+                      </div>
+                      <div className="flex-shrink-0 text-right">
+                        <p className="text-muted-foreground mb-1 text-sm">
+                          × {item.quantity}
+                        </p>
+                        <p className="text-base font-semibold">
+                          ${item.price.toFixed(2)}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
 
-            <Separator />
-
-            {/* Totals */}
-            <div className="flex flex-col gap-2">
-              <div className="flex justify-between text-sm">
-                <span>{t('details.subtotal')}</span>
-                <span>${order.subtotal.toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span>{t('details.tax')}</span>
-                <span>${order.tax.toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span>{t('details.serviceFee')}</span>
-                <span>${order.serviceFee.toFixed(2)}</span>
-              </div>
               <Separator />
-              <div className="flex justify-between font-semibold">
-                <span>{t('details.total')}</span>
-                <span>${order.total.toFixed(2)}</span>
-              </div>
-            </div>
 
-            {/* Update Status */}
-            {order.status !== ORDER_STATUS.SERVED &&
-              order.status !== ORDER_STATUS.CANCELLED && (
-                <>
-                  <Separator />
-                  <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium">
-                      {t('details.updateStatus')}
-                    </label>
-                    <Select value={newStatus} onValueChange={setNewStatus}>
-                      <SelectTrigger>
-                        <SelectValue placeholder={t('details.selectStatus')} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {Object.values(ORDER_STATUS).map((status) => (
-                          <SelectItem key={status} value={status}>
-                            {t(`status.${status}`)}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </>
-              )}
+              {/* Totals Section */}
+              <div className="bg-muted/50 flex flex-col gap-3 rounded-lg p-4">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">
+                    {t('details.subtotal')}
+                  </span>
+                  <span className="font-medium">
+                    ${order.subtotal.toFixed(2)}
+                  </span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">
+                    {t('details.tax')}
+                  </span>
+                  <span className="font-medium">${order.tax.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">
+                    {t('details.serviceFee')}
+                  </span>
+                  <span className="font-medium">
+                    ${order.serviceFee.toFixed(2)}
+                  </span>
+                </div>
+                <Separator />
+                <div className="flex justify-between text-lg">
+                  <span className="font-semibold">{t('details.total')}</span>
+                  <span className="font-bold">${order.total.toFixed(2)}</span>
+                </div>
+              </div>
+
+              {/* Update Status Section */}
+              {order.status !== ORDER_STATUS.SERVED &&
+                order.status !== ORDER_STATUS.CANCELLED && (
+                  <>
+                    <Separator />
+                    <div className="flex flex-col gap-3 pb-4">
+                      <label className="text-sm font-semibold">
+                        {t('details.updateStatus')}
+                      </label>
+                      <Select value={newStatus} onValueChange={setNewStatus}>
+                        <SelectTrigger className="h-11">
+                          <SelectValue
+                            placeholder={t('details.selectStatus')}
+                          />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {Object.values(ORDER_STATUS).map((status) => (
+                            <SelectItem key={status} value={status}>
+                              {t(`status.${status}`)}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </>
+                )}
+            </div>
           </div>
 
-          <DrawerFooter>
-            <Button
-              onClick={handleStatusUpdate}
-              disabled={isUpdating || !newStatus || newStatus === order.status}
-            >
-              {isUpdating ? t('details.updating') : t('details.updateButton')}
-            </Button>
-            <DrawerClose asChild>
-              <Button variant="outline">{t('details.close')}</Button>
-            </DrawerClose>
+          <DrawerFooter className="bg-background flex-shrink-0 border-t">
+            <div className="flex gap-3">
+              <Button
+                onClick={handleStatusUpdate}
+                disabled={
+                  isUpdating || !newStatus || newStatus === order.status
+                }
+                className="h-11 flex-1"
+              >
+                {isUpdating ? t('details.updating') : t('details.updateButton')}
+              </Button>
+              <DrawerClose asChild>
+                <Button variant="outline" className="h-11 flex-1">
+                  {t('details.close')}
+                </Button>
+              </DrawerClose>
+            </div>
           </DrawerFooter>
         </div>
       </DrawerContent>

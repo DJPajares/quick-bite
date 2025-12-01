@@ -108,6 +108,7 @@ export interface User {
 }
 
 export interface AdminOrder {
+  _id: string;
   orderNumber: string;
   sessionId: string;
   tableNumber: number;
