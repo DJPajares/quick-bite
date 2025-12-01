@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { format } from 'date-fns';
 import { Badge } from '@/components/ui/badge';
@@ -55,9 +55,15 @@ export function OrderDetailsDrawer({
   onOpenChange,
   onUpdate,
 }: OrderDetailsDrawerProps) {
-  const [newStatus, setNewStatus] = useState<string>('');
+  const [newStatus, setNewStatus] = useState<string>(order?.status || '');
   const [isUpdating, setIsUpdating] = useState(false);
   const t = useTranslations('Admin.orders');
+
+  useEffect(() => {
+    if (order) {
+      setNewStatus(order.status);
+    }
+  }, [order]);
 
   if (!order) return null;
 
@@ -82,7 +88,7 @@ export function OrderDetailsDrawer({
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerContent className="flex h-[95vh] flex-col">
         <div className="mx-auto flex min-h-0 w-full max-w-2xl flex-1 flex-col">
-          <DrawerHeader className="flex-shrink-0 border-b">
+          <DrawerHeader className="shrink-0 border-b">
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <DrawerTitle className="text-2xl">
@@ -204,7 +210,7 @@ export function OrderDetailsDrawer({
             </div>
           </div>
 
-          <DrawerFooter className="bg-background flex-shrink-0 border-t">
+          <DrawerFooter className="bg-background shrink-0 border-t">
             <div className="flex gap-3">
               <Button
                 onClick={handleStatusUpdate}
