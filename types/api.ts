@@ -108,7 +108,6 @@ export interface User {
 }
 
 export interface AdminOrder {
-  _id: string;
   orderNumber: string;
   sessionId: string;
   tableNumber: number;
@@ -169,18 +168,29 @@ export interface UpdateInventoryResponse {
 }
 
 export interface DashboardAnalytics {
-  totalOrders: number;
-  totalRevenue: number;
-  averageOrderValue: number;
-  ordersToday: number;
-  revenueToday: number;
+  overview: {
+    totalOrders: number;
+    totalRevenue: number;
+    averageOrderValue: number;
+  };
   popularItems: {
-    menuItemId: string;
+    _id: string;
     name: string;
-    orderCount: number;
     revenue: number;
+    totalOrdered: number;
   }[];
   recentOrders: AdminOrder[];
+  statusBreakdown: {
+    pending: number;
+    confirmed: number;
+    preparing: number;
+    served: number;
+    cancelled: number;
+  };
+  today: {
+    orders: number;
+    revenue: number;
+  };
 }
 
 export interface DashboardAnalyticsResponse {

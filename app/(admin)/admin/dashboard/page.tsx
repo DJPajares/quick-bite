@@ -113,7 +113,7 @@ export default function AdminDashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {formatCurrency({ value: analytics.totalRevenue })}
+              {formatCurrency({ value: analytics.overview.totalRevenue })}
             </div>
           </CardContent>
         </Card>
@@ -126,7 +126,9 @@ export default function AdminDashboardPage() {
             <ShoppingBagIcon className="text-muted-foreground h-4 w-4" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{analytics.totalOrders}</div>
+            <div className="text-2xl font-bold">
+              {analytics.overview.totalOrders}
+            </div>
           </CardContent>
         </Card>
 
@@ -139,7 +141,7 @@ export default function AdminDashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {formatCurrency({ value: analytics.averageOrderValue })}
+              {formatCurrency({ value: analytics.overview.averageOrderValue })}
             </div>
           </CardContent>
         </Card>
@@ -152,9 +154,9 @@ export default function AdminDashboardPage() {
             <ClockIcon className="text-muted-foreground h-4 w-4" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{analytics.ordersToday}</div>
+            <div className="text-2xl font-bold">{analytics.today.orders}</div>
             <p className="text-muted-foreground text-xs">
-              {formatCurrency({ value: analytics.revenueToday })}{' '}
+              {formatCurrency({ value: analytics.today.revenue })}{' '}
               {t('metrics.revenue')}
             </p>
           </CardContent>
@@ -175,7 +177,7 @@ export default function AdminDashboardPage() {
             <div className="flex flex-col gap-4">
               {analytics.popularItems.map((item, index) => (
                 <div
-                  key={item.menuItemId}
+                  key={item._id}
                   className="flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
@@ -185,7 +187,7 @@ export default function AdminDashboardPage() {
                     <div>
                       <p className="font-medium">{item.name}</p>
                       <p className="text-muted-foreground text-sm">
-                        {item.orderCount} {t('popularItems.orders')}
+                        {item.totalOrdered} {t('popularItems.orders')}
                       </p>
                     </div>
                   </div>
@@ -215,7 +217,7 @@ export default function AdminDashboardPage() {
             <div className="flex flex-col gap-3">
               {analytics.recentOrders.map((order) => (
                 <div
-                  key={order._id}
+                  key={order.orderNumber}
                   className="flex items-center justify-between border-b pb-3 last:border-0 last:pb-0"
                 >
                   <div>
