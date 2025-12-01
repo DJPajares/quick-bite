@@ -60,7 +60,9 @@
     "confirmDelete": "إزالة العنصر؟",
     "confirmDeleteDescription": "هل أنت متأكد من إزالة {quantity} {quantity, plural, =1 {عنصر} other {عناصر}} من {itemName} من سلتك؟",
     "cancel": "إلغاء",
-    "delete": "إزالة"
+    "delete": "إزالة",
+    "confirmSubmitOrder": "إرسال الطلب؟",
+    "confirmSubmitOrderDescription": "هل أنت متأكد من إرسال طلبك إلى المطبخ؟"
   },
   "Bill": {
     "title": "فاتورتك",
@@ -103,7 +105,8 @@
       "served": "تم التقديم",
       "cancelled": "ملغي"
     },
-    "noImage": "لا توجد صورة"
+    "noImage": "لا توجد صورة",
+    "add": "إضافة"
   },
   "Settings": {
     "title": "الإعدادات",

@@ -34,6 +34,7 @@ Before responding to any request, follow these steps:
 - Follow DRY (Don't Repeat Yourself) principle
 - Implement early returns for better readability
 - Structure components logically: exports, subcomponents, helpers, types
+- Avoid wildcard ( \* ) imports; always declare explicit imports for each symbol used
 - UI designs must follow modern UI/UX best practices
 - Always establish and maintain clear visual hierarchy in layouts and components
 - Prioritize accessibility and responsiveness

@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { useCallback, useEffect, useState, useTransition } from 'react';
 import { useTheme } from 'next-themes';
 import { languages, defaultLocale } from '@/i18n/config';
 import { useTranslations } from 'next-intl';
@@ -30,42 +30,46 @@ interface SettingsPanelProps {
 
 export function SettingsPanel({ currentLocale }: SettingsPanelProps) {
   const { theme, setTheme } = useTheme();
-  const t = useTranslations('Settings');
-  const [mounted, setMounted] = React.useState(false);
-  const [draftLocale, setDraftLocale] = React.useState(currentLocale);
+  const t = useTranslations();
+
+  const [mounted, setMounted] = useState(false);
+  const [draftLocale, setDraftLocale] = useState(currentLocale);
+
   // Sync draftLocale when server-provided currentLocale changes after refresh
-  React.useEffect(() => {
+  useEffect(() => {
     setDraftLocale(currentLocale);
   }, [currentLocale]);
-  const router = useRouter();
-  const [pending, startTransition] = React.useTransition();
-  React.useEffect(() => setMounted(true), []);
 
-  const handleDraftLocaleChange = React.useCallback((val: string) => {
+  const router = useRouter();
+  const [pending, startTransition] = useTransition();
+
+  useEffect(() => setMounted(true), []);
+
+  const handleDraftLocaleChange = useCallback((val: string) => {
     setDraftLocale(val);
   }, []);
 
-  const commitLocaleChange = React.useCallback(() => {
+  const commitLocaleChange = useCallback(() => {
     if (draftLocale === currentLocale) return;
     startTransition(async () => {
       const { setUserLocale } = await import('@/services/locale');
       if (languages.some((l) => l.value === draftLocale)) {
         await setUserLocale(draftLocale as (typeof languages)[number]['value']);
         const { toast } = await import('sonner');
-        toast.success(t('toast.languageUpdated'));
+        toast.success(t('Settings.toast.languageUpdated'));
         router.refresh();
       }
     });
   }, [draftLocale, currentLocale, router, t]);
 
-  const handleReset = React.useCallback(() => {
+  const handleReset = useCallback(() => {
     startTransition(async () => {
       const { resetLocale } = await import('@/services/locale');
       await resetLocale();
       // Optimistically update dropdown before refresh
       setDraftLocale(defaultLocale);
       const { toast } = await import('sonner');
-      toast.success(t('toast.preferencesReset'));
+      toast.success(t('Settings.toast.preferencesReset'));
       router.refresh();
     });
   }, [router, t]);
@@ -74,13 +78,15 @@ export function SettingsPanel({ currentLocale }: SettingsPanelProps) {
     <div className="flex w-full max-w-3xl flex-col gap-4">
       <Card>
         <CardHeader>
-          <CardTitle>{t('appearance.title')}</CardTitle>
-          <CardDescription>{t('appearance.description')}</CardDescription>
+          <CardTitle>{t('Settings.appearance.title')}</CardTitle>
+          <CardDescription>
+            {t('Settings.appearance.description')}
+          </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <span className="text-sm font-medium">
-              {t('appearance.themeLabel')}
+              {t('Settings.appearance.themeLabel')}
             </span>
             {mounted ? (
               <ToggleGroup
@@ -90,18 +96,21 @@ export function SettingsPanel({ currentLocale }: SettingsPanelProps) {
               >
                 <ToggleGroupItem
                   value="light"
-                  aria-label={t('appearance.light')}
+                  aria-label={t('Settings.appearance.light')}
                 >
-                  {t('appearance.light')}
+                  {t('Settings.appearance.light')}
                 </ToggleGroupItem>
-                <ToggleGroupItem value="dark" aria-label={t('appearance.dark')}>
-                  {t('appearance.dark')}
+                <ToggleGroupItem
+                  value="dark"
+                  aria-label={t('Settings.appearance.dark')}
+                >
+                  {t('Settings.appearance.dark')}
                 </ToggleGroupItem>
                 <ToggleGroupItem
                   value="system"
-                  aria-label={t('appearance.system')}
+                  aria-label={t('Settings.appearance.system')}
                 >
-                  {t('appearance.system')}
+                  {t('Settings.appearance.system')}
                 </ToggleGroupItem>
               </ToggleGroup>
             ) : (
@@ -117,14 +126,16 @@ export function SettingsPanel({ currentLocale }: SettingsPanelProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>{t('language.title')}</CardTitle>
-          <CardDescription>{t('language.description')}</CardDescription>
+          <CardTitle>{t('Settings.language.title')}</CardTitle>
+          <CardDescription>
+            {t('Settings.language.description')}
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <label htmlFor="locale" className="text-sm font-medium">
-                {t('language.selectLabel')}
+                {t('Settings.language.selectLabel')}
               </label>
               <Select
                 value={draftLocale}
@@ -132,7 +143,7 @@ export function SettingsPanel({ currentLocale }: SettingsPanelProps) {
               >
                 <SelectTrigger
                   id="locale"
-                  aria-label={t('language.title')}
+                  aria-label={t('Settings.language.title')}
                   className="w-full"
                 >
                   <SelectValue />
@@ -158,8 +169,8 @@ export function SettingsPanel({ currentLocale }: SettingsPanelProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle>{t('reset.title')}</CardTitle>
-          <CardDescription>{t('reset.description')}</CardDescription>
+          <CardTitle>{t('Settings.reset.title')}</CardTitle>
+          <CardDescription>{t('Settings.reset.description')}</CardDescription>
         </CardHeader>
         <CardContent>
           <ResetConfirmSubmit t={t} onConfirm={handleReset} pending={pending} />
@@ -180,7 +191,7 @@ function LanguageConfirmSubmit({
   disabled: boolean;
   onCommit: () => void;
 }) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   return (
     <div className="flex gap-3">
       <Button
@@ -189,14 +200,16 @@ function LanguageConfirmSubmit({
         onClick={() => setOpen(true)}
         disabled={disabled || pending}
       >
-        {pending ? t('language.save') + '...' : t('language.save')}
+        {pending
+          ? t('Settings.language.save') + '...'
+          : t('Settings.language.save')}
       </Button>
       <ConfirmationDialog
         open={open}
         onOpenChange={setOpen}
-        title={t('language.confirm.title')}
-        description={t('language.confirm.description')}
-        confirmText={t('language.confirm.confirmText')}
+        title={t('Settings.language.confirm.title')}
+        description={t('Settings.language.confirm.description')}
+        confirmText={t('Settings.language.confirm.confirmText')}
         onConfirm={() => {
           onCommit();
           setOpen(false);
@@ -215,18 +228,21 @@ function ResetConfirmSubmit({
   onConfirm: () => void;
   pending: boolean;
 }) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="flex gap-3">
       <Button type="button" variant="destructive" onClick={() => setOpen(true)}>
-        {pending ? t('reset.button') + '...' : t('reset.button')}
+        {pending
+          ? t('Settings.reset.button') + '...'
+          : t('Settings.reset.button')}
       </Button>
       <ConfirmationDialog
         open={open}
         onOpenChange={setOpen}
-        title={t('reset.confirm.title')}
-        description={t('reset.confirm.description')}
-        confirmText={t('reset.confirm.confirmText')}
+        title={t('Settings.reset.confirm.title')}
+        description={t('Settings.reset.confirm.description')}
+        confirmText={t('Settings.reset.confirm.confirmText')}
         variant="destructive"
         onConfirm={() => {
           onConfirm();

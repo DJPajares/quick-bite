@@ -60,7 +60,9 @@
     "confirmDelete": "アイテムを削除しますか？",
     "confirmDeleteDescription": "{itemName}の{quantity}個をカートから削除してもよろしいですか？",
     "cancel": "キャンセル",
-    "delete": "削除"
+    "delete": "削除",
+    "confirmSubmitOrder": "注文を送信しますか？",
+    "confirmSubmitOrderDescription": "注文をキッチンに送信してもよろしいですか？"
   },
   "Bill": {
     "title": "お会計",
@@ -103,7 +105,8 @@
       "served": "提供済み",
       "cancelled": "キャンセル済み"
     },
-    "noImage": "画像なし"
+    "noImage": "画像なし",
+    "add": "追加"
   },
   "Settings": {
     "title": "設定",
