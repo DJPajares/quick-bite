@@ -42,6 +42,7 @@ export default function CartPage() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState<CartItemDetail | null>(null);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
   const hasFetched = useRef(false);
 
   useEffect(() => {
@@ -78,7 +79,11 @@ export default function CartPage() {
     fetchCart();
   }, []);
 
-  const handleSubmitOrder = async () => {
+  const handleSubmitOrderClick = () => {
+    setShowSubmitConfirm(true);
+  };
+
+  const handleConfirmSubmitOrder = async () => {
     if (!cartData) return;
     const sessionId = cartData.sessionId || getSessionId();
     if (!sessionId) return;
@@ -381,7 +386,7 @@ export default function CartPage() {
               <Button
                 className="w-full"
                 size="lg"
-                onClick={handleSubmitOrder}
+                onClick={handleSubmitOrderClick}
                 disabled={cartData.cart.length === 0 || isSubmitting}
               >
                 {isSubmitting ? 'Submitting...' : t('Cart.submitOrder')}
@@ -434,6 +439,20 @@ export default function CartPage() {
         confirmText={t('Cart.delete')}
         onConfirm={handleConfirmDelete}
         variant="destructive"
+      />
+
+      {/* Submit Order Confirmation Dialog */}
+      <ConfirmationDialog
+        open={showSubmitConfirm}
+        onOpenChange={setShowSubmitConfirm}
+        title={t('Cart.confirmSubmitOrder')}
+        description={t('Cart.confirmSubmitOrderDescription', {
+          total: cartData.cartTotal.toFixed(2),
+          itemCount: cartData.cart.length,
+        })}
+        cancelText={t('Cart.cancel')}
+        confirmText={t('Cart.submitOrder')}
+        onConfirm={handleConfirmSubmitOrder}
       />
     </div>
   );

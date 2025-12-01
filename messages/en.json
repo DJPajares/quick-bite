@@ -62,6 +62,8 @@
     },
     "confirmDelete": "Remove Item?",
     "confirmDeleteDescription": "Are you sure you want to remove {quantity} {quantity, plural, =1 {item} other {items}} of {itemName} from your cart?",
+    "confirmSubmitOrder": "Submit Your Order?",
+    "confirmSubmitOrderDescription": "You are about to submit {itemCount, plural, =1 {1 item} other {# items}} with a total of ${total}. Your order will be sent to the kitchen.",
     "cancel": "Cancel",
     "delete": "Remove"
   },
