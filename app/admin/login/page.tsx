@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { UtensilsCrossedIcon, ArrowLeftIcon } from 'lucide-react';
@@ -19,6 +18,7 @@ import {
 } from '@/components/ui/card';
 import { toast } from 'sonner';
 import { APP_CONSTANTS } from '@/constants/app';
+import { loginAdmin } from '@/lib/admin-auth';
 
 export default function AdminLoginPage() {
   const [username, setUsername] = useState('');
@@ -32,22 +32,15 @@ export default function AdminLoginPage() {
     setIsLoading(true);
 
     try {
-      const result = await signIn('credentials', {
-        username,
-        password,
-        redirect: false,
-      });
-
-      if (result?.error) {
-        toast.error(t('login.error'));
-      } else {
-        toast.success(t('login.success'));
-        router.push('/admin/dashboard');
-        router.refresh();
-      }
+      await loginAdmin(username, password);
+      toast.success(t('login.success'));
+      router.push('/admin/dashboard');
+      router.refresh();
     } catch (error) {
       console.error('Login error:', error);
-      toast.error(t('login.error'));
+      const errorMessage =
+        error instanceof Error ? error.message : t('login.error');
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     }

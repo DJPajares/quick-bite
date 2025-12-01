@@ -1,23 +1,15 @@
-import { auth } from '@/lib/auth';
 import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-export default auth((req) => {
-  const isAdminRoute = req.nextUrl.pathname.startsWith('/admin');
-  const isLoginPage = req.nextUrl.pathname === '/admin/login';
-
-  // Allow access to login page without authentication
-  if (isLoginPage) {
-    return NextResponse.next();
-  }
-
-  // Protect admin routes
-  if (isAdminRoute && !req.auth) {
-    const loginUrl = new URL('/admin/login', req.url);
-    return NextResponse.redirect(loginUrl);
-  }
-
+/**
+ * Middleware for Next.js routes
+ * Note: Admin authentication is handled client-side via JWT tokens
+ * The AdminAuthProvider component protects admin routes
+ */
+export function middleware(_req: NextRequest) {
+  // Add any global middleware logic here if needed
   return NextResponse.next();
-});
+}
 
 export const config = {
   matcher: ['/admin/:path*'],

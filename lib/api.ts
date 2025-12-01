@@ -23,21 +23,15 @@ export const apiClient = axios.create({
 // Interceptor to add admin token for admin API requests
 apiClient.interceptors.request.use(async (config) => {
   // Check if this is an admin API request
-  if (config.url?.startsWith('/admin')) {
-    // Get the NextAuth session token from cookies
+  if (
+    config.url?.startsWith('/admin') ||
+    config.url?.startsWith('/auth/admin/me')
+  ) {
+    // Get JWT token from sessionStorage
     if (typeof window !== 'undefined') {
-      // Client-side: get token from next-auth session cookie
-      const cookies = document.cookie.split(';');
-      const sessionToken = cookies
-        .find(
-          (cookie) =>
-            cookie.trim().startsWith('next-auth.session-token=') ||
-            cookie.trim().startsWith('__Secure-next-auth.session-token='),
-        )
-        ?.split('=')[1];
-
-      if (sessionToken) {
-        config.headers.Authorization = `Bearer ${sessionToken}`;
+      const token = sessionStorage.getItem('adminToken');
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
       }
     }
   }

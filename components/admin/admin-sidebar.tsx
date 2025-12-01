@@ -25,7 +25,7 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
-import { signOut } from 'next-auth/react';
+import { logoutAdmin } from '@/lib/admin-auth';
 
 import { APP_CONSTANTS } from '@/constants/app';
 
@@ -49,8 +49,8 @@ export function AdminSidebar() {
   const t = useTranslations();
   const { open } = useSidebar();
 
-  const handleLogout = async () => {
-    await signOut({ callbackUrl: '/admin/login' });
+  const handleLogout = () => {
+    logoutAdmin();
   };
 
   return (
