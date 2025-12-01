@@ -20,6 +20,8 @@ interface ConfirmationDialogProps {
   confirmText?: string;
   onConfirm: () => void | Promise<void>;
   variant?: 'default' | 'destructive';
+  isDestructive?: boolean;
+  isLoading?: boolean;
 }
 
 export function ConfirmationDialog({
@@ -31,7 +33,10 @@ export function ConfirmationDialog({
   confirmText = 'Confirm',
   onConfirm,
   variant = 'default',
+  isDestructive = false,
+  isLoading = false,
 }: ConfirmationDialogProps) {
+  const effectiveVariant = isDestructive ? 'destructive' : variant;
   const handleConfirm = async () => {
     await onConfirm();
     onOpenChange(false);
@@ -45,16 +50,19 @@ export function ConfirmationDialog({
           <AlertDialogDescription>{description}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>{cancelText}</AlertDialogCancel>
+          <AlertDialogCancel disabled={isLoading}>
+            {cancelText}
+          </AlertDialogCancel>
           <AlertDialogAction
             onClick={handleConfirm}
+            disabled={isLoading}
             className={
-              variant === 'destructive'
+              effectiveVariant === 'destructive'
                 ? 'bg-destructive text-destructive-foreground hover:bg-destructive/90'
                 : ''
             }
           >
-            {confirmText}
+            {isLoading ? 'Loading...' : confirmText}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

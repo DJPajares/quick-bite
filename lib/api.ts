@@ -20,6 +20,30 @@ export const apiClient = axios.create({
   },
 });
 
+// Interceptor to add admin token for admin API requests
+apiClient.interceptors.request.use(async (config) => {
+  // Check if this is an admin API request
+  if (config.url?.startsWith('/admin')) {
+    // Get the NextAuth session token from cookies
+    if (typeof window !== 'undefined') {
+      // Client-side: get token from next-auth session cookie
+      const cookies = document.cookie.split(';');
+      const sessionToken = cookies
+        .find(
+          (cookie) =>
+            cookie.trim().startsWith('next-auth.session-token=') ||
+            cookie.trim().startsWith('__Secure-next-auth.session-token='),
+        )
+        ?.split('=')[1];
+
+      if (sessionToken) {
+        config.headers.Authorization = `Bearer ${sessionToken}`;
+      }
+    }
+  }
+  return config;
+});
+
 export const API_ENDPOINTS = {
   menu: '/menu',
   cart: {
@@ -34,7 +58,26 @@ export const API_ENDPOINTS = {
   bills: {
     get: (sessionId: string) => `/bill/${sessionId}`,
   },
-  // Add more endpoints as needed
+  admin: {
+    orders: {
+      list: '/admin/orders',
+      get: (id: string) => `/admin/orders/${id}`,
+      updateStatus: (id: string) => `/admin/orders/${id}/status`,
+    },
+    menu: {
+      list: '/admin/menu',
+      create: '/admin/menu',
+      update: (id: string) => `/admin/menu/${id}`,
+      delete: (id: string) => `/admin/menu/${id}`,
+    },
+    inventory: {
+      list: '/admin/inventory',
+      update: (id: string) => `/admin/inventory/${id}`,
+    },
+    analytics: {
+      dashboard: '/admin/analytics/dashboard',
+    },
+  },
 } as const;
 
 /**
@@ -173,6 +216,165 @@ export async function fetchBill(sessionId: string): Promise<BillResponse> {
     return response.data;
   } catch (error) {
     console.error('Error fetching bill:', error);
+    throw error;
+  }
+}
+
+/**
+ * Admin API functions
+ */
+import type {
+  AdminOrdersResponse,
+  UpdateOrderStatusRequest,
+  UpdateOrderStatusResponse,
+  MenuResponse,
+  CreateMenuItemRequest,
+  UpdateMenuItemRequest,
+  MenuItemResponse,
+  InventoryResponse,
+  UpdateInventoryRequest,
+  UpdateInventoryResponse,
+  DashboardAnalyticsResponse,
+} from '@/types/api';
+
+export function setAuthToken(token: string) {
+  apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+}
+
+export function removeAuthToken() {
+  delete apiClient.defaults.headers.common['Authorization'];
+}
+
+// Orders
+export async function getAdminOrders(params?: {
+  status?: string;
+  startDate?: string;
+  endDate?: string;
+}): Promise<AdminOrdersResponse> {
+  try {
+    const response = await apiClient.get<AdminOrdersResponse>(
+      API_ENDPOINTS.admin.orders.list,
+      { params },
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching admin orders:', error);
+    throw error;
+  }
+}
+
+export async function updateOrderStatus(
+  orderId: string,
+  request: UpdateOrderStatusRequest,
+): Promise<UpdateOrderStatusResponse> {
+  try {
+    const response = await apiClient.patch<UpdateOrderStatusResponse>(
+      API_ENDPOINTS.admin.orders.updateStatus(orderId),
+      request,
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error updating order status:', error);
+    throw error;
+  }
+}
+
+// Menu Management
+export async function getAdminMenu(): Promise<MenuResponse> {
+  try {
+    const response = await apiClient.get<MenuResponse>(
+      API_ENDPOINTS.admin.menu.list,
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching admin menu:', error);
+    throw error;
+  }
+}
+
+export async function createMenuItem(
+  request: CreateMenuItemRequest,
+): Promise<MenuItemResponse> {
+  try {
+    const response = await apiClient.post<MenuItemResponse>(
+      API_ENDPOINTS.admin.menu.create,
+      request,
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error creating menu item:', error);
+    throw error;
+  }
+}
+
+export async function updateMenuItem(
+  itemId: string,
+  request: UpdateMenuItemRequest,
+): Promise<MenuItemResponse> {
+  try {
+    const response = await apiClient.patch<MenuItemResponse>(
+      API_ENDPOINTS.admin.menu.update(itemId),
+      request,
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error updating menu item:', error);
+    throw error;
+  }
+}
+
+export async function deleteMenuItem(
+  itemId: string,
+): Promise<MenuItemResponse> {
+  try {
+    const response = await apiClient.delete<MenuItemResponse>(
+      API_ENDPOINTS.admin.menu.delete(itemId),
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting menu item:', error);
+    throw error;
+  }
+}
+
+// Inventory
+export async function getInventory(): Promise<InventoryResponse> {
+  try {
+    const response = await apiClient.get<InventoryResponse>(
+      API_ENDPOINTS.admin.inventory.list,
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching inventory:', error);
+    throw error;
+  }
+}
+
+export async function updateInventory(
+  itemId: string,
+  request: UpdateInventoryRequest,
+): Promise<UpdateInventoryResponse> {
+  try {
+    const response = await apiClient.patch<UpdateInventoryResponse>(
+      API_ENDPOINTS.admin.inventory.update(itemId),
+      request,
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error updating inventory:', error);
+    throw error;
+  }
+}
+
+// Analytics
+export async function getDashboardAnalytics(): Promise<DashboardAnalyticsResponse> {
+  try {
+    const response = await apiClient.get<DashboardAnalyticsResponse>(
+      API_ENDPOINTS.admin.analytics.dashboard,
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching dashboard analytics:', error);
     throw error;
   }
 }

@@ -106,7 +106,8 @@
       "cancelled": "Cancelled"
     },
     "noImage": "No Image",
-    "add": "Add"
+    "add": "Add",
+    "edit": "Edit"
   },
   "Settings": {
     "title": "Settings",
@@ -143,6 +144,169 @@
     "toast": {
       "languageUpdated": "Language updated",
       "preferencesReset": "Preferences reset"
+    }
+  },
+  "Admin": {
+    "subtitle": "Admin Panel",
+    "nav": {
+      "main": "Main Navigation",
+      "dashboard": "Dashboard",
+      "orders": "Orders",
+      "menu": "Menu",
+      "inventory": "Inventory",
+      "logout": "Logout"
+    },
+    "login": {
+      "title": "Admin Login",
+      "description": "Sign in to access the admin dashboard",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Sign In",
+      "loading": "Signing in...",
+      "success": "Login successful",
+      "error": "Invalid credentials"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Overview of your restaurant operations",
+      "loading": "Loading dashboard...",
+      "noData": "No data available",
+      "refresh": "Refresh",
+      "errorFetching": "Failed to fetch analytics",
+      "metrics": {
+        "totalRevenue": "Total Revenue",
+        "totalOrders": "Total Orders",
+        "averageOrder": "Average Order",
+        "ordersToday": "Orders Today",
+        "revenue": "revenue"
+      },
+      "popularItems": {
+        "title": "Popular Items",
+        "noData": "No popular items yet",
+        "orders": "orders"
+      },
+      "recentOrders": {
+        "title": "Recent Orders",
+        "noData": "No recent orders",
+        "table": "Table",
+        "items": "items"
+      }
+    },
+    "orders": {
+      "title": "Orders",
+      "description": "Manage and track all customer orders",
+      "loading": "Loading orders...",
+      "noOrders": "No orders yet",
+      "refresh": "Refresh",
+      "errorFetching": "Failed to fetch orders",
+      "statusUpdated": "Order status updated",
+      "errorUpdating": "Failed to update order status",
+      "table": {
+        "orderNumber": "Order #",
+        "table": "Table",
+        "items": "Items",
+        "total": "Total",
+        "status": "Status",
+        "time": "Time"
+      },
+      "status": {
+        "pending": "Pending",
+        "confirmed": "Confirmed",
+        "preparing": "Preparing",
+        "ready": "Ready",
+        "served": "Served",
+        "cancelled": "Cancelled"
+      },
+      "details": {
+        "title": "Order Details",
+        "table": "Table",
+        "status": "Current Status",
+        "items": "Items",
+        "subtotal": "Subtotal",
+        "tax": "Tax",
+        "serviceFee": "Service Fee",
+        "total": "Total",
+        "updateStatus": "Update Status",
+        "selectStatus": "Select new status",
+        "updateButton": "Update Status",
+        "updating": "Updating...",
+        "close": "Close"
+      }
+    },
+    "menu": {
+      "title": "Menu Management",
+      "description": "Add, edit, or remove menu items",
+      "loading": "Loading menu...",
+      "noItems": "No menu items yet",
+      "create": "Add Item",
+      "refresh": "Refresh",
+      "errorFetching": "Failed to fetch menu",
+      "form": {
+        "createTitle": "Create Menu Item",
+        "createDescription": "Add a new item to the menu",
+        "editTitle": "Edit Menu Item",
+        "editDescription": "Update menu item details",
+        "name": "Name",
+        "namePlaceholder": "Enter item name",
+        "description": "Description",
+        "descriptionPlaceholder": "Describe the menu item",
+        "price": "Price",
+        "category": "Category",
+        "categoryPlaceholder": "e.g., Main Course",
+        "imageUrl": "Image URL",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "Enter a valid image URL",
+        "available": "Available",
+        "availableDescription": "Is this item currently available?",
+        "create": "Create Item",
+        "save": "Save Changes",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "saving": "Saving...",
+        "createSuccess": "Menu item created",
+        "createError": "Failed to create menu item",
+        "updateSuccess": "Menu item updated",
+        "updateError": "Failed to update menu item",
+        "deleteSuccess": "Menu item deleted",
+        "deleteError": "Failed to delete menu item",
+        "deleteConfirmTitle": "Delete Menu Item",
+        "deleteConfirmDescription": "This action cannot be undone. Are you sure?",
+        "deleteConfirm": "Delete"
+      }
+    },
+    "inventory": {
+      "title": "Inventory",
+      "description": "Track and manage stock levels",
+      "loading": "Loading inventory...",
+      "noItems": "No inventory items yet",
+      "refresh": "Refresh",
+      "errorFetching": "Failed to fetch inventory",
+      "table": {
+        "item": "Item",
+        "stock": "Stock",
+        "unit": "Unit",
+        "threshold": "Threshold",
+        "status": "Status",
+        "lastRestocked": "Last Restocked",
+        "never": "Never"
+      },
+      "status": {
+        "low": "Low Stock",
+        "good": "In Stock"
+      },
+      "form": {
+        "title": "Update Inventory",
+        "description": "Update stock level for {item}",
+        "currentStock": "Current Stock",
+        "threshold": "Low Stock Threshold",
+        "newStock": "New Stock Level",
+        "stockDescription": "Enter new stock level in {unit}",
+        "update": "Update Stock",
+        "updating": "Updating...",
+        "cancel": "Cancel",
+        "updateSuccess": "Inventory updated",
+        "updateError": "Failed to update inventory"
+      }
     }
   }
 }

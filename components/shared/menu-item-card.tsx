@@ -11,20 +11,24 @@ import type { MenuItem } from '@/types/api';
 
 interface MenuItemCardProps {
   item: MenuItem;
-  cartQuantity: number;
-  onAdd: (menuItemId: string, quantity: number) => Promise<void>;
-  onUpdate: (menuItemId: string, quantity: number) => Promise<void>;
-  onRemove: (menuItemId: string) => Promise<void>;
+  cartQuantity?: number;
+  onAdd?: (menuItemId: string, quantity: number) => Promise<void>;
+  onUpdate?: (menuItemId: string, quantity: number) => Promise<void>;
+  onRemove?: (menuItemId: string) => Promise<void>;
   onClick?: () => void;
+  adminMode?: boolean;
+  onEdit?: () => void;
 }
 
 export function MenuItemCard({
   item,
-  cartQuantity,
+  cartQuantity = 0,
   onAdd,
   onUpdate,
   onRemove,
   onClick,
+  adminMode = false,
+  onEdit,
 }: MenuItemCardProps) {
   const t = useTranslations();
 
@@ -61,23 +65,35 @@ export function MenuItemCard({
               {formatCurrency({ value: item.price })}
             </p>
 
-            <div
-              className="shrink-0"
-              onClick={(e) => e.stopPropagation()}
-              onMouseDown={(e) => e.stopPropagation()}
-              onTouchStart={(e) => e.stopPropagation()}
-              onPointerDown={(e) => e.stopPropagation()}
-              onKeyDown={(e) => e.stopPropagation()}
-            >
-              <QuantityControl
-                menuItemId={item._id}
-                initialQuantity={cartQuantity}
-                disabled={!item.available}
-                onAdd={onAdd}
-                onUpdate={onUpdate}
-                onRemove={onRemove}
-              />
-            </div>
+            {adminMode ? (
+              <button
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded px-3 py-1 text-sm"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onEdit?.();
+                }}
+              >
+                {t('Common.edit')}
+              </button>
+            ) : (
+              <div
+                className="shrink-0"
+                onClick={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
+                onTouchStart={(e) => e.stopPropagation()}
+                onPointerDown={(e) => e.stopPropagation()}
+                onKeyDown={(e) => e.stopPropagation()}
+              >
+                <QuantityControl
+                  menuItemId={item._id}
+                  initialQuantity={cartQuantity}
+                  disabled={!item.available}
+                  onAdd={onAdd!}
+                  onUpdate={onUpdate!}
+                  onRemove={onRemove!}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
