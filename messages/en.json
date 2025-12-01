@@ -108,6 +108,7 @@
       "served": "Served",
       "cancelled": "Cancelled"
     },
-    "noImage": "No Image"
+    "noImage": "No Image",
+    "add": "Add"
   }
 }

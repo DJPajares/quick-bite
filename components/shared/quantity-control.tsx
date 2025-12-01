@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { MinusIcon, PlusIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useTranslations } from 'next-intl';
 
 interface QuantityControlProps {
   menuItemId: string;
@@ -24,12 +25,16 @@ export function QuantityControl({
   onUpdate,
   onRemove,
 }: QuantityControlProps) {
+  const t = useTranslations();
+
   const [quantity, setQuantity] = useState(initialQuantity);
+  const [inputValue, setInputValue] = useState(initialQuantity.toString());
   const [isLoading, setIsLoading] = useState(false);
 
   // Sync internal state when parent-provided initialQuantity changes
   useEffect(() => {
     setQuantity(initialQuantity);
+    setInputValue(initialQuantity.toString());
   }, [initialQuantity]);
 
   const handleQuantityChange = async (newQuantity: number) => {
@@ -65,34 +70,45 @@ export function QuantityControl({
   };
 
   const handleIncrement = () => {
-    handleQuantityChange(quantity + 1);
+    const newQuantity = quantity + 1;
+    setInputValue(newQuantity.toString());
+    handleQuantityChange(newQuantity);
   };
 
   const handleDecrement = () => {
     if (quantity > 0) {
-      handleQuantityChange(quantity - 1);
+      const newQuantity = quantity - 1;
+      setInputValue(newQuantity.toString());
+      handleQuantityChange(newQuantity);
     }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
-    // Allow empty input for editing
-    if (value === '') {
-      return;
-    }
-
-    const numValue = parseInt(value, 10);
-    if (!isNaN(numValue) && numValue >= 0) {
-      handleQuantityChange(numValue);
+    // Allow empty input or valid numbers for editing
+    if (value === '' || /^\d*$/.test(value)) {
+      setInputValue(value);
     }
   };
 
   const handleInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     const value = e.target.value;
+
     // Reset to 0 if input is empty on blur
     if (value === '') {
+      setInputValue('0');
       handleQuantityChange(0);
+      return;
+    }
+
+    const numValue = parseInt(value, 10);
+    if (!isNaN(numValue) && numValue >= 0) {
+      setInputValue(numValue.toString());
+      handleQuantityChange(numValue);
+    } else {
+      // Revert to current quantity if invalid
+      setInputValue(quantity.toString());
     }
   };
 
@@ -105,7 +121,7 @@ export function QuantityControl({
         className="w-full"
       >
         <PlusIcon className="mr-1 size-4" />
-        Add
+        {t('Common.add')}
       </Button>
     );
   }
@@ -124,13 +140,13 @@ export function QuantityControl({
       </Button>
 
       <Input
-        type="number"
-        value={quantity}
+        type="text"
+        inputMode="numeric"
+        value={inputValue}
         onChange={handleInputChange}
         onBlur={handleInputBlur}
         disabled={disabled || isLoading}
-        className="h-8 w-12 [appearance:textfield] text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
-        min="0"
+        className="h-8 w-12 text-center"
         aria-label="Quantity"
       />
 
