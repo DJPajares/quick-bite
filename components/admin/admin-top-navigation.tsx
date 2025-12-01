@@ -1,65 +1,39 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useEffect, useRef, useState } from 'react';
 import { SidebarTrigger } from '@/components/ui/sidebar';
-import { Separator } from '@/components/ui/separator';
-import {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
-  BreadcrumbPage,
-} from '@/components/ui/breadcrumb';
-import { usePathname } from 'next/navigation';
 
 export function AdminTopNavigation() {
-  const pathname = usePathname();
-  const t = useTranslations('Admin.nav');
+  const [isVisible, setIsVisible] = useState(true);
 
-  const getBreadcrumbs = () => {
-    const segments = pathname.split('/').filter(Boolean);
+  const lastScrollRef = useRef(0);
 
-    if (segments.length === 1) return null; // Just '/admin'
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset;
 
-    const breadcrumbs = segments.slice(1).map((segment, index) => {
-      const href = '/' + segments.slice(0, index + 2).join('/');
-      const isLast = index === segments.length - 2;
+      if (currentScroll <= 0) {
+        setIsVisible(true); // Show navbar at the top of the page
+      } else if (currentScroll > lastScrollRef.current) {
+        setIsVisible(false); // Hide navbar on scroll down
+      } else {
+        setIsVisible(true); // Show navbar on scroll up
+      }
 
-      return {
-        label: t(segment),
-        href,
-        isLast,
-      };
-    });
+      lastScrollRef.current = currentScroll;
+    };
 
-    return breadcrumbs;
-  };
-
-  const breadcrumbs = getBreadcrumbs();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="bg-background sticky top-0 z-10 flex h-16 shrink-0 items-center gap-2 border-b px-4">
+    <header
+      className={`nav bg-background/85 sticky top-0 z-50 flex h-12 items-center justify-between p-3 backdrop-blur-sm transition-transform duration-300 sm:h-14 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <SidebarTrigger className="-ml-1" />
-      <Separator orientation="vertical" className="mr-2 h-4" />
-      {breadcrumbs && (
-        <Breadcrumb>
-          <BreadcrumbList>
-            {breadcrumbs.map((breadcrumb, index) => (
-              <BreadcrumbItem key={breadcrumb.href}>
-                {index > 0 && <BreadcrumbSeparator />}
-                {breadcrumb.isLast ? (
-                  <BreadcrumbPage>{breadcrumb.label}</BreadcrumbPage>
-                ) : (
-                  <BreadcrumbLink href={breadcrumb.href}>
-                    {breadcrumb.label}
-                  </BreadcrumbLink>
-                )}
-              </BreadcrumbItem>
-            ))}
-          </BreadcrumbList>
-        </Breadcrumb>
-      )}
     </header>
   );
 }
