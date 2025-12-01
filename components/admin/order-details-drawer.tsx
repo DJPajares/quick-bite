@@ -135,7 +135,7 @@ export function OrderDetailsDrawer({
                           </p>
                         )}
                       </div>
-                      <div className="flex-shrink-0 text-right">
+                      <div className="shrink-0 text-right">
                         <p className="text-muted-foreground mb-1 text-sm">
                           × {item.quantity}
                         </p>
