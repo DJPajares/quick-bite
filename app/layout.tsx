@@ -3,6 +3,7 @@ import { getLocale, getMessages } from 'next-intl/server';
 
 import { montserrat } from '@/lib/fonts';
 import { Providers } from '@/providers/providers';
+import { Toaster } from '@/components/ui/sonner';
 import { APP_CONSTANTS } from '@/constants/app';
 import './globals.css';
 
@@ -24,6 +25,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${montserrat.variable} antialiased`}>
+        <Toaster />
         <Providers>
           <NextIntlClientProvider messages={messages}>
             {children}
