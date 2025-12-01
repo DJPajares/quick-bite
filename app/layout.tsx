@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 
-import { raleway } from '@/lib/fonts';
+import { montserrat } from '@/lib/fonts';
 import { Providers } from '@/providers/providers';
 import { APP_CONSTANTS } from '@/constants/app';
 import './globals.css';
@@ -23,7 +23,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${raleway.variable} antialiased`}>
+      <body className={`${montserrat.variable} antialiased`}>
         <Providers>
           <NextIntlClientProvider messages={messages}>
             {children}
