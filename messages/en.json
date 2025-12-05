@@ -107,7 +107,10 @@
     },
     "noImage": "No Image",
     "add": "Add",
-    "edit": "Edit"
+    "edit": "Edit",
+    "item": "Item",
+    "items": "Items",
+    "orderCancelled": "Order Cancelled"
   },
   "Settings": {
     "title": "Settings",
@@ -209,7 +212,7 @@
       "errorUpdating": "Failed to update order status",
       "table": {
         "orderNumber": "Order #",
-        "table": "Table",
+        "tableNumber": "Table {number}",
         "items": "Items",
         "total": "Total",
         "status": "Status",

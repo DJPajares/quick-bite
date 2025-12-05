@@ -5,11 +5,14 @@ import { useTranslations } from 'next-intl';
 import { RefreshCwIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { OrdersTable } from '@/components/admin/orders-table';
-import { OrderDetailsDrawer } from '@/components/admin/order-details-drawer';
-import { getAdminOrders } from '@/lib/api';
-import { AdminOrder } from '@/types/api';
+import { Card } from '@/components/ui/card';
 import { toast } from 'sonner';
+import { OrdersCard } from '@/components/admin/orders-card';
+import { OrderDetailsDrawer } from '@/components/admin/order-details-drawer';
+
+import { getAdminOrders } from '@/lib/api';
+
+import { AdminOrder } from '@/types/api';
 
 const POLLING_INTERVAL = 30000; // 30 seconds
 
@@ -79,6 +82,16 @@ export default function AdminOrdersPage() {
     );
   }
 
+  if (orders.length === 0) {
+    return (
+      <Card className="p-8">
+        <div className="text-muted-foreground text-center">
+          <p>{t('noOrders')}</p>
+        </div>
+      </Card>
+    );
+  }
+
   return (
     <div className="flex flex-1 flex-col gap-4 p-4 md:p-6">
       <div className="flex items-center justify-between">
@@ -99,7 +112,16 @@ export default function AdminOrdersPage() {
         </Button>
       </div>
 
-      <OrdersTable orders={orders} onOrderClick={handleOrderClick} />
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {orders.map((order) => (
+          <OrdersCard
+            key={order._id}
+            order={order}
+            onOrderClick={handleOrderClick}
+            onUpdate={handleOrderUpdate}
+          />
+        ))}
+      </div>
 
       <OrderDetailsDrawer
         order={selectedOrder}
