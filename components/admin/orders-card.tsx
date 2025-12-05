@@ -12,10 +12,10 @@ import {
   CardHeader,
 } from '@/components/ui/card';
 
-import { ORDER_STATUS_COLORS } from '@/constants/order';
+import { OrderStatusProgression } from './order-status-progression';
+import { ORDER_STATUS, ORDER_STATUS_COLORS } from '@/constants/order';
 
 import { AdminOrder } from '@/types/api';
-import { OrderStatusProgression } from './order-status-progression';
 
 interface OrdersTableProps {
   order: AdminOrder;
@@ -94,13 +94,15 @@ export function OrdersCard({
           <span className="text-xl font-bold">${order.total.toFixed(2)}</span>
         </div>
 
-        <div onClick={(e) => e.stopPropagation()}>
-          <OrderStatusProgression
-            orderId={order._id}
-            currentStatus={order.status}
-            onUpdate={onUpdate}
-          />
-        </div>
+        {order.status !== ORDER_STATUS.SERVED && (
+          <div onClick={(e) => e.stopPropagation()} className="w-full">
+            <OrderStatusProgression
+              orderId={order._id}
+              currentStatus={order.status}
+              onUpdate={onUpdate}
+            />
+          </div>
+        )}
       </CardFooter>
     </Card>
   );

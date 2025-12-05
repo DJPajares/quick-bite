@@ -8,7 +8,7 @@ import {
   ORDER_STEPS_CONFIG,
   type OrderStatusProps,
 } from '@/constants/order';
-import { ChevronRightIcon, XCircleIcon } from 'lucide-react';
+import { ChevronRightIcon, XIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -103,13 +103,25 @@ export function OrderStatusProgression({
   return (
     <>
       <div className="flex gap-2">
+        {/* Cancel Button */}
+        {canCancel && (
+          <Button
+            onClick={() => setShowCancelDialog(true)}
+            disabled={updating}
+            variant="destructive"
+            size="icon-lg"
+            className="cursor-pointer"
+          >
+            <XIcon className="size-4" />
+          </Button>
+        )}
         {/* Progress Button */}
         {canProgress && (
           <Button
             onClick={handleProgressStatus}
             disabled={updating}
-            className={`flex-1 ${ORDER_STATUS_COLORS[getNextStatus()!] || ''}`}
-            size="sm"
+            className={`flex-1 cursor-pointer ${ORDER_STATUS_COLORS[getNextStatus()!] || ''}`}
+            size="lg"
           >
             {updating ? (
               <>
@@ -122,19 +134,6 @@ export function OrderStatusProgression({
                 <ChevronRightIcon className="ml-2 size-4" />
               </>
             )}
-          </Button>
-        )}
-
-        {/* Cancel Button */}
-        {canCancel && (
-          <Button
-            onClick={() => setShowCancelDialog(true)}
-            disabled={updating}
-            variant="destructive"
-            size="sm"
-            className="px-3"
-          >
-            <XCircleIcon className="size-4" />
           </Button>
         )}
       </div>

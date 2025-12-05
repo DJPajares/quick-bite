@@ -246,6 +246,11 @@ export function OrderDetailsDrawer({
 
             <DrawerFooter className="bg-background shrink-0 border-t">
               <div className="flex gap-3">
+                <DrawerClose asChild>
+                  <Button variant="outline" className="h-11 flex-1">
+                    {t('details.close')}
+                  </Button>
+                </DrawerClose>
                 <Button
                   onClick={handleStatusUpdateClick}
                   disabled={
@@ -257,11 +262,6 @@ export function OrderDetailsDrawer({
                     ? t('details.updating')
                     : t('details.updateButton')}
                 </Button>
-                <DrawerClose asChild>
-                  <Button variant="outline" className="h-11 flex-1">
-                    {t('details.close')}
-                  </Button>
-                </DrawerClose>
               </div>
             </DrawerFooter>
           </div>
