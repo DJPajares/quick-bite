@@ -77,7 +77,9 @@ export function OrderStatusProgression({
     setLocalUpdating(true);
     try {
       await updateOrderStatus(orderId, { status: ORDER_STATUS.CANCELLED });
-      toast.success(t('Admin.orders.statusUpdated'));
+      toast.success(
+        t('Admin.orders.statusUpdated', { status: ORDER_STATUS.CANCELLED }),
+      );
       onUpdate();
     } catch (error) {
       console.error('Failed to cancel order:', error);

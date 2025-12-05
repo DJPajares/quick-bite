@@ -36,17 +36,18 @@ export const ORDER_STEPS_CONFIG: OrderStepsProps[] = [
   { key: ORDER_STATUS.SERVED, Icon: UtensilsIcon },
 ];
 
+// Modern color palette with improved UX: semantic meaning, better contrast, and reduced saturation for professionalism
 export const ORDER_STATUS_COLORS: Record<OrderStatusProps, string> = {
   [ORDER_STATUS.PENDING]:
-    'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 border-yellow-300 dark:border-yellow-700',
+    'bg-amber-50 text-amber-900 dark:bg-amber-950 dark:text-amber-100 border-amber-200 dark:border-amber-800',
   [ORDER_STATUS.CONFIRMED]:
-    'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 border-blue-300 dark:border-blue-700',
+    'bg-sky-50 text-sky-900 dark:bg-sky-950 dark:text-sky-100 border-sky-200 dark:border-sky-800',
   [ORDER_STATUS.PREPARING]:
-    'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 border-purple-300 dark:border-purple-700',
+    'bg-violet-50 text-violet-900 dark:bg-violet-950 dark:text-violet-100 border-violet-200 dark:border-violet-800',
   [ORDER_STATUS.READY]:
-    'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 border-green-300 dark:border-green-700',
+    'bg-emerald-50 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-100 border-emerald-200 dark:border-emerald-800',
   [ORDER_STATUS.SERVED]:
-    'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 border-gray-300 dark:border-gray-700',
+    'bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 border-neutral-200 dark:border-neutral-800',
   [ORDER_STATUS.CANCELLED]:
-    'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 border-red-300 dark:border-red-700',
+    'bg-rose-50 text-rose-900 dark:bg-rose-950 dark:text-rose-100 border-rose-200 dark:border-rose-800',
 };
