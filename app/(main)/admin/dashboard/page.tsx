@@ -15,6 +15,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getDashboardAnalytics } from '@/lib/api';
 import { DashboardAnalytics } from '@/types/api';
 import { toast } from 'sonner';
+
+import { formatDistanceToNow } from 'date-fns';
 import { formatCurrency } from '@/lib/utils';
 
 const POLLING_INTERVAL = 60000; // 60 seconds
@@ -232,7 +234,9 @@ export default function AdminDashboardPage() {
                       {formatCurrency({ value: order.total })}
                     </p>
                     <p className="text-muted-foreground text-sm">
-                      {new Date(order.createdAt).toLocaleTimeString()}
+                      {formatDistanceToNow(new Date(order.createdAt), {
+                        addSuffix: true,
+                      })}
                     </p>
                   </div>
                 </div>
