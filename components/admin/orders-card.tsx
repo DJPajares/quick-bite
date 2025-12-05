@@ -1,35 +1,21 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { formatDistanceToNow } from 'date-fns';
 import { ClockIcon, UtensilsCrossedIcon } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { toast } from 'sonner';
 
-import {
-  ORDER_STATUS,
-  ORDER_STATUS_COLORS,
-  OrderStatusProps,
-} from '@/constants/order';
-import { updateOrderStatus } from '@/lib/api';
+import { ORDER_STATUS_COLORS } from '@/constants/order';
 
 import { AdminOrder } from '@/types/api';
+import { OrderStatusProgression } from './order-status-progression';
 
 interface OrdersTableProps {
   order: AdminOrder;
@@ -37,38 +23,12 @@ interface OrdersTableProps {
   onUpdate: () => void;
 }
 
-const statusOrder = Object.values(ORDER_STATUS);
-
 export function OrdersCard({
   order,
   onOrderClick,
   onUpdate,
 }: OrdersTableProps) {
   const t = useTranslations();
-
-  // const [newStatus, setNewStatus] = useState<string>(order?.status || '');
-  const [isUpdating, setIsUpdating] = useState(false);
-
-  const handleStatusChange = async (
-    e: React.MouseEvent,
-    orderId: string,
-    newStatus: OrderStatusProps,
-  ) => {
-    e.stopPropagation();
-
-    setIsUpdating(true);
-
-    try {
-      await updateOrderStatus(orderId, { status: newStatus });
-      toast.success(t('Admin.orders.statusUpdated'));
-      onUpdate();
-    } catch (error) {
-      console.error('Failed to update order status:', error);
-      toast.error(t('Admin.orders.errorUpdating'));
-    } finally {
-      setIsUpdating(false);
-    }
-  };
 
   return (
     <Card
@@ -113,22 +73,6 @@ export function OrdersCard({
             </span>
           </div>
           <div className="space-y-1 text-sm">
-            {/* {order.items.slice(0, 3).map((item, idx) => (
-                  <div key={idx} className="flex justify-between gap-2">
-                    <span className="flex-1 truncate">
-                      {item.quantity}x {item.menuItem.name}
-                    </span>
-                    <span className="font-medium">
-                      ${item.price.toFixed(2)}
-                    </span>
-                  </div>
-                ))}
-                {order.items.length > 3 && (
-                  <div className="text-muted-foreground text-xs">
-                    +{order.items.length - 3} more item
-                    {order.items.length - 3 === 1 ? '' : 's'}
-                  </div>
-                )} */}
             {order.items.map((item, idx) => (
               <div key={idx} className="flex justify-between gap-2">
                 <span className="flex-1 truncate">
@@ -150,39 +94,13 @@ export function OrdersCard({
           <span className="text-xl font-bold">${order.total.toFixed(2)}</span>
         </div>
 
-        {order.status !== ORDER_STATUS.CANCELLED && (
-          <Select
-            value={order.status}
-            disabled={isUpdating}
-            onValueChange={(value: OrderStatusProps) =>
-              handleStatusChange(
-                new MouseEvent('click') as unknown as React.MouseEvent,
-                order._id,
-                value,
-              )
-            }
-          >
-            <SelectTrigger
-              className="w-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent onClick={(e) => e.stopPropagation()}>
-              {statusOrder.map((status) => (
-                <SelectItem key={status} value={status}>
-                  {t(`Admin.orders.status.${status}`)}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        )}
-
-        {order.status === ORDER_STATUS.CANCELLED && (
-          <Button variant="outline" className="w-full" disabled>
-            {t('Common.orderCancelled')}
-          </Button>
-        )}
+        <div onClick={(e) => e.stopPropagation()}>
+          <OrderStatusProgression
+            orderId={order._id}
+            currentStatus={order.status}
+            onUpdate={onUpdate}
+          />
+        </div>
       </CardFooter>
     </Card>
   );

@@ -62,7 +62,7 @@ export function OrderDetailsDrawer({
     setIsUpdating(true);
     try {
       await updateOrderStatus(order._id, { status: newStatus });
-      toast.success(t('statusUpdated'));
+      toast.success(t('statusUpdated', { status: newStatus }));
       onUpdate();
       onOpenChange(false);
     } catch (error) {
@@ -170,37 +170,31 @@ export function OrderDetailsDrawer({
                 </div>
               </div>
 
+              <Separator />
+
               {/* Update Status Section */}
-              {order.status !== ORDER_STATUS.SERVED &&
-                order.status !== ORDER_STATUS.CANCELLED && (
-                  <>
-                    <Separator />
-                    <div className="flex flex-col gap-3 pb-4">
-                      <label className="text-sm font-semibold">
-                        {t('details.updateStatus')}
-                      </label>
-                      <Select
-                        value={newStatus}
-                        onValueChange={(value) =>
-                          setNewStatus(value as OrderStatusProps)
-                        }
-                      >
-                        <SelectTrigger className="h-11">
-                          <SelectValue
-                            placeholder={t('details.selectStatus')}
-                          />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {Object.values(ORDER_STATUS).map((status) => (
-                            <SelectItem key={status} value={status}>
-                              {t(`status.${status}`)}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </>
-                )}
+              <div className="flex flex-col gap-3 pb-4">
+                <label className="text-sm font-semibold">
+                  {t('details.updateStatus')}
+                </label>
+                <Select
+                  value={newStatus}
+                  onValueChange={(value) =>
+                    setNewStatus(value as OrderStatusProps)
+                  }
+                >
+                  <SelectTrigger className="h-11">
+                    <SelectValue placeholder={t('details.selectStatus')} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.values(ORDER_STATUS).map((status) => (
+                      <SelectItem key={status} value={status}>
+                        {t(`status.${status}`)}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
           </div>
 

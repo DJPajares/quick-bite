@@ -110,7 +110,14 @@
     "edit": "Edit",
     "item": "Item",
     "items": "Items",
-    "orderCancelled": "Order Cancelled"
+    "ok": "OK",
+    "cancel": "Cancel",
+    "updating": "Updating...",
+    "orderCancellation": {
+      "title": "Cancel Order",
+      "description": "Are you sure you want to cancel this order? This action cannot be undone.",
+      "orderCancelled": "Order has been cancelled."
+    }
   },
   "Settings": {
     "title": "Settings",
@@ -208,7 +215,7 @@
       "noOrders": "No orders yet",
       "refresh": "Refresh",
       "errorFetching": "Failed to fetch orders",
-      "statusUpdated": "Order status updated",
+      "statusUpdated": "Order status updated to {status}",
       "errorUpdating": "Failed to update order status",
       "table": {
         "orderNumber": "Order #",
@@ -240,7 +247,8 @@
         "updateButton": "Update Status",
         "updating": "Updating...",
         "close": "Close"
-      }
+      },
+      "confirmCancel": "Confirm Cancellation?"
     },
     "menu": {
       "title": "Menu Management",
