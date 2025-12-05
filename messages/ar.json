@@ -106,7 +106,18 @@
       "cancelled": "ملغي"
     },
     "noImage": "لا توجد صورة",
-    "add": "إضافة"
+    "add": "إضافة",
+    "edit": "تعديل",
+    "item": "عنصر",
+    "items": "عناصر",
+    "ok": "موافق",
+    "cancel": "إلغاء",
+    "updating": "جاري التحديث...",
+    "orderCancellation": {
+      "title": "إلغاء الطلب",
+      "description": "هل أنت متأكد من رغبتك في إلغاء هذا الطلب؟ لا يمكن التراجع عن هذا الإجراء.",
+      "orderCancelled": "تم إلغاء الطلب."
+    }
   },
   "Settings": {
     "title": "الإعدادات",
@@ -140,12 +151,63 @@
         "confirmText": "نعم، إعادة"
       }
     },
+    "admin": {
+      "title": "الوصول إلى الإدارة",
+      "description": "الوصول إلى لوحة تحكم الإدارة لإدارة الطلبات والقائمة والمخزون.",
+      "button": "الذهاب إلى تسجيل دخول الإدارة"
+    },
     "toast": {
       "languageUpdated": "تم تحديث اللغة",
       "preferencesReset": "تمت إعادة تعيين الإعدادات"
     }
   },
   "Admin": {
+    "subtitle": "لوحة تحكم الإدارة",
+    "nav": {
+      "main": "التنقل الرئيسي",
+      "dashboard": "لوحة التحكم",
+      "orders": "الطلبات",
+      "menu": "القائمة",
+      "inventory": "المخزون",
+      "logout": "تسجيل الخروج"
+    },
+    "login": {
+      "title": "تسجيل دخول الإدارة",
+      "description": "قم بتسجيل الدخول للوصول إلى لوحة تحكم الإدارة",
+      "username": "اسم المستخدم",
+      "password": "كلمة المرور",
+      "submit": "تسجيل الدخول",
+      "loading": "جاري تسجيل الدخول...",
+      "success": "تم تسجيل الدخول بنجاح",
+      "error": "بيانات اعتماد غير صالحة",
+      "backToMenu": "العودة إلى القائمة"
+    },
+    "dashboard": {
+      "title": "لوحة التحكم",
+      "description": "نظرة عامة على عمليات مطعمك",
+      "loading": "جاري تحميل لوحة التحكم...",
+      "noData": "لا توجد بيانات متاحة",
+      "refresh": "تحديث",
+      "errorFetching": "فشل في جلب التحليلات",
+      "metrics": {
+        "totalRevenue": "إجمالي الإيرادات",
+        "totalOrders": "إجمالي الطلبات",
+        "averageOrder": "متوسط الطلب",
+        "ordersToday": "الطلبات اليوم",
+        "revenue": "الإيرادات"
+      },
+      "popularItems": {
+        "title": "العناصر الشهيرة",
+        "noData": "لا توجد عناصر شهيرة حتى الآن",
+        "orders": "طلبات"
+      },
+      "recentOrders": {
+        "title": "الطلبات الأخيرة",
+        "noData": "لا توجد طلبات أخيرة",
+        "table": "الطاولة",
+        "items": "عناصر"
+      }
+    },
     "orders": {
       "title": "الطلبات",
       "description": "إدارة وتتبع جميع طلبات العملاء",
@@ -154,12 +216,50 @@
       "noFilteredOrders": "لا توجد طلبات تطابق الفلتر المحدد",
       "refresh": "تحديث",
       "errorFetching": "فشل في جلب الطلبات",
+      "statusUpdated": "تم تحديث حالة الطلب إلى {status}",
+      "errorUpdating": "فشل في تحديث حالة الطلب",
       "filters": {
         "active": "نشطة",
         "served": "تم التقديم",
         "cancelled": "ملغية",
         "all": "الكل"
-      }
+      },
+      "table": {
+        "orderNumber": "رقم الطلب #",
+        "tableNumber": "الطاولة {number}",
+        "items": "عناصر",
+        "total": "الإجمالي",
+        "status": "الحالة",
+        "time": "الوقت"
+      },
+      "status": {
+        "pending": "قيد الانتظار",
+        "confirmed": "مؤكد",
+        "preparing": "قيد التحضير",
+        "ready": "جاهز",
+        "served": "تم التقديم",
+        "cancelled": "ملغي"
+      },
+      "details": {
+        "title": "تفاصيل الطلب",
+        "table": "الطاولة",
+        "status": "الحالة الحالية",
+        "items": "العناصر",
+        "subtotal": "المجموع الفرعي",
+        "tax": "الضريبة",
+        "serviceFee": "رسوم الخدمة",
+        "total": "الإجمالي",
+        "updateStatus": "تحديث الحالة",
+        "selectStatus": "اختر الحالة الجديدة",
+        "updateButton": "تحديث الحالة",
+        "updating": "جاري التحديث...",
+        "close": "إغلاق",
+        "confirmStatusUpdate": "تأكيد تحديث الحالة",
+        "confirmStatusUpdateDescription": "هل أنت متأكد من رغبتك في تحديث هذا الطلب من {currentStatus} إلى {newStatus}؟",
+        "cancel": "إلغاء",
+        "confirm": "تأكيد"
+      },
+      "confirmCancel": "تأكيد الإلغاء؟"
     },
     "menu": {
       "title": "إدارة القائمة",
@@ -200,6 +300,40 @@
         "deleteConfirmTitle": "حذف عنصر القائمة",
         "deleteConfirmDescription": "لا يمكن التراجع عن هذا الإجراء. هل أنت متأكد؟",
         "deleteConfirm": "حذف"
+      }
+    },
+    "inventory": {
+      "title": "المخزون",
+      "description": "تتبع وإدارة مستويات المخزون",
+      "loading": "جاري تحميل المخزون...",
+      "noItems": "لا توجد عناصر مخزون بعد",
+      "refresh": "تحديث",
+      "errorFetching": "فشل في جلب المخزون",
+      "table": {
+        "item": "العنصر",
+        "stock": "المخزون",
+        "unit": "الوحدة",
+        "threshold": "الحد الأدنى",
+        "status": "الحالة",
+        "lastRestocked": "آخر تخزين",
+        "never": "أبداً"
+      },
+      "status": {
+        "low": "مخزون منخفض",
+        "good": "متاح"
+      },
+      "form": {
+        "title": "تحديث المخزون",
+        "description": "تحديث مستوى المخزون لـ {item}",
+        "currentStock": "المخزون الحالي",
+        "threshold": "حد مخزون منخفض",
+        "newStock": "مستوى المخزون الجديد",
+        "stockDescription": "أدخل مستوى المخزون الجديد بـ {unit}",
+        "update": "تحديث المخزون",
+        "updating": "جاري التحديث...",
+        "cancel": "إلغاء",
+        "updateSuccess": "تم تحديث المخزون",
+        "updateError": "فشل في تحديث المخزون"
       }
     }
   }

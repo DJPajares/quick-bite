@@ -106,7 +106,18 @@
       "cancelled": "キャンセル済み"
     },
     "noImage": "画像なし",
-    "add": "追加"
+    "add": "追加",
+    "edit": "編集",
+    "item": "アイテム",
+    "items": "アイテム",
+    "ok": "OK",
+    "cancel": "キャンセル",
+    "updating": "更新中...",
+    "orderCancellation": {
+      "title": "注文をキャンセル",
+      "description": "この注文をキャンセルしてもよろしいですか？この操作は取り消せません。",
+      "orderCancelled": "注文がキャンセルされました。"
+    }
   },
   "Settings": {
     "title": "設定",
@@ -140,26 +151,115 @@
         "confirmText": "リセット"
       }
     },
+    "admin": {
+      "title": "管理者アクセス",
+      "description": "管理者パネルにアクセスして、注文、メニュー、在庫を管理します。",
+      "button": "管理者ログインに移動"
+    },
     "toast": {
       "languageUpdated": "言語を更新しました",
       "preferencesReset": "設定をリセットしました"
     }
   },
   "Admin": {
+    "subtitle": "管理者パネル",
+    "nav": {
+      "main": "メイン ナビゲーション",
+      "dashboard": "ダッシュボード",
+      "orders": "注文",
+      "menu": "メニュー",
+      "inventory": "在庫",
+      "logout": "ログアウト"
+    },
+    "login": {
+      "title": "管理者ログイン",
+      "description": "管理者ダッシュボードにアクセスするためにサインイン",
+      "username": "ユーザー名",
+      "password": "パスワード",
+      "submit": "サインイン",
+      "loading": "サインイン中...",
+      "success": "ログインに成功しました",
+      "error": "無効な認証情報です",
+      "backToMenu": "メニューに戻る"
+    },
+    "dashboard": {
+      "title": "ダッシュボード",
+      "description": "レストラン運営の概要",
+      "loading": "ダッシュボードを読み込み中...",
+      "noData": "利用可能なデータがありません",
+      "refresh": "更新",
+      "errorFetching": "分析の取得に失敗しました",
+      "metrics": {
+        "totalRevenue": "合計収益",
+        "totalOrders": "合計注文数",
+        "averageOrder": "平均注文額",
+        "ordersToday": "今日の注文",
+        "revenue": "収益"
+      },
+      "popularItems": {
+        "title": "人気アイテム",
+        "noData": "人気アイテムはまだありません",
+        "orders": "注文"
+      },
+      "recentOrders": {
+        "title": "最近の注文",
+        "noData": "最近の注文がありません",
+        "table": "テーブル",
+        "items": "アイテム"
+      }
+    },
     "orders": {
       "title": "注文",
       "description": "すべての顧客注文を管理・追跡します",
       "loading": "注文を読み込み中...",
       "noOrders": "注文はまだありません",
       "noFilteredOrders": "選択したフィルターに一致する注文がありません",
-      "refresh": "再読み込み",
+      "refresh": "更新",
       "errorFetching": "注文の取得に失敗しました",
+      "statusUpdated": "注文ステータスが{status}に更新されました",
+      "errorUpdating": "注文ステータスの更新に失敗しました",
       "filters": {
         "active": "アクティブ",
         "served": "提供済み",
         "cancelled": "キャンセル済み",
         "all": "すべて"
-      }
+      },
+      "table": {
+        "orderNumber": "注文番号 #",
+        "tableNumber": "テーブル {number}",
+        "items": "アイテム",
+        "total": "合計",
+        "status": "ステータス",
+        "time": "時間"
+      },
+      "status": {
+        "pending": "保留中",
+        "confirmed": "確認済み",
+        "preparing": "調理中",
+        "ready": "準備完了",
+        "served": "提供済み",
+        "cancelled": "キャンセル済み"
+      },
+      "details": {
+        "title": "注文詳細",
+        "table": "テーブル",
+        "status": "現在のステータス",
+        "items": "アイテム",
+        "subtotal": "小計",
+        "tax": "税金",
+        "serviceFee": "サービス料",
+        "total": "合計",
+        "updateStatus": "ステータスを更新",
+        "selectStatus": "新しいステータスを選択",
+        "updateButton": "ステータスを更新",
+        "updating": "更新中...",
+        "close": "閉じる",
+        "confirmStatusUpdate": "ステータス更新を確認",
+        "confirmStatusUpdateDescription": "この注文を{currentStatus}から{newStatus}に更新しますか？",
+        "cancel": "キャンセル",
+        "confirm": "確認"
+      },
+      "confirmCancel": "キャンセルを確認しますか？"
     },
     "menu": {
       "title": "メニュー管理",
@@ -167,7 +267,7 @@
       "loading": "メニューを読み込み中...",
       "noItems": "メニューアイテムはまだありません",
       "create": "アイテムを追加",
-      "refresh": "再読み込み",
+      "refresh": "更新",
       "errorFetching": "メニューの取得に失敗しました",
       "form": {
         "createTitle": "メニューアイテムを作成",
@@ -200,6 +300,40 @@
         "deleteConfirmTitle": "メニューアイテムを削除",
         "deleteConfirmDescription": "この操作は取り消せません。本当に実行しますか？",
         "deleteConfirm": "削除"
+      }
+    },
+    "inventory": {
+      "title": "在庫",
+      "description": "在庫レベルを追跡・管理します",
+      "loading": "在庫を読み込み中...",
+      "noItems": "在庫アイテムはまだありません",
+      "refresh": "更新",
+      "errorFetching": "在庫の取得に失敗しました",
+      "table": {
+        "item": "アイテム",
+        "stock": "在庫",
+        "unit": "単位",
+        "threshold": "閾値",
+        "status": "ステータス",
+        "lastRestocked": "最後の補充日",
+        "never": "なし"
+      },
+      "status": {
+        "low": "在庫不足",
+        "good": "在庫あり"
+      },
+      "form": {
+        "title": "在庫を更新",
+        "description": "{item}の在庫レベルを更新",
+        "currentStock": "現在の在庫",
+        "threshold": "低在庫警告値",
+        "newStock": "新しい在庫レベル",
+        "stockDescription": "{unit}単位で新しい在庫レベルを入力",
+        "update": "在庫を更新",
+        "updating": "更新中...",
+        "cancel": "キャンセル",
+        "updateSuccess": "在庫を更新しました",
+        "updateError": "在庫の更新に失敗しました"
       }
     }
   }
