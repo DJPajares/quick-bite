@@ -91,7 +91,7 @@ export function InventoryFormDialog({
         <DialogHeader>
           <DialogTitle>{t('title')}</DialogTitle>
           <DialogDescription>
-            {t('description', { item: item.menuItemName })}
+            {t('description', { item: item.name })}
           </DialogDescription>
         </DialogHeader>
 
@@ -104,16 +104,14 @@ export function InventoryFormDialog({
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <p className="text-muted-foreground">{t('currentStock')}</p>
-                  <p className="text-lg font-semibold">
-                    {item.stockLevel} {item.unit}
-                  </p>
+                  <p className="text-lg font-semibold">{item.stockLevel}</p>
                 </div>
-                <div>
+                {/* <div>
                   <p className="text-muted-foreground">{t('threshold')}</p>
                   <p className="text-lg font-semibold">
                     {item.lowStockThreshold} {item.unit}
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -134,7 +132,7 @@ export function InventoryFormDialog({
                     />
                   </FormControl>
                   <FormDescription>
-                    {t('stockDescription', { unit: item.unit })}
+                    {t('stockDescription', { unit: 'pcs' })}
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
