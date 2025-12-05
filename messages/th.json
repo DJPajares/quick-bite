@@ -1,0 +1,340 @@
+{
+  "Menu": {
+    "title": "เมนู",
+    "description": "สำรวจอาหารอร่อยของเรา และค้นหาอาหารใหม่ที่คุณชอบ",
+    "categories": {
+      "appetizers": "อาหารว่าง",
+      "beverages": "เครื่องดื่ม",
+      "desserts": "ของหวาน",
+      "main-course": "อาหารจานหลัก",
+      "sides": "อาหารข้างเคียง",
+      "all": "ทั้งหมด"
+    },
+    "messages": {
+      "searchPlaceholder": "ค้นหาเมนู...",
+      "searchAriaLabel": "ค้นหารายการเมนู",
+      "noSearchResults": "ไม่พบรายการเมนู",
+      "loadingMenu": "กำลังโหลดเมนู...",
+      "noMenuItems": "ไม่มีรายการเมนูที่ใช้ได้",
+      "errorLoadingMenu": "เกิดข้อผิดพลาดในการโหลดเมนู โปรดลองอีกครั้งในภายหลัง",
+      "clearSearch": "ล้างการค้นหา"
+    },
+    "available": "ว่าง",
+    "unavailable": "ไม่ว่าง",
+    "tags": "แท็ก",
+    "quantity": "จำนวน",
+    "subTotal": "รวมเป็นอย่างไร",
+    "updateCart": "อัปเดตตะกร้า",
+    "closeDetails": "ปิดรายละเอียด",
+    "noDescription": "ไม่มีคำอธิบายที่ใช้ได้",
+    "updating": "กำลังอัปเดต...",
+    "removeFromCart": "นำออกจากตะกร้า",
+    "close": "ปิด",
+    "confirmRemove": "นำออกจากตะกร้า?",
+    "confirmAdd": "เพิ่มไปยังตะกร้า?",
+    "confirmUpdate": "อัปเดตตะกร้า?",
+    "confirmRemoveDescription": "คุณแน่ใจหรือว่าต้องการนำ {itemName} ออกจากตะกร้า?",
+    "confirmAddDescription": "เพิ่ม {quantity} {quantity, plural, =1 {รายการ} other {รายการ}} ของ {itemName} ไปยังตะกร้า?",
+    "confirmUpdateDescription": "อัปเดตจำนวน {itemName} จาก {oldQuantity} เป็น {newQuantity}?",
+    "cancel": "ยกเลิก",
+    "confirm": "ยืนยัน"
+  },
+  "Cart": {
+    "title": "ตะกร้า",
+    "items": "รายการในตะกร้า",
+    "itemCount": "{count, plural, =0 {ไม่มีรายการ} =1 {1 รายการ} other {# รายการ}}",
+    "specialInstructions": "คำแนะนำพิเศษ",
+    "orderSummary": "สรุปการสั่งซื้อ",
+    "subtotal": "รวมเป็นอย่างไร",
+    "total": "รวมทั้งสิ้น",
+    "submitOrder": "ยืนยันคำสั่ง",
+    "messages": {
+      "loadingCart": "กำลังโหลดตะกร้า...",
+      "errorLoadingCart": "เกิดข้อผิดพลาดในการโหลดตะกร้า โปรดลองอีกครั้งในภายหลัง",
+      "emptyCart": "ตะกร้าของคุณว่างเปล่า เพิ่มรายการจากเมนู!",
+      "submitOrderInfo": "คำสั่งของคุณจะถูกส่งไปยังครัว"
+    },
+    "ariaLabel": {
+      "removeItem": "นำ {itemName} ออกจากตะกร้า"
+    },
+    "confirmDelete": "นำรายการออก?",
+    "confirmDeleteDescription": "คุณแน่ใจหรือว่าต้องการนำ {quantity} {quantity, plural, =1 {รายการ} other {รายการ}} ของ {itemName} ออก?",
+    "confirmSubmitOrder": "ยืนยันคำสั่ง?",
+    "confirmSubmitOrderDescription": "คุณกำลังจะส่ง {itemCount, plural, =1 {1 รายการ} other {# รายการ}} โดยมีรวมทั้งสิ้น ${total} คำสั่งของคุณจะถูกส่งไปยังครัว",
+    "cancel": "ยกเลิก",
+    "delete": "นำออก"
+  },
+  "Bill": {
+    "title": "บิลของคุณ",
+    "orderDetails": "รายละเอียดคำสั่ง",
+    "orderNumber": "คำสั่ง #{number}"
+  },
+  "Navigation": {
+    "home": "หน้าแรก",
+    "menu": "เมนู",
+    "search": "ค้นหา",
+    "cart": "ตะกร้า",
+    "bill": "บิล",
+    "settings": "การตั้งค่า",
+    "myAccount": "บัญชีของฉัน",
+    "logout": "ออกจากระบบ"
+  },
+  "Button": {
+    "continue": "ดำเนินการต่อ"
+  },
+  "MenuDropdown": {
+    "editProfile": "แก้ไขโปรไฟล์",
+    "language": "ภาษา",
+    "currency": "สกุลเงิน",
+    "darkMode": "โหมดมืด",
+    "logout": "ออกจากระบบ"
+  },
+  "Common": {
+    "tableNumber": "โต๊ะ #{number}",
+    "subTotal": "รวมเป็นอย่างไร",
+    "total": "รวมทั้งสิ้น",
+    "grandTotal": "รวมทั้งสิ้น",
+    "tax": "ภาษี",
+    "serviceFee": "ค่าบริการ",
+    "summary": "สรุป",
+    "order": {
+      "pending": "รออยู่",
+      "confirmed": "ยืนยันแล้ว",
+      "preparing": "กำลังเตรียม",
+      "ready": "พร้อม",
+      "served": "เสิร์ฟแล้ว",
+      "cancelled": "ยกเลิกแล้ว"
+    },
+    "noImage": "ไม่มีรูปภาพ",
+    "add": "เพิ่ม",
+    "edit": "แก้ไข",
+    "item": "รายการ",
+    "items": "รายการ",
+    "ok": "ตกลง",
+    "cancel": "ยกเลิก",
+    "updating": "กำลังอัปเดต...",
+    "orderCancellation": {
+      "title": "ยกเลิกคำสั่ง",
+      "description": "คุณแน่ใจหรือว่าต้องการยกเลิกคำสั่งนี้? ไม่สามารถเลิกทำการดำเนินการนี้ได้",
+      "orderCancelled": "คำสั่งถูกยกเลิก"
+    }
+  },
+  "Settings": {
+    "title": "การตั้งค่า",
+    "description": "จัดการการตั้งค่าของคุณ รวมถึงธีม ภาษา และการตั้งค่าเริ่มต้น",
+    "appearance": {
+      "title": "ลักษณะที่ปรากฏ",
+      "description": "ปรับแต่งลักษณะของอินเตอร์เฟซ",
+      "themeLabel": "ธีม",
+      "light": "สว่าง",
+      "dark": "มืด",
+      "system": "ระบบ"
+    },
+    "language": {
+      "title": "ภาษา",
+      "description": "เปลี่ยนภาษาการแสดง",
+      "selectLabel": "เลือกภาษา",
+      "save": "บันทึกภาษา",
+      "confirm": {
+        "title": "เปลี่ยนภาษา",
+        "description": "คุณแน่ใจหรือว่าต้องการเปลี่ยนภาษาของอินเตอร์เฟซ? หน้าจะถูกโหลดใหม่",
+        "confirmText": "ใช่ เปลี่ยน"
+      }
+    },
+    "reset": {
+      "title": "รีเซ็ต",
+      "description": "คืนค่าการตั้งค่าเริ่มต้น",
+      "button": "รีเซ็ตการตั้งค่า",
+      "confirm": {
+        "title": "รีเซ็ตการตั้งค่า",
+        "description": "นี้จะคืนค่าการตั้งค่าภาษาและลักษณะที่ปรากฏเริ่มต้น ดำเนินการต่อ?",
+        "confirmText": "ใช่ รีเซ็ต"
+      }
+    },
+    "admin": {
+      "title": "การเข้าถึงผู้ดูแลระบบ",
+      "description": "เข้าถึงแผงควบคุมผู้ดูแลเพื่อจัดการคำสั่ง เมนู และสินค้าคงคลัง",
+      "button": "ไปยังการเข้าสู่ระบบผู้ดูแลระบบ"
+    },
+    "toast": {
+      "languageUpdated": "ภาษาได้รับการอัปเดต",
+      "preferencesReset": "การตั้งค่าได้รับการรีเซ็ต"
+    }
+  },
+  "Admin": {
+    "subtitle": "แผงควบคุมผู้ดูแลระบบ",
+    "nav": {
+      "main": "การนำทางหลัก",
+      "dashboard": "แผงควบคุม",
+      "orders": "คำสั่ง",
+      "menu": "เมนู",
+      "inventory": "สินค้าคงคลัง",
+      "logout": "ออกจากระบบ"
+    },
+    "login": {
+      "title": "การเข้าสู่ระบบผู้ดูแลระบบ",
+      "description": "เข้าสู่ระบบเพื่อเข้าถึงแผงควบคุมผู้ดูแลระบบ",
+      "username": "ชื่อผู้ใช้",
+      "password": "รหัสผ่าน",
+      "submit": "เข้าสู่ระบบ",
+      "loading": "กำลังเข้าสู่ระบบ...",
+      "success": "เข้าสู่ระบบสำเร็จ",
+      "error": "ข้อมูลประจำตัวไม่ถูกต้อง",
+      "backToMenu": "กลับไปยังเมนู"
+    },
+    "dashboard": {
+      "title": "แผงควบคุม",
+      "description": "ภาพรวมของการดำเนินงานของร้านอาหาร",
+      "loading": "กำลังโหลดแผงควบคุม...",
+      "noData": "ไม่มีข้อมูล",
+      "refresh": "รีเฟรช",
+      "errorFetching": "เกิดข้อผิดพลาดในการดึงข้อมูลวิเคราะห์",
+      "metrics": {
+        "totalRevenue": "รายได้รวมทั้งสิ้น",
+        "totalOrders": "คำสั่งรวมทั้งสิ้น",
+        "averageOrder": "คำสั่งเฉลี่ย",
+        "ordersToday": "คำสั่งในวันนี้",
+        "revenue": "รายได้"
+      },
+      "popularItems": {
+        "title": "รายการยอดนิยม",
+        "noData": "ยังไม่มีรายการยอดนิยม",
+        "orders": "คำสั่ง"
+      },
+      "recentOrders": {
+        "title": "คำสั่งล่าสุด",
+        "noData": "ไม่มีคำสั่งล่าสุด",
+        "table": "โต๊ะ",
+        "items": "รายการ"
+      }
+    },
+    "orders": {
+      "title": "คำสั่ง",
+      "description": "จัดการและติดตามคำสั่งลูกค้าทั้งหมด",
+      "loading": "กำลังโหลดคำสั่ง...",
+      "noOrders": "ยังไม่มีคำสั่ง",
+      "noFilteredOrders": "ไม่มีคำสั่งที่ตรงกับตัวกรองที่เลือก",
+      "refresh": "รีเฟรช",
+      "errorFetching": "เกิดข้อผิดพลาดในการดึงคำสั่ง",
+      "statusUpdated": "สถานะคำสั่งได้รับการอัปเดตเป็น {status}",
+      "errorUpdating": "เกิดข้อผิดพลาดในการอัปเดตสถานะคำสั่ง",
+      "filters": {
+        "active": "ใช้งาน",
+        "served": "เสิร์ฟแล้ว",
+        "cancelled": "ยกเลิกแล้ว",
+        "all": "ทั้งหมด"
+      },
+      "table": {
+        "orderNumber": "คำสั่ง #",
+        "tableNumber": "โต๊ะ {number}",
+        "items": "รายการ",
+        "total": "รวมทั้งสิ้น",
+        "status": "สถานะ",
+        "time": "เวลา"
+      },
+      "status": {
+        "pending": "รออยู่",
+        "confirmed": "ยืนยันแล้ว",
+        "preparing": "กำลังเตรียม",
+        "ready": "พร้อม",
+        "served": "เสิร์ฟแล้ว",
+        "cancelled": "ยกเลิกแล้ว"
+      },
+      "details": {
+        "title": "รายละเอียดคำสั่ง",
+        "table": "โต๊ะ",
+        "status": "สถานะปัจจุบัน",
+        "items": "รายการ",
+        "subtotal": "รวมเป็นอย่างไร",
+        "tax": "ภาษี",
+        "serviceFee": "ค่าบริการ",
+        "total": "รวมทั้งสิ้น",
+        "updateStatus": "อัปเดตสถานะ",
+        "selectStatus": "เลือกสถานะใหม่",
+        "updateButton": "อัปเดตสถานะ",
+        "updating": "กำลังอัปเดต...",
+        "close": "ปิด",
+        "confirmStatusUpdate": "ยืนยันการอัปเดตสถานะ",
+        "confirmStatusUpdateDescription": "คุณแน่ใจหรือว่าต้องการอัปเดตคำสั่งนี้จาก {currentStatus} เป็น {newStatus}?",
+        "cancel": "ยกเลิก",
+        "confirm": "ยืนยัน"
+      },
+      "confirmCancel": "ยืนยันการยกเลิก?"
+    },
+    "menu": {
+      "title": "การจัดการเมนู",
+      "description": "เพิ่ม แก้ไข หรือนำรายการเมนูออก",
+      "loading": "กำลังโหลดเมนู...",
+      "noItems": "ยังไม่มีรายการเมนู",
+      "create": "เพิ่มรายการ",
+      "refresh": "รีเฟรช",
+      "errorFetching": "เกิดข้อผิดพลาดในการดึงเมนู",
+      "form": {
+        "createTitle": "สร้างรายการเมนู",
+        "createDescription": "เพิ่มรายการใหม่ไปยังเมนู",
+        "editTitle": "แก้ไขรายการเมนู",
+        "editDescription": "อัปเดตรายละเอียดรายการเมนู",
+        "name": "ชื่อ",
+        "namePlaceholder": "ใส่ชื่อรายการ",
+        "description": "คำอธิบาย",
+        "descriptionPlaceholder": "อธิบายรายการเมนู",
+        "price": "ราคา",
+        "category": "หมวดหมู่",
+        "categoryPlaceholder": "เช่น อาหารจานหลัก",
+        "imageUrl": "URL รูปภาพ",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "ใส่ URL รูปภาพที่ถูกต้อง",
+        "available": "ว่าง",
+        "availableDescription": "รายการนี้ว่างอยู่ในปัจจุบันหรือไม่?",
+        "create": "สร้างรายการ",
+        "save": "บันทึกการเปลี่ยนแปลง",
+        "cancel": "ยกเลิก",
+        "delete": "ลบ",
+        "saving": "กำลังบันทึก...",
+        "createSuccess": "สร้างรายการเมนูแล้ว",
+        "createError": "เกิดข้อผิดพลาดในการสร้างรายการเมนู",
+        "updateSuccess": "อัปเดตรายการเมนูแล้ว",
+        "updateError": "เกิดข้อผิดพลาดในการอัปเดตรายการเมนู",
+        "deleteSuccess": "ลบรายการเมนูแล้ว",
+        "deleteError": "เกิดข้อผิดพลาดในการลบรายการเมนู",
+        "deleteConfirmTitle": "ลบรายการเมนู",
+        "deleteConfirmDescription": "ไม่สามารถเลิกทำการดำเนินการนี้ได้ คุณแน่ใจหรือ?",
+        "deleteConfirm": "ลบ"
+      }
+    },
+    "inventory": {
+      "title": "สินค้าคงคลัง",
+      "description": "ติดตามและจัดการระดับสินค้าคงคลัง",
+      "loading": "กำลังโหลดสินค้าคงคลัง...",
+      "noItems": "ยังไม่มีรายการสินค้าคงคลัง",
+      "refresh": "รีเฟรช",
+      "errorFetching": "เกิดข้อผิดพลาดในการดึงสินค้าคงคลัง",
+      "table": {
+        "item": "รายการ",
+        "stock": "หุ้น",
+        "unit": "หน่วย",
+        "threshold": "เกณฑ์",
+        "status": "สถานะ",
+        "lastRestocked": "การเติมเต็มครั้งล่าสุด",
+        "never": "ไม่เคย"
+      },
+      "status": {
+        "low": "หุ้นต่ำ",
+        "good": "หุ้นดี"
+      },
+      "form": {
+        "title": "อัปเดตสินค้าคงคลัง",
+        "description": "อัปเดตระดับหุ้นสำหรับ {item}",
+        "currentStock": "หุ้นปัจจุบัน",
+        "threshold": "เกณฑ์หุ้นต่ำ",
+        "newStock": "ระดับหุ้นใหม่",
+        "stockDescription": "ใส่ระดับหุ้นใหม่ใน {unit}",
+        "update": "อัปเดตสินค้าคงคลัง",
+        "updating": "กำลังอัปเดต...",
+        "cancel": "ยกเลิก",
+        "updateSuccess": "อัปเดตสินค้าคงคลังแล้ว",
+        "updateError": "เกิดข้อผิดพลาดในการอัปเดตสินค้าคงคลัง"
+      }
+    }
+  }
+}

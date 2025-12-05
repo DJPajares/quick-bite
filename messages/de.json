@@ -1,0 +1,340 @@
+{
+  "Menu": {
+    "title": "Menü",
+    "description": "Erkunden Sie unsere köstlichen Angebote und finden Sie Ihr nächstes Lieblingsgericht!",
+    "categories": {
+      "appetizers": "Vorspeisen",
+      "beverages": "Getränke",
+      "desserts": "Desserts",
+      "main-course": "Hauptgang",
+      "sides": "Beilagen",
+      "all": "Alle"
+    },
+    "messages": {
+      "searchPlaceholder": "Menüartikel durchsuchen...",
+      "searchAriaLabel": "Menüartikel durchsuchen",
+      "noSearchResults": "Keine Menüartikel gefunden.",
+      "loadingMenu": "Menü wird geladen...",
+      "noMenuItems": "Keine Menüartikel verfügbar.",
+      "errorLoadingMenu": "Fehler beim Laden des Menüs. Bitte versuchen Sie es später erneut.",
+      "clearSearch": "Suche löschen."
+    },
+    "available": "Verfügbar",
+    "unavailable": "Nicht verfügbar",
+    "tags": "Etiketten",
+    "quantity": "Menge",
+    "subTotal": "Zwischensumme",
+    "updateCart": "Einkaufswagen aktualisieren",
+    "closeDetails": "Details schließen",
+    "noDescription": "Keine Beschreibung verfügbar.",
+    "updating": "Wird aktualisiert...",
+    "removeFromCart": "Aus dem Einkaufswagen entfernen",
+    "close": "Schließen",
+    "confirmRemove": "Aus dem Einkaufswagen entfernen?",
+    "confirmAdd": "Zum Einkaufswagen hinzufügen?",
+    "confirmUpdate": "Einkaufswagen aktualisieren?",
+    "confirmRemoveDescription": "Sind Sie sicher, dass Sie {itemName} aus Ihrem Einkaufswagen entfernen möchten?",
+    "confirmAddDescription": "{quantity} {quantity, plural, =1 {Artikel} other {Artikel}} von {itemName} zum Einkaufswagen hinzufügen?",
+    "confirmUpdateDescription": "Menge von {itemName} von {oldQuantity} auf {newQuantity} aktualisieren?",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen"
+  },
+  "Cart": {
+    "title": "Einkaufswagen",
+    "items": "Einkaufswagenartikel",
+    "itemCount": "{count, plural, =0 {Keine Artikel} =1 {1 Artikel} other {# Artikel}}",
+    "specialInstructions": "Spezielle Anweisungen",
+    "orderSummary": "Bestellübersicht",
+    "subtotal": "Zwischensumme",
+    "total": "Gesamt",
+    "submitOrder": "Bestellung absenden",
+    "messages": {
+      "loadingCart": "Einkaufswagen wird geladen...",
+      "errorLoadingCart": "Fehler beim Laden des Einkaufswagens. Bitte versuchen Sie es später erneut.",
+      "emptyCart": "Ihr Einkaufswagen ist leer. Fügen Sie einige Artikel aus dem Menü hinzu!",
+      "submitOrderInfo": "Ihre Bestellung wird zur Küche gesendet."
+    },
+    "ariaLabel": {
+      "removeItem": "Entfernen Sie {itemName} aus dem Einkaufswagen"
+    },
+    "confirmDelete": "Artikel entfernen?",
+    "confirmDeleteDescription": "Sind Sie sicher, dass Sie {quantity} {quantity, plural, =1 {Artikel} other {Artikel}} von {itemName} aus Ihrem Einkaufswagen entfernen möchten?",
+    "confirmSubmitOrder": "Bestellung absenden?",
+    "confirmSubmitOrderDescription": "Sie sind dabei, {itemCount, plural, =1 {1 Artikel} other {# Artikel}} mit einem Gesamtbetrag von ${total} abzusenden. Ihre Bestellung wird zur Küche gesendet.",
+    "cancel": "Abbrechen",
+    "delete": "Entfernen"
+  },
+  "Bill": {
+    "title": "Ihre Rechnung",
+    "orderDetails": "Bestelldetails",
+    "orderNumber": "Bestellung #{number}"
+  },
+  "Navigation": {
+    "home": "Startseite",
+    "menu": "Menü",
+    "search": "Suche",
+    "cart": "Einkaufswagen",
+    "bill": "Rechnung",
+    "settings": "Einstellungen",
+    "myAccount": "Mein Konto",
+    "logout": "Abmelden"
+  },
+  "Button": {
+    "continue": "Weiter"
+  },
+  "MenuDropdown": {
+    "editProfile": "Profil bearbeiten",
+    "language": "Sprache",
+    "currency": "Währung",
+    "darkMode": "Dunkler Modus",
+    "logout": "Abmelden"
+  },
+  "Common": {
+    "tableNumber": "Tisch #{number}",
+    "subTotal": "Zwischensumme",
+    "total": "Gesamt",
+    "grandTotal": "Gesamtsumme",
+    "tax": "Steuer",
+    "serviceFee": "Servicegebühr",
+    "summary": "Zusammenfassung",
+    "order": {
+      "pending": "Ausstehend",
+      "confirmed": "Bestätigt",
+      "preparing": "Wird zubereitet",
+      "ready": "Bereit",
+      "served": "Serviert",
+      "cancelled": "Storniert"
+    },
+    "noImage": "Kein Bild",
+    "add": "Hinzufügen",
+    "edit": "Bearbeiten",
+    "item": "Artikel",
+    "items": "Artikel",
+    "ok": "OK",
+    "cancel": "Abbrechen",
+    "updating": "Wird aktualisiert...",
+    "orderCancellation": {
+      "title": "Bestellung stornieren",
+      "description": "Sind Sie sicher, dass Sie diese Bestellung stornieren möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
+      "orderCancelled": "Bestellung wurde storniert."
+    }
+  },
+  "Settings": {
+    "title": "Einstellungen",
+    "description": "Verwalten Sie Ihre Einstellungen, einschließlich Design, Sprache und Standardeinstellungen.",
+    "appearance": {
+      "title": "Erscheinungsbild",
+      "description": "Passen Sie das Aussehen der Benutzeroberfläche an.",
+      "themeLabel": "Design",
+      "light": "Hell",
+      "dark": "Dunkel",
+      "system": "System"
+    },
+    "language": {
+      "title": "Sprache",
+      "description": "Ändern Sie die Anzeigesprache.",
+      "selectLabel": "Wählen Sie eine Sprache",
+      "save": "Sprache speichern",
+      "confirm": {
+        "title": "Sprache ändern",
+        "description": "Sind Sie sicher, dass Sie die Benutzeroberflächen-Sprache ändern möchten? Die Seite wird aktualisiert.",
+        "confirmText": "Ja, ändern"
+      }
+    },
+    "reset": {
+      "title": "Zurücksetzen",
+      "description": "Standardeinstellungen wiederherstellen.",
+      "button": "Einstellungen zurücksetzen",
+      "confirm": {
+        "title": "Einstellungen zurücksetzen",
+        "description": "Dies stellt die Standard-Sprach- und Designeinstellungen wieder her. Fortfahren?",
+        "confirmText": "Ja, zurücksetzen"
+      }
+    },
+    "admin": {
+      "title": "Admin-Zugriff",
+      "description": "Greifen Sie auf das Admin-Panel zu, um Bestellungen, Menü und Bestand zu verwalten.",
+      "button": "Zum Admin-Login gehen"
+    },
+    "toast": {
+      "languageUpdated": "Sprache aktualisiert",
+      "preferencesReset": "Einstellungen zurückgesetzt"
+    }
+  },
+  "Admin": {
+    "subtitle": "Admin-Panel",
+    "nav": {
+      "main": "Hauptnavigation",
+      "dashboard": "Dashboard",
+      "orders": "Bestellungen",
+      "menu": "Menü",
+      "inventory": "Bestand",
+      "logout": "Abmelden"
+    },
+    "login": {
+      "title": "Admin-Login",
+      "description": "Melden Sie sich an, um auf das Admin-Dashboard zuzugreifen",
+      "username": "Benutzername",
+      "password": "Passwort",
+      "submit": "Anmelden",
+      "loading": "Wird angemeldet...",
+      "success": "Anmeldung erfolgreich",
+      "error": "Ungültige Anmeldedaten",
+      "backToMenu": "Zurück zum Menü"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Überblick über Ihre Restaurantbetriebe",
+      "loading": "Dashboard wird geladen...",
+      "noData": "Keine Daten verfügbar",
+      "refresh": "Aktualisieren",
+      "errorFetching": "Fehler beim Abrufen der Analysen",
+      "metrics": {
+        "totalRevenue": "Gesamteinnahmen",
+        "totalOrders": "Gesamtbestellungen",
+        "averageOrder": "Durchschnittliche Bestellung",
+        "ordersToday": "Bestellungen heute",
+        "revenue": "Einnahmen"
+      },
+      "popularItems": {
+        "title": "Beliebte Artikel",
+        "noData": "Noch keine beliebten Artikel",
+        "orders": "Bestellungen"
+      },
+      "recentOrders": {
+        "title": "Kürzliche Bestellungen",
+        "noData": "Keine kürzlichen Bestellungen",
+        "table": "Tisch",
+        "items": "Artikel"
+      }
+    },
+    "orders": {
+      "title": "Bestellungen",
+      "description": "Verwalten und verfolgen Sie alle Kundenbestellungen",
+      "loading": "Bestellungen werden geladen...",
+      "noOrders": "Noch keine Bestellungen",
+      "noFilteredOrders": "Keine Bestellungen entsprechen dem ausgewählten Filter",
+      "refresh": "Aktualisieren",
+      "errorFetching": "Fehler beim Abrufen der Bestellungen",
+      "statusUpdated": "Bestellstatus aktualisiert auf {status}",
+      "errorUpdating": "Fehler beim Aktualisieren des Bestellstatus",
+      "filters": {
+        "active": "Aktiv",
+        "served": "Serviert",
+        "cancelled": "Storniert",
+        "all": "Alle"
+      },
+      "table": {
+        "orderNumber": "Bestellung #",
+        "tableNumber": "Tisch {number}",
+        "items": "Artikel",
+        "total": "Gesamt",
+        "status": "Status",
+        "time": "Zeit"
+      },
+      "status": {
+        "pending": "Ausstehend",
+        "confirmed": "Bestätigt",
+        "preparing": "Wird zubereitet",
+        "ready": "Bereit",
+        "served": "Serviert",
+        "cancelled": "Storniert"
+      },
+      "details": {
+        "title": "Bestelldetails",
+        "table": "Tisch",
+        "status": "Aktueller Status",
+        "items": "Artikel",
+        "subtotal": "Zwischensumme",
+        "tax": "Steuer",
+        "serviceFee": "Servicegebühr",
+        "total": "Gesamt",
+        "updateStatus": "Status aktualisieren",
+        "selectStatus": "Neuen Status wählen",
+        "updateButton": "Status aktualisieren",
+        "updating": "Wird aktualisiert...",
+        "close": "Schließen",
+        "confirmStatusUpdate": "Statusaktualisierung bestätigen",
+        "confirmStatusUpdateDescription": "Sind Sie sicher, dass Sie diese Bestellung von {currentStatus} auf {newStatus} aktualisieren möchten?",
+        "cancel": "Abbrechen",
+        "confirm": "Bestätigen"
+      },
+      "confirmCancel": "Stornierung bestätigen?"
+    },
+    "menu": {
+      "title": "Menüverwaltung",
+      "description": "Hinzufügen, Bearbeiten oder Entfernen von Menüartikeln",
+      "loading": "Menü wird geladen...",
+      "noItems": "Noch keine Menüartikel",
+      "create": "Artikel hinzufügen",
+      "refresh": "Aktualisieren",
+      "errorFetching": "Fehler beim Abrufen des Menüs",
+      "form": {
+        "createTitle": "Menüartikel erstellen",
+        "createDescription": "Fügen Sie einen neuen Artikel zum Menü hinzu",
+        "editTitle": "Menüartikel bearbeiten",
+        "editDescription": "Menüartikeldetails aktualisieren",
+        "name": "Name",
+        "namePlaceholder": "Geben Sie den Namen des Artikels ein",
+        "description": "Beschreibung",
+        "descriptionPlaceholder": "Beschreiben Sie den Menüartikel",
+        "price": "Preis",
+        "category": "Kategorie",
+        "categoryPlaceholder": "z.B. Hauptgang",
+        "imageUrl": "Bild-URL",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "Geben Sie eine gültige Bild-URL ein",
+        "available": "Verfügbar",
+        "availableDescription": "Ist dieser Artikel derzeit verfügbar?",
+        "create": "Artikel erstellen",
+        "save": "Änderungen speichern",
+        "cancel": "Abbrechen",
+        "delete": "Löschen",
+        "saving": "Wird gespeichert...",
+        "createSuccess": "Menüartikel erstellt",
+        "createError": "Fehler beim Erstellen des Menüartikels",
+        "updateSuccess": "Menüartikel aktualisiert",
+        "updateError": "Fehler beim Aktualisieren des Menüartikels",
+        "deleteSuccess": "Menüartikel gelöscht",
+        "deleteError": "Fehler beim Löschen des Menüartikels",
+        "deleteConfirmTitle": "Menüartikel löschen",
+        "deleteConfirmDescription": "Diese Aktion kann nicht rückgängig gemacht werden. Sind Sie sicher?",
+        "deleteConfirm": "Löschen"
+      }
+    },
+    "inventory": {
+      "title": "Bestand",
+      "description": "Verfolgen und verwalten Sie Bestandsbestände",
+      "loading": "Bestand wird geladen...",
+      "noItems": "Noch keine Bestandsartikel",
+      "refresh": "Aktualisieren",
+      "errorFetching": "Fehler beim Abrufen des Bestands",
+      "table": {
+        "item": "Artikel",
+        "stock": "Bestand",
+        "unit": "Einheit",
+        "threshold": "Schwellenwert",
+        "status": "Status",
+        "lastRestocked": "Zuletzt aufgestockt",
+        "never": "Nie"
+      },
+      "status": {
+        "low": "Niedriger Bestand",
+        "good": "Auf Lager"
+      },
+      "form": {
+        "title": "Bestand aktualisieren",
+        "description": "Aktualisieren Sie den Bestandsstand für {item}",
+        "currentStock": "Aktueller Bestand",
+        "threshold": "Niedriger Bestandsschwelle",
+        "newStock": "Neuer Bestandsstand",
+        "stockDescription": "Geben Sie neuen Bestandsstand in {unit} ein",
+        "update": "Bestand aktualisieren",
+        "updating": "Wird aktualisiert...",
+        "cancel": "Abbrechen",
+        "updateSuccess": "Bestand aktualisiert",
+        "updateError": "Fehler beim Aktualisieren des Bestands"
+      }
+    }
+  }
+}

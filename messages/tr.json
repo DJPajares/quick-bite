@@ -1,0 +1,340 @@
+{
+  "Menu": {
+    "title": "Menü",
+    "description": "Lezzetli yemeklerimizi keşfet ve senin yeni favorini bul",
+    "categories": {
+      "appetizers": "Başlangıçlar",
+      "beverages": "İçecekler",
+      "desserts": "Tatlılar",
+      "main-course": "Ana Yemekler",
+      "sides": "Yan Yemekler",
+      "all": "Tümü"
+    },
+    "messages": {
+      "searchPlaceholder": "Menüde ara...",
+      "searchAriaLabel": "Menü öğelerinde ara",
+      "noSearchResults": "Menü öğesi bulunamadı.",
+      "loadingMenu": "Menü yükleniyor...",
+      "noMenuItems": "Mevcut menü öğesi yok.",
+      "errorLoadingMenu": "Menü yüklenirken hata oluştu. Lütfen daha sonra tekrar deneyiniz.",
+      "clearSearch": "Aramayı temizle."
+    },
+    "available": "Mevcut",
+    "unavailable": "Mevcut değil",
+    "tags": "Etiketler",
+    "quantity": "Miktar",
+    "subTotal": "Ara Toplam",
+    "updateCart": "Sepeti Güncelle",
+    "closeDetails": "Detayları Kapat",
+    "noDescription": "Açıklama mevcut değil.",
+    "updating": "Güncelleniyor...",
+    "removeFromCart": "Sepetten Sil",
+    "close": "Kapat",
+    "confirmRemove": "Sepetten silinsin mi?",
+    "confirmAdd": "Sepete eklensin mi?",
+    "confirmUpdate": "Sepet güncellensin mi?",
+    "confirmRemoveDescription": "{itemName} öğesini sepetten silmek istediğinizden emin misiniz?",
+    "confirmAddDescription": "{itemName} öğesinin {quantity} {quantity, plural, =1 {tanesini} other {tanesini}} sepete eklemek istediğinizden emin misiniz?",
+    "confirmUpdateDescription": "{itemName} öğesinin miktarını {oldQuantity} yerine {newQuantity} olarak güncellemek istediğinizden emin misiniz?",
+    "cancel": "İptal",
+    "confirm": "Onayla"
+  },
+  "Cart": {
+    "title": "Sepet",
+    "items": "Sepet Öğeleri",
+    "itemCount": "{count, plural, =0 {Öğe yok} =1 {1 öğe} other {# öğe}}",
+    "specialInstructions": "Özel Talimatlar",
+    "orderSummary": "Siparişin Özeti",
+    "subtotal": "Ara Toplam",
+    "total": "Toplam",
+    "submitOrder": "Siparişi Gönder",
+    "messages": {
+      "loadingCart": "Sepet yükleniyor...",
+      "errorLoadingCart": "Sepet yüklenirken hata oluştu. Lütfen daha sonra tekrar deneyiniz.",
+      "emptyCart": "Sepetiniz boş. Menüden biraz öğe ekleyin!",
+      "submitOrderInfo": "Siparişiniz mutfağa gönderilecektir."
+    },
+    "ariaLabel": {
+      "removeItem": "{itemName} öğesini sepetten sil"
+    },
+    "confirmDelete": "Öğe silinsin mi?",
+    "confirmDeleteDescription": "{itemName} öğesinin {quantity} {quantity, plural, =1 {tanesini} other {tanesini}} silmek istediğinizden emin misiniz?",
+    "confirmSubmitOrder": "Sipariş gönderilsin mi?",
+    "confirmSubmitOrderDescription": "{itemCount, plural, =1 {1 öğe} other {# öğe}} göndermek üzeresiniz, toplam ${total}. Siparişiniz mutfağa gönderilecektir.",
+    "cancel": "İptal",
+    "delete": "Sil"
+  },
+  "Bill": {
+    "title": "Hesabınız",
+    "orderDetails": "Sipariş Detayları",
+    "orderNumber": "Sipariş #{number}"
+  },
+  "Navigation": {
+    "home": "Ana Sayfa",
+    "menu": "Menü",
+    "search": "Ara",
+    "cart": "Sepet",
+    "bill": "Hesap",
+    "settings": "Ayarlar",
+    "myAccount": "Hesabım",
+    "logout": "Çıkış Yap"
+  },
+  "Button": {
+    "continue": "Devam Et"
+  },
+  "MenuDropdown": {
+    "editProfile": "Profili Düzenle",
+    "language": "Dil",
+    "currency": "Para Birimi",
+    "darkMode": "Koyu Mod",
+    "logout": "Çıkış Yap"
+  },
+  "Common": {
+    "tableNumber": "Masa #{number}",
+    "subTotal": "Ara Toplam",
+    "total": "Toplam",
+    "grandTotal": "Genel Toplam",
+    "tax": "Vergi",
+    "serviceFee": "Hizmet Ücreti",
+    "summary": "Özet",
+    "order": {
+      "pending": "Beklemede",
+      "confirmed": "Onaylandı",
+      "preparing": "Hazırlanıyor",
+      "ready": "Hazır",
+      "served": "Servis Edildi",
+      "cancelled": "İptal Edildi"
+    },
+    "noImage": "Resim Yok",
+    "add": "Ekle",
+    "edit": "Düzenle",
+    "item": "öğe",
+    "items": "öğe",
+    "ok": "Tamam",
+    "cancel": "İptal",
+    "updating": "Güncelleniyor...",
+    "orderCancellation": {
+      "title": "Siparişi İptal Et",
+      "description": "Bu siparişi iptal etmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+      "orderCancelled": "Sipariş iptal edildi."
+    }
+  },
+  "Settings": {
+    "title": "Ayarlar",
+    "description": "Tema, dil ve varsayılan ayarlar da dâhil olmak üzere tercihlerinizi yönetin.",
+    "appearance": {
+      "title": "Görünüm",
+      "description": "Arayüzün görünüşünü özelleştirin.",
+      "themeLabel": "Tema",
+      "light": "Açık",
+      "dark": "Koyu",
+      "system": "Sistem"
+    },
+    "language": {
+      "title": "Dil",
+      "description": "Görüntüleme dilini değiştirin.",
+      "selectLabel": "Bir dil seçin",
+      "save": "Dili Kaydet",
+      "confirm": {
+        "title": "Dili Değiştir",
+        "description": "Arayüz dilini değiştirmek istediğinizden emin misiniz? Sayfa yeniden yüklenecektir.",
+        "confirmText": "Evet, değiştir"
+      }
+    },
+    "reset": {
+      "title": "Sıfırla",
+      "description": "Varsayılan tercihleri geri yükle.",
+      "button": "Ayarları Sıfırla",
+      "confirm": {
+        "title": "Tercihleri Sıfırla",
+        "description": "Bu, varsayılan dil ve görünüm tercihlerini geri yükleyecektir. Devam etmek istiyor musunuz?",
+        "confirmText": "Evet, sıfırla"
+      }
+    },
+    "admin": {
+      "title": "Yönetici Erişimi",
+      "description": "Siparişleri, menüyü ve envanteri yönetmek için yönetici paneline erişin.",
+      "button": "Yönetici Girişine Git"
+    },
+    "toast": {
+      "languageUpdated": "Dil güncellenmiş",
+      "preferencesReset": "Tercihler sıfırlanmış"
+    }
+  },
+  "Admin": {
+    "subtitle": "Yönetici Paneli",
+    "nav": {
+      "main": "Ana Gezinti",
+      "dashboard": "Kontrol Paneli",
+      "orders": "Siparişler",
+      "menu": "Menü",
+      "inventory": "Envanter",
+      "logout": "Çıkış Yap"
+    },
+    "login": {
+      "title": "Yönetici Girişi",
+      "description": "Yönetici paneline erişmek için giriş yapın",
+      "username": "Kullanıcı Adı",
+      "password": "Şifre",
+      "submit": "Giriş Yap",
+      "loading": "Giriş yapılıyor...",
+      "success": "Başarıyla giriş yapıldı",
+      "error": "Geçersiz kimlik bilgileri",
+      "backToMenu": "Menüye Geri Dön"
+    },
+    "dashboard": {
+      "title": "Kontrol Paneli",
+      "description": "Restoran operasyonlarına genel bakış",
+      "loading": "Kontrol paneli yükleniyor...",
+      "noData": "Veri mevcut değil",
+      "refresh": "Yenile",
+      "errorFetching": "Analitik veriler alınırken hata oluştu",
+      "metrics": {
+        "totalRevenue": "Toplam Gelir",
+        "totalOrders": "Toplam Siparişler",
+        "averageOrder": "Ortalama Sipariş",
+        "ordersToday": "Bugünün Siparişleri",
+        "revenue": "Gelir"
+      },
+      "popularItems": {
+        "title": "Popüler Öğeler",
+        "noData": "Henüz popüler öğe yok",
+        "orders": "Siparişler"
+      },
+      "recentOrders": {
+        "title": "Son Siparişler",
+        "noData": "Son sipariş yok",
+        "table": "Masa",
+        "items": "öğe"
+      }
+    },
+    "orders": {
+      "title": "Siparişler",
+      "description": "Tüm müşteri siparişlerini yönetin ve izleyin",
+      "loading": "Siparişler yükleniyor...",
+      "noOrders": "Henüz sipariş yok",
+      "noFilteredOrders": "Seçilen filtrelere uyan sipariş yok",
+      "refresh": "Yenile",
+      "errorFetching": "Siparişler alınırken hata oluştu",
+      "statusUpdated": "Sipariş durumu {status} olarak güncellendi",
+      "errorUpdating": "Sipariş durumu güncellenirken hata oluştu",
+      "filters": {
+        "active": "Aktif",
+        "served": "Servis Edildi",
+        "cancelled": "İptal Edildi",
+        "all": "Tümü"
+      },
+      "table": {
+        "orderNumber": "Sipariş #",
+        "tableNumber": "Masa {number}",
+        "items": "öğe",
+        "total": "Toplam",
+        "status": "Durum",
+        "time": "Zaman"
+      },
+      "status": {
+        "pending": "Beklemede",
+        "confirmed": "Onaylandı",
+        "preparing": "Hazırlanıyor",
+        "ready": "Hazır",
+        "served": "Servis Edildi",
+        "cancelled": "İptal Edildi"
+      },
+      "details": {
+        "title": "Sipariş Detayları",
+        "table": "Masa",
+        "status": "Mevcut Durum",
+        "items": "öğe",
+        "subtotal": "Ara Toplam",
+        "tax": "Vergi",
+        "serviceFee": "Hizmet Ücreti",
+        "total": "Toplam",
+        "updateStatus": "Durumu Güncelle",
+        "selectStatus": "Yeni durumu seçin",
+        "updateButton": "Durumu Güncelle",
+        "updating": "Güncelleniyor...",
+        "close": "Kapat",
+        "confirmStatusUpdate": "Durum güncellemesini onayla",
+        "confirmStatusUpdateDescription": "Bu siparişi {currentStatus} yerine {newStatus} olarak güncellemek istediğinizden emin misiniz?",
+        "cancel": "İptal",
+        "confirm": "Onayla"
+      },
+      "confirmCancel": "İptali onayla mı?"
+    },
+    "menu": {
+      "title": "Menü Yönetimi",
+      "description": "Menü öğeleri ekleyin, düzenleyin veya kaldırın",
+      "loading": "Menü yükleniyor...",
+      "noItems": "Henüz menü öğesi yok",
+      "create": "Öğe Ekle",
+      "refresh": "Yenile",
+      "errorFetching": "Menü alınırken hata oluştu",
+      "form": {
+        "createTitle": "Menü Öğesi Oluştur",
+        "createDescription": "Menüye yeni bir öğe ekleyin",
+        "editTitle": "Menü Öğesini Düzenle",
+        "editDescription": "Menü öğesi detaylarını güncelleyin",
+        "name": "Ad",
+        "namePlaceholder": "Öğe adını girin",
+        "description": "Açıklama",
+        "descriptionPlaceholder": "Menü öğesini açıklayın",
+        "price": "Fiyat",
+        "category": "Kategori",
+        "categoryPlaceholder": "Örn. Ana Yemek",
+        "imageUrl": "Resim URL'si",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "Geçerli bir resim URL'si girin",
+        "available": "Mevcut",
+        "availableDescription": "Bu öğe şu anda mevcut mu?",
+        "create": "Öğe Oluştur",
+        "save": "Değişiklikleri Kaydet",
+        "cancel": "İptal",
+        "delete": "Sil",
+        "saving": "Kaydediliyor...",
+        "createSuccess": "Menü öğesi oluşturuldu",
+        "createError": "Menü öğesi oluşturulurken hata oluştu",
+        "updateSuccess": "Menü öğesi güncellenmiş",
+        "updateError": "Menü öğesi güncellenirken hata oluştu",
+        "deleteSuccess": "Menü öğesi silinmiş",
+        "deleteError": "Menü öğesi silinirken hata oluştu",
+        "deleteConfirmTitle": "Menü Öğesini Sil",
+        "deleteConfirmDescription": "Bu işlem geri alınamaz. Emin misiniz?",
+        "deleteConfirm": "Sil"
+      }
+    },
+    "inventory": {
+      "title": "Envanter",
+      "description": "Envanter seviyelerini izleyin ve yönetin",
+      "loading": "Envanter yükleniyor...",
+      "noItems": "Henüz envanter öğesi yok",
+      "refresh": "Yenile",
+      "errorFetching": "Envanter alınırken hata oluştu",
+      "table": {
+        "item": "öğe",
+        "stock": "Stok",
+        "unit": "Birim",
+        "threshold": "Eşik",
+        "status": "Durum",
+        "lastRestocked": "Son Restock Tarihi",
+        "never": "Hiçbir Zaman"
+      },
+      "status": {
+        "low": "Düşük Stok",
+        "good": "İyi Stok"
+      },
+      "form": {
+        "title": "Envanteri Güncelle",
+        "description": "{item} için stok seviyesini güncelleyin",
+        "currentStock": "Mevcut Stok",
+        "threshold": "Düşük Stok Eşiği",
+        "newStock": "Yeni Stok Seviyesi",
+        "stockDescription": "{unit} cinsinden yeni stok seviyesini girin",
+        "update": "Envanteri Güncelle",
+        "updating": "Güncelleniyor...",
+        "cancel": "İptal",
+        "updateSuccess": "Envanter güncellenmiş",
+        "updateError": "Envanter güncellenirken hata oluştu"
+      }
+    }
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "Menu": {
+    "title": "Thực đơn",
+    "description": "Khám phá những món ăn ngon của chúng tôi và tìm thấy những yêu thích tiếp theo của bạn",
+    "categories": {
+      "appetizers": "Khai vị",
+      "beverages": "Thức uống",
+      "desserts": "Tráng miệng",
+      "main-course": "Món chính",
+      "sides": "Món phụ",
+      "all": "Tất cả"
+    },
+    "messages": {
+      "searchPlaceholder": "Tìm kiếm trên thực đơn...",
+      "searchAriaLabel": "Tìm kiếm các mục trong thực đơn",
+      "noSearchResults": "Không tìm thấy mục thực đơn.",
+      "loadingMenu": "Đang tải thực đơn...",
+      "noMenuItems": "Không có mục thực đơn nào.",
+      "errorLoadingMenu": "Lỗi khi tải thực đơn. Vui lòng thử lại sau.",
+      "clearSearch": "Xóa tìm kiếm."
+    },
+    "available": "Có sẵn",
+    "unavailable": "Không có sẵn",
+    "tags": "Thẻ",
+    "quantity": "Số lượng",
+    "subTotal": "Tổng cộng",
+    "updateCart": "Cập nhật giỏ hàng",
+    "closeDetails": "Đóng chi tiết",
+    "noDescription": "Không có mô tả.",
+    "updating": "Đang cập nhật...",
+    "removeFromCart": "Xóa khỏi giỏ hàng",
+    "close": "Đóng",
+    "confirmRemove": "Xóa khỏi giỏ hàng?",
+    "confirmAdd": "Thêm vào giỏ hàng?",
+    "confirmUpdate": "Cập nhật giỏ hàng?",
+    "confirmRemoveDescription": "Bạn có chắc chắn muốn xóa {itemName} khỏi giỏ hàng không?",
+    "confirmAddDescription": "Thêm {quantity} {quantity, plural, =1 {mục} other {mục}} {itemName} vào giỏ hàng?",
+    "confirmUpdateDescription": "Cập nhật số lượng {itemName} từ {oldQuantity} thành {newQuantity}?",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận"
+  },
+  "Cart": {
+    "title": "Giỏ hàng",
+    "items": "Mục trong giỏ hàng",
+    "itemCount": "{count, plural, =0 {Không có mục} =1 {1 mục} other {# mục}}",
+    "specialInstructions": "Hướng dẫn đặc biệt",
+    "orderSummary": "Tóm tắt đơn hàng",
+    "subtotal": "Tổng cộng",
+    "total": "Tổng cộng",
+    "submitOrder": "Gửi đơn hàng",
+    "messages": {
+      "loadingCart": "Đang tải giỏ hàng...",
+      "errorLoadingCart": "Lỗi khi tải giỏ hàng. Vui lòng thử lại sau.",
+      "emptyCart": "Giỏ hàng của bạn trống. Thêm một số mục từ thực đơn!",
+      "submitOrderInfo": "Đơn hàng của bạn sẽ được gửi đến bếp."
+    },
+    "ariaLabel": {
+      "removeItem": "Xóa {itemName} khỏi giỏ hàng"
+    },
+    "confirmDelete": "Xóa mục?",
+    "confirmDeleteDescription": "Bạn có chắc chắn muốn xóa {quantity} {quantity, plural, =1 {mục} other {mục}} {itemName} không?",
+    "confirmSubmitOrder": "Gửi đơn hàng của bạn?",
+    "confirmSubmitOrderDescription": "Bạn sắp gửi {itemCount, plural, =1 {1 mục} other {# mục}} với tổng cộng ${total}. Đơn hàng của bạn sẽ được gửi đến bếp.",
+    "cancel": "Hủy",
+    "delete": "Xóa"
+  },
+  "Bill": {
+    "title": "Hóa đơn của bạn",
+    "orderDetails": "Chi tiết đơn hàng",
+    "orderNumber": "Đơn hàng #{number}"
+  },
+  "Navigation": {
+    "home": "Trang chủ",
+    "menu": "Thực đơn",
+    "search": "Tìm kiếm",
+    "cart": "Giỏ hàng",
+    "bill": "Hóa đơn",
+    "settings": "Cài đặt",
+    "myAccount": "Tài khoản của tôi",
+    "logout": "Đăng xuất"
+  },
+  "Button": {
+    "continue": "Tiếp tục"
+  },
+  "MenuDropdown": {
+    "editProfile": "Chỉnh sửa hồ sơ",
+    "language": "Ngôn ngữ",
+    "currency": "Tiền tệ",
+    "darkMode": "Chế độ tối",
+    "logout": "Đăng xuất"
+  },
+  "Common": {
+    "tableNumber": "Bàn #{number}",
+    "subTotal": "Tổng cộng",
+    "total": "Tổng cộng",
+    "grandTotal": "Tổng cộng",
+    "tax": "Thuế",
+    "serviceFee": "Phí dịch vụ",
+    "summary": "Tóm tắt",
+    "order": {
+      "pending": "Đang chờ",
+      "confirmed": "Đã xác nhận",
+      "preparing": "Đang chuẩn bị",
+      "ready": "Sẵn sàng",
+      "served": "Đã phục vụ",
+      "cancelled": "Đã hủy"
+    },
+    "noImage": "Không có hình ảnh",
+    "add": "Thêm",
+    "edit": "Chỉnh sửa",
+    "item": "mục",
+    "items": "mục",
+    "ok": "OK",
+    "cancel": "Hủy",
+    "updating": "Đang cập nhật...",
+    "orderCancellation": {
+      "title": "Hủy đơn hàng",
+      "description": "Bạn có chắc chắn muốn hủy đơn hàng này không? Hành động này không thể được hoàn tác.",
+      "orderCancelled": "Đơn hàng đã bị hủy."
+    }
+  },
+  "Settings": {
+    "title": "Cài đặt",
+    "description": "Quản lý tùy chỉnh của bạn, bao gồm chủ đề, ngôn ngữ và cài đặt mặc định.",
+    "appearance": {
+      "title": "Giao diện",
+      "description": "Tùy chỉnh giao diện của giao diện.",
+      "themeLabel": "Chủ đề",
+      "light": "Sáng",
+      "dark": "Tối",
+      "system": "Hệ thống"
+    },
+    "language": {
+      "title": "Ngôn ngữ",
+      "description": "Thay đổi ngôn ngữ hiển thị.",
+      "selectLabel": "Chọn ngôn ngữ",
+      "save": "Lưu ngôn ngữ",
+      "confirm": {
+        "title": "Thay đổi ngôn ngữ",
+        "description": "Bạn có chắc chắn muốn thay đổi ngôn ngữ giao diện không? Trang sẽ được tải lại.",
+        "confirmText": "Có, thay đổi"
+      }
+    },
+    "reset": {
+      "title": "Đặt lại",
+      "description": "Khôi phục cài đặt mặc định.",
+      "button": "Đặt lại cài đặt",
+      "confirm": {
+        "title": "Đặt lại tùy chỉnh",
+        "description": "Điều này sẽ khôi phục tùy chỉnh ngôn ngữ và giao diện mặc định. Tiếp tục?",
+        "confirmText": "Có, đặt lại"
+      }
+    },
+    "admin": {
+      "title": "Quyền truy cập quản trị viên",
+      "description": "Truy cập bảng điều khiển quản trị để quản lý đơn hàng, thực đơn và kho hàng.",
+      "button": "Đi tới đăng nhập quản trị viên"
+    },
+    "toast": {
+      "languageUpdated": "Ngôn ngữ đã cập nhật",
+      "preferencesReset": "Tùy chỉnh đã được đặt lại"
+    }
+  },
+  "Admin": {
+    "subtitle": "Bảng điều khiển quản trị",
+    "nav": {
+      "main": "Điều hướng chính",
+      "dashboard": "Bảng điều khiển",
+      "orders": "Đơn hàng",
+      "menu": "Thực đơn",
+      "inventory": "Kho hàng",
+      "logout": "Đăng xuất"
+    },
+    "login": {
+      "title": "Đăng nhập quản trị viên",
+      "description": "Đăng nhập để truy cập bảng điều khiển quản trị",
+      "username": "Tên người dùng",
+      "password": "Mật khẩu",
+      "submit": "Đăng nhập",
+      "loading": "Đang đăng nhập...",
+      "success": "Đăng nhập thành công",
+      "error": "Thông tin đăng nhập không hợp lệ",
+      "backToMenu": "Quay lại thực đơn"
+    },
+    "dashboard": {
+      "title": "Bảng điều khiển",
+      "description": "Tổng quan về hoạt động nhà hàng",
+      "loading": "Đang tải bảng điều khiển...",
+      "noData": "Không có dữ liệu",
+      "refresh": "Làm mới",
+      "errorFetching": "Lỗi khi lấy phân tích",
+      "metrics": {
+        "totalRevenue": "Tổng doanh thu",
+        "totalOrders": "Tổng đơn hàng",
+        "averageOrder": "Đơn hàng trung bình",
+        "ordersToday": "Đơn hàng hôm nay",
+        "revenue": "Doanh thu"
+      },
+      "popularItems": {
+        "title": "Các mục phổ biến",
+        "noData": "Chưa có mục phổ biến",
+        "orders": "Đơn hàng"
+      },
+      "recentOrders": {
+        "title": "Đơn hàng gần đây",
+        "noData": "Không có đơn hàng gần đây",
+        "table": "Bàn",
+        "items": "mục"
+      }
+    },
+    "orders": {
+      "title": "Đơn hàng",
+      "description": "Quản lý và theo dõi tất cả các đơn hàng của khách hàng",
+      "loading": "Đang tải đơn hàng...",
+      "noOrders": "Chưa có đơn hàng",
+      "noFilteredOrders": "Không có đơn hàng nào khớp với bộ lọc đã chọn",
+      "refresh": "Làm mới",
+      "errorFetching": "Lỗi khi lấy đơn hàng",
+      "statusUpdated": "Trạng thái đơn hàng đã được cập nhật thành {status}",
+      "errorUpdating": "Lỗi khi cập nhật trạng thái đơn hàng",
+      "filters": {
+        "active": "Hoạt động",
+        "served": "Đã phục vụ",
+        "cancelled": "Đã hủy",
+        "all": "Tất cả"
+      },
+      "table": {
+        "orderNumber": "Đơn hàng #",
+        "tableNumber": "Bàn {number}",
+        "items": "mục",
+        "total": "Tổng cộng",
+        "status": "Trạng thái",
+        "time": "Thời gian"
+      },
+      "status": {
+        "pending": "Đang chờ",
+        "confirmed": "Đã xác nhận",
+        "preparing": "Đang chuẩn bị",
+        "ready": "Sẵn sàng",
+        "served": "Đã phục vụ",
+        "cancelled": "Đã hủy"
+      },
+      "details": {
+        "title": "Chi tiết đơn hàng",
+        "table": "Bàn",
+        "status": "Trạng thái hiện tại",
+        "items": "mục",
+        "subtotal": "Tổng cộng",
+        "tax": "Thuế",
+        "serviceFee": "Phí dịch vụ",
+        "total": "Tổng cộng",
+        "updateStatus": "Cập nhật trạng thái",
+        "selectStatus": "Chọn trạng thái mới",
+        "updateButton": "Cập nhật trạng thái",
+        "updating": "Đang cập nhật...",
+        "close": "Đóng",
+        "confirmStatusUpdate": "Xác nhận cập nhật trạng thái",
+        "confirmStatusUpdateDescription": "Bạn có chắc chắn muốn cập nhật đơn hàng này từ {currentStatus} thành {newStatus} không?",
+        "cancel": "Hủy",
+        "confirm": "Xác nhận"
+      },
+      "confirmCancel": "Xác nhận hủy?"
+    },
+    "menu": {
+      "title": "Quản lý thực đơn",
+      "description": "Thêm, chỉnh sửa hoặc xóa các mục trong thực đơn",
+      "loading": "Đang tải thực đơn...",
+      "noItems": "Chưa có mục thực đơn",
+      "create": "Thêm mục",
+      "refresh": "Làm mới",
+      "errorFetching": "Lỗi khi lấy thực đơn",
+      "form": {
+        "createTitle": "Tạo mục thực đơn",
+        "createDescription": "Thêm một mục mới vào thực đơn",
+        "editTitle": "Chỉnh sửa mục thực đơn",
+        "editDescription": "Cập nhật chi tiết mục thực đơn",
+        "name": "Tên",
+        "namePlaceholder": "Nhập tên mục",
+        "description": "Mô tả",
+        "descriptionPlaceholder": "Mô tả mục thực đơn",
+        "price": "Giá",
+        "category": "Danh mục",
+        "categoryPlaceholder": "Ví dụ, Món chính",
+        "imageUrl": "URL hình ảnh",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "Nhập URL hình ảnh hợp lệ",
+        "available": "Có sẵn",
+        "availableDescription": "Mục này hiện có sẵn không?",
+        "create": "Tạo mục",
+        "save": "Lưu thay đổi",
+        "cancel": "Hủy",
+        "delete": "Xóa",
+        "saving": "Đang lưu...",
+        "createSuccess": "Mục thực đơn đã được tạo",
+        "createError": "Lỗi khi tạo mục thực đơn",
+        "updateSuccess": "Mục thực đơn đã được cập nhật",
+        "updateError": "Lỗi khi cập nhật mục thực đơn",
+        "deleteSuccess": "Mục thực đơn đã được xóa",
+        "deleteError": "Lỗi khi xóa mục thực đơn",
+        "deleteConfirmTitle": "Xóa mục thực đơn",
+        "deleteConfirmDescription": "Hành động này không thể được hoàn tác. Bạn có chắc chắn không?",
+        "deleteConfirm": "Xóa"
+      }
+    },
+    "inventory": {
+      "title": "Kho hàng",
+      "description": "Theo dõi và quản lý mức độ kho hàng",
+      "loading": "Đang tải kho hàng...",
+      "noItems": "Chưa có mục kho hàng",
+      "refresh": "Làm mới",
+      "errorFetching": "Lỗi khi lấy kho hàng",
+      "table": {
+        "item": "mục",
+        "stock": "Hàng tồn kho",
+        "unit": "Đơn vị",
+        "threshold": "Ngưỡng",
+        "status": "Trạng thái",
+        "lastRestocked": "Lần cuối bổ sung hàng",
+        "never": "Chưa bao giờ"
+      },
+      "status": {
+        "low": "Hàng tồn kho thấp",
+        "good": "Hàng tồn kho tốt"
+      },
+      "form": {
+        "title": "Cập nhật kho hàng",
+        "description": "Cập nhật mức hàng tồn kho cho {item}",
+        "currentStock": "Hàng tồn kho hiện tại",
+        "threshold": "Ngưỡng hàng tồn kho thấp",
+        "newStock": "Mức hàng tồn kho mới",
+        "stockDescription": "Nhập mức hàng tồn kho mới tính bằng {unit}",
+        "update": "Cập nhật kho hàng",
+        "updating": "Đang cập nhật...",
+        "cancel": "Hủy",
+        "updateSuccess": "Kho hàng đã được cập nhật",
+        "updateError": "Lỗi khi cập nhật kho hàng"
+      }
+    }
+  }
+}

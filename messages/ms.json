@@ -1,0 +1,340 @@
+{
+  "Menu": {
+    "title": "Menu",
+    "description": "Jelajahi hidangan lazat kami dan cari kegemaran baru anda",
+    "categories": {
+      "appetizers": "Hidangan Pembuka",
+      "beverages": "Minuman",
+      "desserts": "Makanan Penutup",
+      "main-course": "Hidangan Utama",
+      "sides": "Lauk Pelengkap",
+      "all": "Semua"
+    },
+    "messages": {
+      "searchPlaceholder": "Cari di menu...",
+      "searchAriaLabel": "Cari item menu",
+      "noSearchResults": "Item menu tidak ditemui.",
+      "loadingMenu": "Memuatkan menu...",
+      "noMenuItems": "Tiada item menu yang tersedia.",
+      "errorLoadingMenu": "Ralat semasa memuatkan menu. Sila cuba lagi nanti.",
+      "clearSearch": "Kosongkan carian."
+    },
+    "available": "Tersedia",
+    "unavailable": "Tidak Tersedia",
+    "tags": "Tag",
+    "quantity": "Kuantiti",
+    "subTotal": "Jumlah Kecil",
+    "updateCart": "Kemaskini Troli",
+    "closeDetails": "Tutup Butiran",
+    "noDescription": "Tiada penerangan yang tersedia.",
+    "updating": "Mengemas kini...",
+    "removeFromCart": "Alih keluar daripada Troli",
+    "close": "Tutup",
+    "confirmRemove": "Alih keluar daripada troli?",
+    "confirmAdd": "Tambah ke troli?",
+    "confirmUpdate": "Kemaskini troli?",
+    "confirmRemoveDescription": "Adakah anda pasti ingin mengalih keluar {itemName} daripada troli?",
+    "confirmAddDescription": "Tambah {quantity} {quantity, plural, =1 {item} other {item}} {itemName} ke troli?",
+    "confirmUpdateDescription": "Kemaskini kuantiti {itemName} daripada {oldQuantity} ke {newQuantity}?",
+    "cancel": "Batal",
+    "confirm": "Sahkan"
+  },
+  "Cart": {
+    "title": "Troli",
+    "items": "Item Troli",
+    "itemCount": "{count, plural, =0 {Tiada item} =1 {1 item} other {# item}}",
+    "specialInstructions": "Arahan Khas",
+    "orderSummary": "Ringkasan Pesanan",
+    "subtotal": "Jumlah Kecil",
+    "total": "Jumlah",
+    "submitOrder": "Hantar Pesanan",
+    "messages": {
+      "loadingCart": "Memuatkan troli...",
+      "errorLoadingCart": "Ralat semasa memuatkan troli. Sila cuba lagi nanti.",
+      "emptyCart": "Troli anda kosong. Tambah beberapa item daripada menu!",
+      "submitOrderInfo": "Pesanan anda akan dihantar ke dapur."
+    },
+    "ariaLabel": {
+      "removeItem": "Alih keluar {itemName} daripada troli"
+    },
+    "confirmDelete": "Alih keluar item?",
+    "confirmDeleteDescription": "Adakah anda pasti ingin mengalih keluar {quantity} {quantity, plural, =1 {item} other {item}} {itemName}?",
+    "confirmSubmitOrder": "Hantar pesanan anda?",
+    "confirmSubmitOrderDescription": "Anda akan menghantar {itemCount, plural, =1 {1 item} other {# item}} dengan jumlah ${total}. Pesanan anda akan dihantar ke dapur.",
+    "cancel": "Batal",
+    "delete": "Alih keluar"
+  },
+  "Bill": {
+    "title": "Bil Anda",
+    "orderDetails": "Butiran Pesanan",
+    "orderNumber": "Pesanan #{number}"
+  },
+  "Navigation": {
+    "home": "Laman Utama",
+    "menu": "Menu",
+    "search": "Cari",
+    "cart": "Troli",
+    "bill": "Bil",
+    "settings": "Tetapan",
+    "myAccount": "Akaun Saya",
+    "logout": "Keluar"
+  },
+  "Button": {
+    "continue": "Teruskan"
+  },
+  "MenuDropdown": {
+    "editProfile": "Edit Profil",
+    "language": "Bahasa",
+    "currency": "Mata Wang",
+    "darkMode": "Mod Gelap",
+    "logout": "Keluar"
+  },
+  "Common": {
+    "tableNumber": "Meja #{number}",
+    "subTotal": "Jumlah Kecil",
+    "total": "Jumlah",
+    "grandTotal": "Jumlah Besar",
+    "tax": "Cukai",
+    "serviceFee": "Yuran Perkhidmatan",
+    "summary": "Ringkasan",
+    "order": {
+      "pending": "Menunggu",
+      "confirmed": "Disahkan",
+      "preparing": "Sedang Disediakan",
+      "ready": "Bersedia",
+      "served": "Disajikan",
+      "cancelled": "Dibatalkan"
+    },
+    "noImage": "Tiada Imej",
+    "add": "Tambah",
+    "edit": "Edit",
+    "item": "item",
+    "items": "item",
+    "ok": "OK",
+    "cancel": "Batal",
+    "updating": "Mengemas kini...",
+    "orderCancellation": {
+      "title": "Batalkan Pesanan",
+      "description": "Adakah anda pasti ingin membatalkan pesanan ini? Tindakan ini tidak boleh dibatalkan.",
+      "orderCancelled": "Pesanan dibatalkan."
+    }
+  },
+  "Settings": {
+    "title": "Tetapan",
+    "description": "Urus pilihan anda, termasuk tema, bahasa dan tetapan lalai.",
+    "appearance": {
+      "title": "Penampilan",
+      "description": "Sesuaikan rupa antara muka.",
+      "themeLabel": "Tema",
+      "light": "Terang",
+      "dark": "Gelap",
+      "system": "Sistem"
+    },
+    "language": {
+      "title": "Bahasa",
+      "description": "Tukar bahasa paparan.",
+      "selectLabel": "Pilih bahasa",
+      "save": "Simpan Bahasa",
+      "confirm": {
+        "title": "Tukar Bahasa",
+        "description": "Adakah anda pasti ingin menukar bahasa antara muka? Halaman akan dimuatkan semula.",
+        "confirmText": "Ya, tukar"
+      }
+    },
+    "reset": {
+      "title": "Tetapkan Semula",
+      "description": "Pulihkan tetapan lalai.",
+      "button": "Tetapkan Semula Tetapan",
+      "confirm": {
+        "title": "Tetapkan Semula Pilihan",
+        "description": "Ini akan memulihkan pilihan bahasa dan penampilan lalai. Teruskan?",
+        "confirmText": "Ya, tetapkan semula"
+      }
+    },
+    "admin": {
+      "title": "Akses Admin",
+      "description": "Akses papan kawalan pentadbir untuk menguruskan pesanan, menu dan inventori.",
+      "button": "Pergi ke Log Masuk Admin"
+    },
+    "toast": {
+      "languageUpdated": "Bahasa dikemaskini",
+      "preferencesReset": "Pilihan tetapkan semula"
+    }
+  },
+  "Admin": {
+    "subtitle": "Papan Kawalan Pentadbir",
+    "nav": {
+      "main": "Navigasi Utama",
+      "dashboard": "Papan Kawalan",
+      "orders": "Pesanan",
+      "menu": "Menu",
+      "inventory": "Inventori",
+      "logout": "Keluar"
+    },
+    "login": {
+      "title": "Log Masuk Admin",
+      "description": "Log masuk untuk mengakses papan kawalan pentadbir",
+      "username": "Nama Pengguna",
+      "password": "Kata Laluan",
+      "submit": "Log Masuk",
+      "loading": "Sedang Log Masuk...",
+      "success": "Log Masuk Berjaya",
+      "error": "Bukti Kelayakan Tidak Sah",
+      "backToMenu": "Kembali ke Menu"
+    },
+    "dashboard": {
+      "title": "Papan Kawalan",
+      "description": "Gambaran keseluruhan operasi restoran",
+      "loading": "Memuatkan papan kawalan...",
+      "noData": "Tiada data",
+      "refresh": "Segarkan",
+      "errorFetching": "Ralat semasa mengambil analitik",
+      "metrics": {
+        "totalRevenue": "Jumlah Hasil",
+        "totalOrders": "Jumlah Pesanan",
+        "averageOrder": "Pesanan Purata",
+        "ordersToday": "Pesanan Hari Ini",
+        "revenue": "Hasil"
+      },
+      "popularItems": {
+        "title": "Item Popular",
+        "noData": "Tiada item popular lagi",
+        "orders": "Pesanan"
+      },
+      "recentOrders": {
+        "title": "Pesanan Terbaru",
+        "noData": "Tiada pesanan terbaru",
+        "table": "Meja",
+        "items": "item"
+      }
+    },
+    "orders": {
+      "title": "Pesanan",
+      "description": "Urus dan jejaki semua pesanan pelanggan",
+      "loading": "Memuatkan pesanan...",
+      "noOrders": "Belum ada pesanan",
+      "noFilteredOrders": "Tiada pesanan yang sepadan dengan penapis yang dipilih",
+      "refresh": "Segarkan",
+      "errorFetching": "Ralat semasa mengambil pesanan",
+      "statusUpdated": "Status pesanan dikemaskini ke {status}",
+      "errorUpdating": "Ralat semasa mengemas kini status pesanan",
+      "filters": {
+        "active": "Aktif",
+        "served": "Disajikan",
+        "cancelled": "Dibatalkan",
+        "all": "Semua"
+      },
+      "table": {
+        "orderNumber": "Pesanan #",
+        "tableNumber": "Meja {number}",
+        "items": "item",
+        "total": "Jumlah",
+        "status": "Status",
+        "time": "Masa"
+      },
+      "status": {
+        "pending": "Menunggu",
+        "confirmed": "Disahkan",
+        "preparing": "Sedang Disediakan",
+        "ready": "Bersedia",
+        "served": "Disajikan",
+        "cancelled": "Dibatalkan"
+      },
+      "details": {
+        "title": "Butiran Pesanan",
+        "table": "Meja",
+        "status": "Status Semasa",
+        "items": "item",
+        "subtotal": "Jumlah Kecil",
+        "tax": "Cukai",
+        "serviceFee": "Yuran Perkhidmatan",
+        "total": "Jumlah",
+        "updateStatus": "Kemaskini Status",
+        "selectStatus": "Pilih status baru",
+        "updateButton": "Kemaskini Status",
+        "updating": "Mengemas kini...",
+        "close": "Tutup",
+        "confirmStatusUpdate": "Sahkan Kemaskini Status",
+        "confirmStatusUpdateDescription": "Adakah anda pasti ingin mengemas kini pesanan ini daripada {currentStatus} ke {newStatus}?",
+        "cancel": "Batal",
+        "confirm": "Sahkan"
+      },
+      "confirmCancel": "Sahkan pembatalan?"
+    },
+    "menu": {
+      "title": "Pengurusan Menu",
+      "description": "Tambah, edit atau padam item menu",
+      "loading": "Memuatkan menu...",
+      "noItems": "Belum ada item menu",
+      "create": "Tambah Item",
+      "refresh": "Segarkan",
+      "errorFetching": "Ralat semasa mengambil menu",
+      "form": {
+        "createTitle": "Cipta Item Menu",
+        "createDescription": "Tambah item baru ke menu",
+        "editTitle": "Edit Item Menu",
+        "editDescription": "Kemaskini butiran item menu",
+        "name": "Nama",
+        "namePlaceholder": "Masukkan nama item",
+        "description": "Penerangan",
+        "descriptionPlaceholder": "Terangkan item menu",
+        "price": "Harga",
+        "category": "Kategori",
+        "categoryPlaceholder": "Cth. Hidangan Utama",
+        "imageUrl": "URL Imej",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "Masukkan URL imej yang sah",
+        "available": "Tersedia",
+        "availableDescription": "Adakah item ini tersedia pada masa ini?",
+        "create": "Cipta Item",
+        "save": "Simpan Perubahan",
+        "cancel": "Batal",
+        "delete": "Padam",
+        "saving": "Menyimpan...",
+        "createSuccess": "Item menu dicipta",
+        "createError": "Ralat mencipta item menu",
+        "updateSuccess": "Item menu dikemaskini",
+        "updateError": "Ralat mengemas kini item menu",
+        "deleteSuccess": "Item menu dipadamkan",
+        "deleteError": "Ralat memadamkan item menu",
+        "deleteConfirmTitle": "Padam Item Menu",
+        "deleteConfirmDescription": "Tindakan ini tidak boleh dibatalkan. Adakah anda pasti?",
+        "deleteConfirm": "Padam"
+      }
+    },
+    "inventory": {
+      "title": "Inventori",
+      "description": "Jejaki dan urus tahap inventori",
+      "loading": "Memuatkan inventori...",
+      "noItems": "Belum ada item inventori",
+      "refresh": "Segarkan",
+      "errorFetching": "Ralat semasa mengambil inventori",
+      "table": {
+        "item": "item",
+        "stock": "Stok",
+        "unit": "Unit",
+        "threshold": "Ambang",
+        "status": "Status",
+        "lastRestocked": "Stok Terakhir Dipulihkan",
+        "never": "Tidak Pernah"
+      },
+      "status": {
+        "low": "Stok Rendah",
+        "good": "Stok Baik"
+      },
+      "form": {
+        "title": "Kemaskini Inventori",
+        "description": "Kemaskini tahap stok untuk {item}",
+        "currentStock": "Stok Semasa",
+        "threshold": "Ambang Stok Rendah",
+        "newStock": "Tahap Stok Baru",
+        "stockDescription": "Masukkan tahap stok baru dalam {unit}",
+        "update": "Kemaskini Inventori",
+        "updating": "Mengemas kini...",
+        "cancel": "Batal",
+        "updateSuccess": "Inventori dikemaskini",
+        "updateError": "Ralat mengemas kini inventori"
+      }
+    }
+  }
+}

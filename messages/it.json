@@ -1,0 +1,340 @@
+{
+  "Menu": {
+    "title": "Menu",
+    "description": "Esplora i nostri piatti deliziosi e trova il tuo prossimo favorito",
+    "categories": {
+      "appetizers": "Antipasti",
+      "beverages": "Bevande",
+      "desserts": "Dolci",
+      "main-course": "Piatti principali",
+      "sides": "Contorni",
+      "all": "Tutti"
+    },
+    "messages": {
+      "searchPlaceholder": "Cerca nel menu...",
+      "searchAriaLabel": "Cerca nei piatti del menu",
+      "noSearchResults": "Nessun piatto del menu trovato.",
+      "loadingMenu": "Caricamento del menu...",
+      "noMenuItems": "Nessun piatto del menu disponibile.",
+      "errorLoadingMenu": "Errore nel caricamento del menu. Riprova più tardi.",
+      "clearSearch": "Cancella la ricerca."
+    },
+    "available": "Disponibile",
+    "unavailable": "Non disponibile",
+    "tags": "Etichette",
+    "quantity": "Quantità",
+    "subTotal": "Subtotale",
+    "updateCart": "Aggiorna carrello",
+    "closeDetails": "Chiudi dettagli",
+    "noDescription": "Nessuna descrizione disponibile.",
+    "updating": "Aggiornamento in corso...",
+    "removeFromCart": "Rimuovi dal carrello",
+    "close": "Chiudi",
+    "confirmRemove": "Rimuovere dal carrello?",
+    "confirmAdd": "Aggiungere al carrello?",
+    "confirmUpdate": "Aggiornare il carrello?",
+    "confirmRemoveDescription": "Sei sicuro di voler rimuovere {itemName} dal carrello?",
+    "confirmAddDescription": "Aggiungere {quantity} {quantity, plural, =1 {articolo} other {articoli}} di {itemName} al carrello?",
+    "confirmUpdateDescription": "Aggiornare la quantità di {itemName} da {oldQuantity} a {newQuantity}?",
+    "cancel": "Annulla",
+    "confirm": "Conferma"
+  },
+  "Cart": {
+    "title": "Carrello",
+    "items": "Articoli del carrello",
+    "itemCount": "{count, plural, =0 {Nessun articolo} =1 {1 articolo} other {# articoli}}",
+    "specialInstructions": "Istruzioni speciali",
+    "orderSummary": "Riepilogo ordine",
+    "subtotal": "Subtotale",
+    "total": "Totale",
+    "submitOrder": "Invia ordine",
+    "messages": {
+      "loadingCart": "Caricamento del carrello...",
+      "errorLoadingCart": "Errore nel caricamento del carrello. Riprova più tardi.",
+      "emptyCart": "Il tuo carrello è vuoto. Aggiungi alcuni piatti dal menu!",
+      "submitOrderInfo": "Il tuo ordine verrà inviato in cucina."
+    },
+    "ariaLabel": {
+      "removeItem": "Rimuovi {itemName} dal carrello"
+    },
+    "confirmDelete": "Rimuovere articolo?",
+    "confirmDeleteDescription": "Sei sicuro di voler rimuovere {quantity} {quantity, plural, =1 {articolo} other {articoli}} di {itemName}?",
+    "confirmSubmitOrder": "Inviare l'ordine?",
+    "confirmSubmitOrderDescription": "Stai per inviare {itemCount, plural, =1 {1 articolo} other {# articoli}} per un totale di ${total}. Il tuo ordine verrà inviato in cucina.",
+    "cancel": "Annulla",
+    "delete": "Rimuovi"
+  },
+  "Bill": {
+    "title": "Il tuo conto",
+    "orderDetails": "Dettagli dell'ordine",
+    "orderNumber": "Ordine #{number}"
+  },
+  "Navigation": {
+    "home": "Home",
+    "menu": "Menu",
+    "search": "Cerca",
+    "cart": "Carrello",
+    "bill": "Conto",
+    "settings": "Impostazioni",
+    "myAccount": "Il mio account",
+    "logout": "Esci"
+  },
+  "Button": {
+    "continue": "Continua"
+  },
+  "MenuDropdown": {
+    "editProfile": "Modifica profilo",
+    "language": "Lingua",
+    "currency": "Valuta",
+    "darkMode": "Modalità scura",
+    "logout": "Esci"
+  },
+  "Common": {
+    "tableNumber": "Tavolo #{number}",
+    "subTotal": "Subtotale",
+    "total": "Totale",
+    "grandTotal": "Importo totale",
+    "tax": "Imposta",
+    "serviceFee": "Coperto",
+    "summary": "Riepilogo",
+    "order": {
+      "pending": "In sospeso",
+      "confirmed": "Confermato",
+      "preparing": "In preparazione",
+      "ready": "Pronto",
+      "served": "Servito",
+      "cancelled": "Annullato"
+    },
+    "noImage": "Nessuna immagine",
+    "add": "Aggiungi",
+    "edit": "Modifica",
+    "item": "articolo",
+    "items": "articoli",
+    "ok": "OK",
+    "cancel": "Annulla",
+    "updating": "Aggiornamento in corso...",
+    "orderCancellation": {
+      "title": "Annulla ordine",
+      "description": "Sei sicuro di voler annullare questo ordine? Questa azione non può essere annullata.",
+      "orderCancelled": "Ordine annullato."
+    }
+  },
+  "Settings": {
+    "title": "Impostazioni",
+    "description": "Gestisci le tue preferenze, inclusi tema, lingua e impostazioni predefinite.",
+    "appearance": {
+      "title": "Aspetto",
+      "description": "Personalizza l'aspetto dell'interfaccia.",
+      "themeLabel": "Tema",
+      "light": "Chiaro",
+      "dark": "Scuro",
+      "system": "Sistema"
+    },
+    "language": {
+      "title": "Lingua",
+      "description": "Cambia la lingua del display.",
+      "selectLabel": "Seleziona una lingua",
+      "save": "Salva lingua",
+      "confirm": {
+        "title": "Cambia lingua",
+        "description": "Sei sicuro di voler cambiare la lingua dell'interfaccia? La pagina verrà ricaricata.",
+        "confirmText": "Sì, cambia"
+      }
+    },
+    "reset": {
+      "title": "Ripristina",
+      "description": "Ripristina le preferenze predefinite.",
+      "button": "Ripristina impostazioni",
+      "confirm": {
+        "title": "Ripristina preferenze",
+        "description": "Questo ripristinerà le preferenze di lingua e aspetto predefinite. Continuare?",
+        "confirmText": "Sì, ripristina"
+      }
+    },
+    "admin": {
+      "title": "Accesso amministratore",
+      "description": "Accedi al pannello di amministrazione per gestire ordini, menu e inventario.",
+      "button": "Vai al login amministratore"
+    },
+    "toast": {
+      "languageUpdated": "Lingua aggiornata",
+      "preferencesReset": "Preferenze ripristinate"
+    }
+  },
+  "Admin": {
+    "subtitle": "Pannello di amministrazione",
+    "nav": {
+      "main": "Navigazione principale",
+      "dashboard": "Pannello di controllo",
+      "orders": "Ordini",
+      "menu": "Menu",
+      "inventory": "Inventario",
+      "logout": "Esci"
+    },
+    "login": {
+      "title": "Login amministratore",
+      "description": "Accedi per accedere al pannello di amministrazione",
+      "username": "Nome utente",
+      "password": "Password",
+      "submit": "Accedi",
+      "loading": "Accesso in corso...",
+      "success": "Accesso effettuato con successo",
+      "error": "Credenziali non valide",
+      "backToMenu": "Torna al menu"
+    },
+    "dashboard": {
+      "title": "Pannello di controllo",
+      "description": "Panoramica delle operazioni del ristorante",
+      "loading": "Caricamento del pannello di controllo...",
+      "noData": "Nessun dato disponibile",
+      "refresh": "Aggiorna",
+      "errorFetching": "Errore nel recupero dei dati analitici",
+      "metrics": {
+        "totalRevenue": "Ricavo totale",
+        "totalOrders": "Ordini totali",
+        "averageOrder": "Ordine medio",
+        "ordersToday": "Ordini oggi",
+        "revenue": "Ricavo"
+      },
+      "popularItems": {
+        "title": "Piatti popolari",
+        "noData": "Nessun piatto popolare ancora",
+        "orders": "Ordini"
+      },
+      "recentOrders": {
+        "title": "Ordini recenti",
+        "noData": "Nessun ordine recente",
+        "table": "Tavolo",
+        "items": "articoli"
+      }
+    },
+    "orders": {
+      "title": "Ordini",
+      "description": "Gestisci e traccia tutti gli ordini dei clienti",
+      "loading": "Caricamento degli ordini...",
+      "noOrders": "Nessun ordine ancora",
+      "noFilteredOrders": "Nessun ordine che corrisponda ai filtri selezionati",
+      "refresh": "Aggiorna",
+      "errorFetching": "Errore nel recupero degli ordini",
+      "statusUpdated": "Stato dell'ordine aggiornato a {status}",
+      "errorUpdating": "Errore nell'aggiornamento dello stato dell'ordine",
+      "filters": {
+        "active": "Attivo",
+        "served": "Servito",
+        "cancelled": "Annullato",
+        "all": "Tutti"
+      },
+      "table": {
+        "orderNumber": "Ordine #",
+        "tableNumber": "Tavolo {number}",
+        "items": "articoli",
+        "total": "Totale",
+        "status": "Stato",
+        "time": "Ora"
+      },
+      "status": {
+        "pending": "In sospeso",
+        "confirmed": "Confermato",
+        "preparing": "In preparazione",
+        "ready": "Pronto",
+        "served": "Servito",
+        "cancelled": "Annullato"
+      },
+      "details": {
+        "title": "Dettagli dell'ordine",
+        "table": "Tavolo",
+        "status": "Stato attuale",
+        "items": "articoli",
+        "subtotal": "Subtotale",
+        "tax": "Imposta",
+        "serviceFee": "Coperto",
+        "total": "Totale",
+        "updateStatus": "Aggiorna stato",
+        "selectStatus": "Seleziona nuovo stato",
+        "updateButton": "Aggiorna stato",
+        "updating": "Aggiornamento in corso...",
+        "close": "Chiudi",
+        "confirmStatusUpdate": "Conferma aggiornamento dello stato",
+        "confirmStatusUpdateDescription": "Sei sicuro di voler aggiornare questo ordine da {currentStatus} a {newStatus}?",
+        "cancel": "Annulla",
+        "confirm": "Conferma"
+      },
+      "confirmCancel": "Confermare l'annullamento?"
+    },
+    "menu": {
+      "title": "Gestione menu",
+      "description": "Aggiungi, modifica o rimuovi piatti dal menu",
+      "loading": "Caricamento del menu...",
+      "noItems": "Nessun piatto del menu ancora",
+      "create": "Aggiungi piatto",
+      "refresh": "Aggiorna",
+      "errorFetching": "Errore nel recupero del menu",
+      "form": {
+        "createTitle": "Crea piatto del menu",
+        "createDescription": "Aggiungi un nuovo piatto al menu",
+        "editTitle": "Modifica piatto del menu",
+        "editDescription": "Aggiorna i dettagli del piatto del menu",
+        "name": "Nome",
+        "namePlaceholder": "Inserisci il nome del piatto",
+        "description": "Descrizione",
+        "descriptionPlaceholder": "Descrivi il piatto del menu",
+        "price": "Prezzo",
+        "category": "Categoria",
+        "categoryPlaceholder": "Es. Piatto principale",
+        "imageUrl": "URL immagine",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "Inserisci un URL immagine valido",
+        "available": "Disponibile",
+        "availableDescription": "Questo piatto è attualmente disponibile?",
+        "create": "Crea piatto",
+        "save": "Salva modifiche",
+        "cancel": "Annulla",
+        "delete": "Elimina",
+        "saving": "Salvataggio in corso...",
+        "createSuccess": "Piatto del menu creato",
+        "createError": "Errore nella creazione del piatto del menu",
+        "updateSuccess": "Piatto del menu aggiornato",
+        "updateError": "Errore nell'aggiornamento del piatto del menu",
+        "deleteSuccess": "Piatto del menu eliminato",
+        "deleteError": "Errore nell'eliminazione del piatto del menu",
+        "deleteConfirmTitle": "Elimina piatto del menu",
+        "deleteConfirmDescription": "Questa azione non può essere annullata. Sei sicuro?",
+        "deleteConfirm": "Elimina"
+      }
+    },
+    "inventory": {
+      "title": "Inventario",
+      "description": "Traccia e gestisci i livelli di inventario",
+      "loading": "Caricamento dell'inventario...",
+      "noItems": "Nessun articolo di inventario ancora",
+      "refresh": "Aggiorna",
+      "errorFetching": "Errore nel recupero dell'inventario",
+      "table": {
+        "item": "articolo",
+        "stock": "Disponibilità",
+        "unit": "Unità",
+        "threshold": "Soglia",
+        "status": "Stato",
+        "lastRestocked": "Ultimo reintegro",
+        "never": "Mai"
+      },
+      "status": {
+        "low": "Disponibilità bassa",
+        "good": "Disponibilità buona"
+      },
+      "form": {
+        "title": "Aggiorna inventario",
+        "description": "Aggiorna il livello di disponibilità per {item}",
+        "currentStock": "Disponibilità attuale",
+        "threshold": "Soglia disponibilità bassa",
+        "newStock": "Nuovo livello di disponibilità",
+        "stockDescription": "Inserisci il nuovo livello di disponibilità in {unit}",
+        "update": "Aggiorna inventario",
+        "updating": "Aggiornamento in corso...",
+        "cancel": "Annulla",
+        "updateSuccess": "Inventario aggiornato",
+        "updateError": "Errore nell'aggiornamento dell'inventario"
+      }
+    }
+  }
+}

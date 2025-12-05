@@ -1,0 +1,340 @@
+{
+  "Menu": {
+    "title": "Menu",
+    "description": "Explorez nos délicieuses offres et trouvez votre prochain plat préféré!",
+    "categories": {
+      "appetizers": "Entrées",
+      "beverages": "Boissons",
+      "desserts": "Desserts",
+      "main-course": "Plat Principal",
+      "sides": "Accompagnements",
+      "all": "Tous"
+    },
+    "messages": {
+      "searchPlaceholder": "Rechercher les articles du menu...",
+      "searchAriaLabel": "Rechercher dans les articles du menu",
+      "noSearchResults": "Aucun article du menu trouvé.",
+      "loadingMenu": "Chargement du menu...",
+      "noMenuItems": "Aucun article du menu disponible.",
+      "errorLoadingMenu": "Erreur lors du chargement du menu. Veuillez réessayer plus tard.",
+      "clearSearch": "Effacer la recherche."
+    },
+    "available": "Disponible",
+    "unavailable": "Non disponible",
+    "tags": "Étiquettes",
+    "quantity": "Quantité",
+    "subTotal": "Sous-total",
+    "updateCart": "Mettre à jour le panier",
+    "closeDetails": "Fermer les détails",
+    "noDescription": "Aucune description disponible.",
+    "updating": "Mise à jour en cours...",
+    "removeFromCart": "Retirer du panier",
+    "close": "Fermer",
+    "confirmRemove": "Retirer du panier?",
+    "confirmAdd": "Ajouter au panier?",
+    "confirmUpdate": "Mettre à jour le panier?",
+    "confirmRemoveDescription": "Êtes-vous sûr de vouloir retirer {itemName} de votre panier?",
+    "confirmAddDescription": "Ajouter {quantity} {quantity, plural, =1 {article} other {articles}} de {itemName} à votre panier?",
+    "confirmUpdateDescription": "Mettre à jour la quantité de {itemName} de {oldQuantity} à {newQuantity}?",
+    "cancel": "Annuler",
+    "confirm": "Confirmer"
+  },
+  "Cart": {
+    "title": "Panier",
+    "items": "Articles du panier",
+    "itemCount": "{count, plural, =0 {Aucun article} =1 {1 article} other {# articles}}",
+    "specialInstructions": "Instructions spéciales",
+    "orderSummary": "Résumé de la commande",
+    "subtotal": "Sous-total",
+    "total": "Total",
+    "submitOrder": "Soumettre la commande",
+    "messages": {
+      "loadingCart": "Chargement du panier...",
+      "errorLoadingCart": "Erreur lors du chargement du panier. Veuillez réessayer plus tard.",
+      "emptyCart": "Votre panier est vide. Ajoutez quelques articles du menu!",
+      "submitOrderInfo": "Votre commande sera envoyée à la cuisine."
+    },
+    "ariaLabel": {
+      "removeItem": "Retirer {itemName} du panier"
+    },
+    "confirmDelete": "Retirer l'article?",
+    "confirmDeleteDescription": "Êtes-vous sûr de vouloir retirer {quantity} {quantity, plural, =1 {article} other {articles}} de {itemName} de votre panier?",
+    "confirmSubmitOrder": "Soumettre votre commande?",
+    "confirmSubmitOrderDescription": "Vous êtes sur le point de soumettre {itemCount, plural, =1 {1 article} other {# articles}} avec un total de ${total}. Votre commande sera envoyée à la cuisine.",
+    "cancel": "Annuler",
+    "delete": "Retirer"
+  },
+  "Bill": {
+    "title": "Votre facture",
+    "orderDetails": "Détails de la commande",
+    "orderNumber": "Commande #{number}"
+  },
+  "Navigation": {
+    "home": "Accueil",
+    "menu": "Menu",
+    "search": "Recherche",
+    "cart": "Panier",
+    "bill": "Facture",
+    "settings": "Paramètres",
+    "myAccount": "Mon compte",
+    "logout": "Déconnexion"
+  },
+  "Button": {
+    "continue": "Continuer"
+  },
+  "MenuDropdown": {
+    "editProfile": "Modifier le profil",
+    "language": "Langue",
+    "currency": "Devise",
+    "darkMode": "Mode sombre",
+    "logout": "Déconnexion"
+  },
+  "Common": {
+    "tableNumber": "Table #{number}",
+    "subTotal": "Sous-total",
+    "total": "Total",
+    "grandTotal": "Grand total",
+    "tax": "Taxe",
+    "serviceFee": "Frais de service",
+    "summary": "Résumé",
+    "order": {
+      "pending": "En attente",
+      "confirmed": "Confirmé",
+      "preparing": "Préparation en cours",
+      "ready": "Prêt",
+      "served": "Servi",
+      "cancelled": "Annulé"
+    },
+    "noImage": "Pas d'image",
+    "add": "Ajouter",
+    "edit": "Modifier",
+    "item": "Article",
+    "items": "Articles",
+    "ok": "OK",
+    "cancel": "Annuler",
+    "updating": "Mise à jour en cours...",
+    "orderCancellation": {
+      "title": "Annuler la commande",
+      "description": "Êtes-vous sûr de vouloir annuler cette commande? Cette action ne peut pas être annulée.",
+      "orderCancelled": "La commande a été annulée."
+    }
+  },
+  "Settings": {
+    "title": "Paramètres",
+    "description": "Gérez vos préférences, y compris le thème, la langue et les paramètres par défaut.",
+    "appearance": {
+      "title": "Apparence",
+      "description": "Personnalisez l'apparence de l'interface.",
+      "themeLabel": "Thème",
+      "light": "Clair",
+      "dark": "Sombre",
+      "system": "Système"
+    },
+    "language": {
+      "title": "Langue",
+      "description": "Changez la langue d'affichage.",
+      "selectLabel": "Sélectionnez la langue",
+      "save": "Enregistrer la langue",
+      "confirm": {
+        "title": "Changer la langue",
+        "description": "Êtes-vous sûr de vouloir changer la langue de l'interface? Cela rafraîchira la page.",
+        "confirmText": "Oui, changer"
+      }
+    },
+    "reset": {
+      "title": "Réinitialiser",
+      "description": "Restaurer les préférences par défaut.",
+      "button": "Réinitialiser les paramètres",
+      "confirm": {
+        "title": "Réinitialiser les préférences",
+        "description": "Cela restaurera les préférences de langue et d'apparence par défaut. Continuer?",
+        "confirmText": "Oui, réinitialiser"
+      }
+    },
+    "admin": {
+      "title": "Accès administrateur",
+      "description": "Accédez au panneau d'administration pour gérer les commandes, le menu et l'inventaire.",
+      "button": "Aller à la connexion administrateur"
+    },
+    "toast": {
+      "languageUpdated": "Langue mise à jour",
+      "preferencesReset": "Préférences réinitialisées"
+    }
+  },
+  "Admin": {
+    "subtitle": "Panneau d'administration",
+    "nav": {
+      "main": "Navigation principale",
+      "dashboard": "Tableau de bord",
+      "orders": "Commandes",
+      "menu": "Menu",
+      "inventory": "Inventaire",
+      "logout": "Déconnexion"
+    },
+    "login": {
+      "title": "Connexion administrateur",
+      "description": "Connectez-vous pour accéder au tableau de bord administrateur",
+      "username": "Nom d'utilisateur",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "loading": "Connexion en cours...",
+      "success": "Connexion réussie",
+      "error": "Identifiants invalides",
+      "backToMenu": "Retour au menu"
+    },
+    "dashboard": {
+      "title": "Tableau de bord",
+      "description": "Aperçu de vos opérations de restaurant",
+      "loading": "Chargement du tableau de bord...",
+      "noData": "Aucune donnée disponible",
+      "refresh": "Rafraîchir",
+      "errorFetching": "Erreur lors de la récupération des analyses",
+      "metrics": {
+        "totalRevenue": "Revenu total",
+        "totalOrders": "Commandes totales",
+        "averageOrder": "Commande moyenne",
+        "ordersToday": "Commandes aujourd'hui",
+        "revenue": "revenu"
+      },
+      "popularItems": {
+        "title": "Articles populaires",
+        "noData": "Aucun article populaire pour le moment",
+        "orders": "commandes"
+      },
+      "recentOrders": {
+        "title": "Commandes récentes",
+        "noData": "Aucune commande récente",
+        "table": "Table",
+        "items": "articles"
+      }
+    },
+    "orders": {
+      "title": "Commandes",
+      "description": "Gérez et suivez toutes les commandes des clients",
+      "loading": "Chargement des commandes...",
+      "noOrders": "Aucune commande pour le moment",
+      "noFilteredOrders": "Aucune commande ne correspond au filtre sélectionné",
+      "refresh": "Rafraîchir",
+      "errorFetching": "Erreur lors de la récupération des commandes",
+      "statusUpdated": "Statut de la commande mis à jour vers {status}",
+      "errorUpdating": "Erreur lors de la mise à jour du statut de la commande",
+      "filters": {
+        "active": "Actif",
+        "served": "Servi",
+        "cancelled": "Annulé",
+        "all": "Tous"
+      },
+      "table": {
+        "orderNumber": "Commande #",
+        "tableNumber": "Table {number}",
+        "items": "Articles",
+        "total": "Total",
+        "status": "Statut",
+        "time": "Heure"
+      },
+      "status": {
+        "pending": "En attente",
+        "confirmed": "Confirmé",
+        "preparing": "Préparation en cours",
+        "ready": "Prêt",
+        "served": "Servi",
+        "cancelled": "Annulé"
+      },
+      "details": {
+        "title": "Détails de la commande",
+        "table": "Table",
+        "status": "Statut actuel",
+        "items": "Articles",
+        "subtotal": "Sous-total",
+        "tax": "Taxe",
+        "serviceFee": "Frais de service",
+        "total": "Total",
+        "updateStatus": "Mettre à jour le statut",
+        "selectStatus": "Sélectionnez le nouveau statut",
+        "updateButton": "Mettre à jour le statut",
+        "updating": "Mise à jour en cours...",
+        "close": "Fermer",
+        "confirmStatusUpdate": "Confirmer la mise à jour du statut",
+        "confirmStatusUpdateDescription": "Êtes-vous sûr de vouloir mettre à jour cette commande de {currentStatus} à {newStatus}?",
+        "cancel": "Annuler",
+        "confirm": "Confirmer"
+      },
+      "confirmCancel": "Confirmer l'annulation?"
+    },
+    "menu": {
+      "title": "Gestion du menu",
+      "description": "Ajouter, modifier ou supprimer des articles du menu",
+      "loading": "Chargement du menu...",
+      "noItems": "Aucun article du menu pour le moment",
+      "create": "Ajouter un article",
+      "refresh": "Rafraîchir",
+      "errorFetching": "Erreur lors de la récupération du menu",
+      "form": {
+        "createTitle": "Créer un article du menu",
+        "createDescription": "Ajouter un nouvel article au menu",
+        "editTitle": "Modifier l'article du menu",
+        "editDescription": "Mettre à jour les détails de l'article du menu",
+        "name": "Nom",
+        "namePlaceholder": "Entrez le nom de l'article",
+        "description": "Description",
+        "descriptionPlaceholder": "Décrivez l'article du menu",
+        "price": "Prix",
+        "category": "Catégorie",
+        "categoryPlaceholder": "ex., Plat Principal",
+        "imageUrl": "URL de l'image",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "Entrez une URL d'image valide",
+        "available": "Disponible",
+        "availableDescription": "Cet article est-il actuellement disponible?",
+        "create": "Créer un article",
+        "save": "Enregistrer les modifications",
+        "cancel": "Annuler",
+        "delete": "Supprimer",
+        "saving": "Enregistrement en cours...",
+        "createSuccess": "Article du menu créé",
+        "createError": "Erreur lors de la création de l'article du menu",
+        "updateSuccess": "Article du menu mis à jour",
+        "updateError": "Erreur lors de la mise à jour de l'article du menu",
+        "deleteSuccess": "Article du menu supprimé",
+        "deleteError": "Erreur lors de la suppression de l'article du menu",
+        "deleteConfirmTitle": "Supprimer l'article du menu",
+        "deleteConfirmDescription": "Cette action ne peut pas être annulée. Êtes-vous sûr?",
+        "deleteConfirm": "Supprimer"
+      }
+    },
+    "inventory": {
+      "title": "Inventaire",
+      "description": "Suivre et gérer les niveaux de stock",
+      "loading": "Chargement de l'inventaire...",
+      "noItems": "Aucun article d'inventaire pour le moment",
+      "refresh": "Rafraîchir",
+      "errorFetching": "Erreur lors de la récupération de l'inventaire",
+      "table": {
+        "item": "Article",
+        "stock": "Stock",
+        "unit": "Unité",
+        "threshold": "Seuil",
+        "status": "Statut",
+        "lastRestocked": "Dernier réapprovisionnement",
+        "never": "Jamais"
+      },
+      "status": {
+        "low": "Stock faible",
+        "good": "En stock"
+      },
+      "form": {
+        "title": "Mettre à jour l'inventaire",
+        "description": "Mettre à jour le niveau de stock pour {item}",
+        "currentStock": "Stock actuel",
+        "threshold": "Seuil de stock faible",
+        "newStock": "Nouveau niveau de stock",
+        "stockDescription": "Entrez le nouveau niveau de stock en {unit}",
+        "update": "Mettre à jour le stock",
+        "updating": "Mise à jour en cours...",
+        "cancel": "Annuler",
+        "updateSuccess": "Inventaire mis à jour",
+        "updateError": "Erreur lors de la mise à jour de l'inventaire"
+      }
+    }
+  }
+}

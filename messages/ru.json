@@ -1,0 +1,340 @@
+{
+  "Menu": {
+    "title": "Меню",
+    "description": "Изучите наши вкусные блюда и найдите свое новое любимое",
+    "categories": {
+      "appetizers": "Закуски",
+      "beverages": "Напитки",
+      "desserts": "Десерты",
+      "main-course": "Основные блюда",
+      "sides": "Гарниры",
+      "all": "Все"
+    },
+    "messages": {
+      "searchPlaceholder": "Поиск в меню...",
+      "searchAriaLabel": "Поиск в меню",
+      "noSearchResults": "Пункты меню не найдены.",
+      "loadingMenu": "Загрузка меню...",
+      "noMenuItems": "Пункты меню недоступны.",
+      "errorLoadingMenu": "Ошибка при загрузке меню. Пожалуйста, попробуйте позже.",
+      "clearSearch": "Очистить поиск."
+    },
+    "available": "Доступно",
+    "unavailable": "Недоступно",
+    "tags": "Теги",
+    "quantity": "Количество",
+    "subTotal": "Итого",
+    "updateCart": "Обновить корзину",
+    "closeDetails": "Закрыть детали",
+    "noDescription": "Описание недоступно.",
+    "updating": "Обновление...",
+    "removeFromCart": "Удалить из корзины",
+    "close": "Закрыть",
+    "confirmRemove": "Удалить из корзины?",
+    "confirmAdd": "Добавить в корзину?",
+    "confirmUpdate": "Обновить корзину?",
+    "confirmRemoveDescription": "Вы уверены, что хотите удалить {itemName} из корзины?",
+    "confirmAddDescription": "Добавить {quantity} {quantity, plural, =1 {позицию} other {позиции}} {itemName} в корзину?",
+    "confirmUpdateDescription": "Обновить количество {itemName} с {oldQuantity} на {newQuantity}?",
+    "cancel": "Отмена",
+    "confirm": "Подтвердить"
+  },
+  "Cart": {
+    "title": "Корзина",
+    "items": "Предметы в корзине",
+    "itemCount": "{count, plural, =0 {Нет предметов} =1 {1 предмет} other {# предметов}}",
+    "specialInstructions": "Специальные инструкции",
+    "orderSummary": "Итоговая сумма заказа",
+    "subtotal": "Итого",
+    "total": "Всего",
+    "submitOrder": "Отправить заказ",
+    "messages": {
+      "loadingCart": "Загрузка корзины...",
+      "errorLoadingCart": "Ошибка при загрузке корзины. Пожалуйста, попробуйте позже.",
+      "emptyCart": "Ваша корзина пуста. Добавьте несколько предметов из меню!",
+      "submitOrderInfo": "Ваш заказ будет отправлен на кухню."
+    },
+    "ariaLabel": {
+      "removeItem": "Удалить {itemName} из корзины"
+    },
+    "confirmDelete": "Удалить предмет?",
+    "confirmDeleteDescription": "Вы уверены, что хотите удалить {quantity} {quantity, plural, =1 {позицию} other {позиции}} {itemName}?",
+    "confirmSubmitOrder": "Отправить заказ?",
+    "confirmSubmitOrderDescription": "Вы собираетесь отправить {itemCount, plural, =1 {1 позицию} other {# позиции}} на сумму ${total}. Ваш заказ будет отправлен на кухню.",
+    "cancel": "Отмена",
+    "delete": "Удалить"
+  },
+  "Bill": {
+    "title": "Ваш счет",
+    "orderDetails": "Детали заказа",
+    "orderNumber": "Заказ #{number}"
+  },
+  "Navigation": {
+    "home": "Главная",
+    "menu": "Меню",
+    "search": "Поиск",
+    "cart": "Корзина",
+    "bill": "Счет",
+    "settings": "Настройки",
+    "myAccount": "Мой аккаунт",
+    "logout": "Выйти"
+  },
+  "Button": {
+    "continue": "Продолжить"
+  },
+  "MenuDropdown": {
+    "editProfile": "Редактировать профиль",
+    "language": "Язык",
+    "currency": "Валюта",
+    "darkMode": "Темный режим",
+    "logout": "Выйти"
+  },
+  "Common": {
+    "tableNumber": "Стол #{number}",
+    "subTotal": "Итого",
+    "total": "Всего",
+    "grandTotal": "Общая сумма",
+    "tax": "Налог",
+    "serviceFee": "Плата за обслуживание",
+    "summary": "Итоговая сумма",
+    "order": {
+      "pending": "В ожидании",
+      "confirmed": "Подтверждено",
+      "preparing": "Готовится",
+      "ready": "Готово",
+      "served": "Подано",
+      "cancelled": "Отменено"
+    },
+    "noImage": "Нет изображения",
+    "add": "Добавить",
+    "edit": "Редактировать",
+    "item": "позиция",
+    "items": "позиции",
+    "ok": "ОК",
+    "cancel": "Отмена",
+    "updating": "Обновление...",
+    "orderCancellation": {
+      "title": "Отмена заказа",
+      "description": "Вы уверены, что хотите отменить этот заказ? Это действие нельзя отменить.",
+      "orderCancelled": "Заказ отменен."
+    }
+  },
+  "Settings": {
+    "title": "Настройки",
+    "description": "Управляйте своими предпочтениями, включая тему, язык и настройки по умолчанию.",
+    "appearance": {
+      "title": "Внешний вид",
+      "description": "Настройте внешний вид интерфейса.",
+      "themeLabel": "Тема",
+      "light": "Светлая",
+      "dark": "Темная",
+      "system": "Система"
+    },
+    "language": {
+      "title": "Язык",
+      "description": "Изменить язык отображения.",
+      "selectLabel": "Выберите язык",
+      "save": "Сохранить язык",
+      "confirm": {
+        "title": "Изменить язык",
+        "description": "Вы уверены, что хотите изменить язык интерфейса? Страница будет перезагружена.",
+        "confirmText": "Да, изменить"
+      }
+    },
+    "reset": {
+      "title": "Сброс",
+      "description": "Восстановить настройки по умолчанию.",
+      "button": "Сбросить настройки",
+      "confirm": {
+        "title": "Сбросить предпочтения",
+        "description": "Это восстановит предпочтения языка и внешнего вида по умолчанию. Продолжить?",
+        "confirmText": "Да, сбросить"
+      }
+    },
+    "admin": {
+      "title": "Доступ администратора",
+      "description": "Получите доступ к панели администратора для управления заказами, меню и инвентарем.",
+      "button": "Перейти к входу администратора"
+    },
+    "toast": {
+      "languageUpdated": "Язык обновлен",
+      "preferencesReset": "Предпочтения восстановлены"
+    }
+  },
+  "Admin": {
+    "subtitle": "Панель администратора",
+    "nav": {
+      "main": "Главная навигация",
+      "dashboard": "Панель управления",
+      "orders": "Заказы",
+      "menu": "Меню",
+      "inventory": "Инвентарь",
+      "logout": "Выйти"
+    },
+    "login": {
+      "title": "Вход администратора",
+      "description": "Войдите для доступа к панели администратора",
+      "username": "Имя пользователя",
+      "password": "Пароль",
+      "submit": "Войти",
+      "loading": "Вход...",
+      "success": "Успешный вход",
+      "error": "Неверные учетные данные",
+      "backToMenu": "Вернуться в меню"
+    },
+    "dashboard": {
+      "title": "Панель управления",
+      "description": "Обзор операций ресторана",
+      "loading": "Загрузка панели управления...",
+      "noData": "Данные недоступны",
+      "refresh": "Обновить",
+      "errorFetching": "Ошибка при получении аналитики",
+      "metrics": {
+        "totalRevenue": "Общий доход",
+        "totalOrders": "Всего заказов",
+        "averageOrder": "Средний заказ",
+        "ordersToday": "Заказов сегодня",
+        "revenue": "Доход"
+      },
+      "popularItems": {
+        "title": "Популярные позиции",
+        "noData": "Пока нет популярных позиций",
+        "orders": "Заказы"
+      },
+      "recentOrders": {
+        "title": "Недавние заказы",
+        "noData": "Нет недавних заказов",
+        "table": "Стол",
+        "items": "позиции"
+      }
+    },
+    "orders": {
+      "title": "Заказы",
+      "description": "Управляйте и отслеживайте все заказы клиентов",
+      "loading": "Загрузка заказов...",
+      "noOrders": "Заказов пока нет",
+      "noFilteredOrders": "Нет заказов, соответствующих выбранным фильтрам",
+      "refresh": "Обновить",
+      "errorFetching": "Ошибка при получении заказов",
+      "statusUpdated": "Статус заказа обновлен на {status}",
+      "errorUpdating": "Ошибка при обновлении статуса заказа",
+      "filters": {
+        "active": "Активные",
+        "served": "Подано",
+        "cancelled": "Отменено",
+        "all": "Все"
+      },
+      "table": {
+        "orderNumber": "Заказ #",
+        "tableNumber": "Стол {number}",
+        "items": "позиции",
+        "total": "Всего",
+        "status": "Статус",
+        "time": "Время"
+      },
+      "status": {
+        "pending": "В ожидании",
+        "confirmed": "Подтверждено",
+        "preparing": "Готовится",
+        "ready": "Готово",
+        "served": "Подано",
+        "cancelled": "Отменено"
+      },
+      "details": {
+        "title": "Детали заказа",
+        "table": "Стол",
+        "status": "Текущий статус",
+        "items": "позиции",
+        "subtotal": "Итого",
+        "tax": "Налог",
+        "serviceFee": "Плата за обслуживание",
+        "total": "Всего",
+        "updateStatus": "Обновить статус",
+        "selectStatus": "Выберите новый статус",
+        "updateButton": "Обновить статус",
+        "updating": "Обновление...",
+        "close": "Закрыть",
+        "confirmStatusUpdate": "Подтвердить обновление статуса",
+        "confirmStatusUpdateDescription": "Вы уверены, что хотите обновить этот заказ с {currentStatus} на {newStatus}?",
+        "cancel": "Отмена",
+        "confirm": "Подтвердить"
+      },
+      "confirmCancel": "Подтвердить отмену?"
+    },
+    "menu": {
+      "title": "Управление меню",
+      "description": "Добавлять, редактировать или удалять позиции меню",
+      "loading": "Загрузка меню...",
+      "noItems": "Позиции меню еще не добавлены",
+      "create": "Добавить позицию",
+      "refresh": "Обновить",
+      "errorFetching": "Ошибка при получении меню",
+      "form": {
+        "createTitle": "Создать позицию меню",
+        "createDescription": "Добавить новую позицию в меню",
+        "editTitle": "Редактировать позицию меню",
+        "editDescription": "Обновить детали позиции меню",
+        "name": "Название",
+        "namePlaceholder": "Введите название позиции",
+        "description": "Описание",
+        "descriptionPlaceholder": "Опишите позицию меню",
+        "price": "Цена",
+        "category": "Категория",
+        "categoryPlaceholder": "Например, основное блюдо",
+        "imageUrl": "URL изображения",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "Введите действительный URL изображения",
+        "available": "Доступно",
+        "availableDescription": "Эта позиция в настоящее время доступна?",
+        "create": "Создать позицию",
+        "save": "Сохранить изменения",
+        "cancel": "Отмена",
+        "delete": "Удалить",
+        "saving": "Сохранение...",
+        "createSuccess": "Позиция меню создана",
+        "createError": "Ошибка при создании позиции меню",
+        "updateSuccess": "Позиция меню обновлена",
+        "updateError": "Ошибка при обновлении позиции меню",
+        "deleteSuccess": "Позиция меню удалена",
+        "deleteError": "Ошибка при удалении позиции меню",
+        "deleteConfirmTitle": "Удалить позицию меню",
+        "deleteConfirmDescription": "Это действие нельзя отменить. Вы уверены?",
+        "deleteConfirm": "Удалить"
+      }
+    },
+    "inventory": {
+      "title": "Инвентарь",
+      "description": "Отслеживайте и управляйте уровнями инвентаря",
+      "loading": "Загрузка инвентаря...",
+      "noItems": "Позиции инвентаря еще не добавлены",
+      "refresh": "Обновить",
+      "errorFetching": "Ошибка при получении инвентаря",
+      "table": {
+        "item": "позиция",
+        "stock": "Запас",
+        "unit": "Единица",
+        "threshold": "Пороговое значение",
+        "status": "Статус",
+        "lastRestocked": "Последнее пополнение",
+        "never": "Никогда"
+      },
+      "status": {
+        "low": "Низкий запас",
+        "good": "Хороший запас"
+      },
+      "form": {
+        "title": "Обновить инвентарь",
+        "description": "Обновить уровень запаса для {item}",
+        "currentStock": "Текущий запас",
+        "threshold": "Пороговое значение низкого запаса",
+        "newStock": "Новый уровень запаса",
+        "stockDescription": "Введите новый уровень запаса в {unit}",
+        "update": "Обновить инвентарь",
+        "updating": "Обновление...",
+        "cancel": "Отмена",
+        "updateSuccess": "Инвентарь обновлен",
+        "updateError": "Ошибка при обновлении инвентаря"
+      }
+    }
+  }
+}

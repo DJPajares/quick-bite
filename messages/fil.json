@@ -1,0 +1,340 @@
+{
+  "Menu": {
+    "title": "Menu",
+    "description": "Tuklasin ang aming masasarap na alok at hanapin ang iyong susunod na paboritong putahe!",
+    "categories": {
+      "appetizers": "Appetizers",
+      "beverages": "Inumin",
+      "desserts": "Desserts",
+      "main-course": "Pangunahing Putahe",
+      "sides": "Mga Lado",
+      "all": "Lahat"
+    },
+    "messages": {
+      "searchPlaceholder": "Maghanap ng menu items...",
+      "searchAriaLabel": "Maghanap sa mga item ng menu",
+      "noSearchResults": "Walang menu items na nahanap.",
+      "loadingMenu": "Naglo-load ng menu...",
+      "noMenuItems": "Walang available na menu items.",
+      "errorLoadingMenu": "Pagkakamali sa pag-load ng menu. Mangyaring subukan ulit mamaya.",
+      "clearSearch": "I-clear ang paghahanap."
+    },
+    "available": "Available",
+    "unavailable": "Hindi Available",
+    "tags": "Mga Tag",
+    "quantity": "Dami",
+    "subTotal": "Subtotal",
+    "updateCart": "I-update ang Cart",
+    "closeDetails": "Isara ang Mga Detalye",
+    "noDescription": "Walang description na available.",
+    "updating": "Nag-a-update...",
+    "removeFromCart": "Alisin mula sa Cart",
+    "close": "Isara",
+    "confirmRemove": "Alisin mula sa Cart?",
+    "confirmAdd": "Idagdag sa Cart?",
+    "confirmUpdate": "I-update ang Cart?",
+    "confirmRemoveDescription": "Sigurado ba kayong nais alisin ang {itemName} mula sa inyong cart?",
+    "confirmAddDescription": "Magdagdag ng {quantity} {quantity, plural, =1 {item} other {items}} ng {itemName} sa inyong cart?",
+    "confirmUpdateDescription": "I-update ang {itemName} quantity mula {oldQuantity} sa {newQuantity}?",
+    "cancel": "Kanselahin",
+    "confirm": "Kumpirmahin"
+  },
+  "Cart": {
+    "title": "Cart",
+    "items": "Mga Item sa Cart",
+    "itemCount": "{count, plural, =0 {Walang items} =1 {1 item} other {# items}}",
+    "specialInstructions": "Mga Espesyal na Instruksyon",
+    "orderSummary": "Order Summary",
+    "subtotal": "Subtotal",
+    "total": "Kabuuan",
+    "submitOrder": "Ipadala ang Order",
+    "messages": {
+      "loadingCart": "Naglo-load ng cart...",
+      "errorLoadingCart": "Pagkakamali sa pag-load ng cart. Mangyaring subukan ulit mamaya.",
+      "emptyCart": "Ang inyong cart ay walang laman. Magdagdag ng ilang items mula sa menu!",
+      "submitOrderInfo": "Ang inyong order ay ipapadala sa kusina."
+    },
+    "ariaLabel": {
+      "removeItem": "Alisin ang {itemName} mula sa cart"
+    },
+    "confirmDelete": "Alisin ang Item?",
+    "confirmDeleteDescription": "Sigurado ba kayong nais alisin ang {quantity} {quantity, plural, =1 {item} other {items}} ng {itemName} mula sa inyong cart?",
+    "confirmSubmitOrder": "Ipadala ang Inyong Order?",
+    "confirmSubmitOrderDescription": "Kayo ay magsasagawa ng {itemCount, plural, =1 {1 item} other {# items}} na may kabuuang ${total}. Ang inyong order ay ipapadala sa kusina.",
+    "cancel": "Kanselahin",
+    "delete": "Alisin"
+  },
+  "Bill": {
+    "title": "Ang Inyong Bill",
+    "orderDetails": "Mga Detalye ng Order",
+    "orderNumber": "Order #{number}"
+  },
+  "Navigation": {
+    "home": "Tahanan",
+    "menu": "Menu",
+    "search": "Paghahanap",
+    "cart": "Cart",
+    "bill": "Bill",
+    "settings": "Mga Setting",
+    "myAccount": "Ang Aking Account",
+    "logout": "Mag-logout"
+  },
+  "Button": {
+    "continue": "Magpatuloy"
+  },
+  "MenuDropdown": {
+    "editProfile": "I-edit ang Profile",
+    "language": "Wika",
+    "currency": "Palitan",
+    "darkMode": "Dark Mode",
+    "logout": "Mag-logout"
+  },
+  "Common": {
+    "tableNumber": "Mesa #{number}",
+    "subTotal": "Subtotal",
+    "total": "Kabuuan",
+    "grandTotal": "Grand Total",
+    "tax": "Buwis",
+    "serviceFee": "Service Fee",
+    "summary": "Buod",
+    "order": {
+      "pending": "Naghihintay",
+      "confirmed": "Kumpirmado",
+      "preparing": "Isinasagawa",
+      "ready": "Handa",
+      "served": "Inihain",
+      "cancelled": "Kinansela"
+    },
+    "noImage": "Walang Larawan",
+    "add": "Magdagdag",
+    "edit": "I-edit",
+    "item": "Item",
+    "items": "Mga Item",
+    "ok": "OK",
+    "cancel": "Kanselahin",
+    "updating": "Nag-a-update...",
+    "orderCancellation": {
+      "title": "Kanselahin ang Order",
+      "description": "Sigurado ba kayong nais kanselahin ang order na ito? Ang aksyon na ito ay hindi maaaring ibalik.",
+      "orderCancelled": "Ang order ay kinansela na."
+    }
+  },
+  "Settings": {
+    "title": "Mga Setting",
+    "description": "Pamahalaan ang inyong mga kagustuhan kabilang ang tema, wika at defaults.",
+    "appearance": {
+      "title": "Hitsura",
+      "description": "I-customize ang hitsura ng interface.",
+      "themeLabel": "Tema",
+      "light": "Maliwanag",
+      "dark": "Madilim",
+      "system": "Sistema"
+    },
+    "language": {
+      "title": "Wika",
+      "description": "Baguhin ang wika ng display.",
+      "selectLabel": "Piliin ang wika",
+      "save": "Magsave ng Wika",
+      "confirm": {
+        "title": "Baguhin ang Wika",
+        "description": "Sigurado ba kayong nais baguhin ang wika ng interface? Ito ay mag-refresh ng pahina.",
+        "confirmText": "Oo, baguhin"
+      }
+    },
+    "reset": {
+      "title": "Itakda Muli",
+      "description": "I-restore ang default preferences.",
+      "button": "Itakda Muli ang Mga Setting",
+      "confirm": {
+        "title": "Itakda Muli ang Mga Preference",
+        "description": "Ito ay i-restore ang default na wika at appearance preferences. Magpatuloy?",
+        "confirmText": "Oo, itakda muli"
+      }
+    },
+    "admin": {
+      "title": "Admin Access",
+      "description": "I-access ang admin panel para pamahalaan ang orders, menu, at inventory.",
+      "button": "Pumunta sa Admin Login"
+    },
+    "toast": {
+      "languageUpdated": "Ang wika ay nag-update",
+      "preferencesReset": "Ang mga preferences ay naitakda muli"
+    }
+  },
+  "Admin": {
+    "subtitle": "Admin Panel",
+    "nav": {
+      "main": "Pangunahing Navigation",
+      "dashboard": "Dashboard",
+      "orders": "Mga Order",
+      "menu": "Menu",
+      "inventory": "Inventory",
+      "logout": "Mag-logout"
+    },
+    "login": {
+      "title": "Admin Login",
+      "description": "Mag-sign in para i-access ang admin dashboard",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Mag-Sign In",
+      "loading": "Nag-sign in...",
+      "success": "Matagumpay na nag-login",
+      "error": "Mga hindi wastong credentials",
+      "backToMenu": "Bumalik sa Menu"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "description": "Pagsusuri sa inyong restaurant operations",
+      "loading": "Naglo-load ng dashboard...",
+      "noData": "Walang available na data",
+      "refresh": "I-refresh",
+      "errorFetching": "Nabigong makakuha ng analytics",
+      "metrics": {
+        "totalRevenue": "Kabuuang Kita",
+        "totalOrders": "Kabuuang Mga Order",
+        "averageOrder": "Average Order",
+        "ordersToday": "Mga Order Ngayong Araw",
+        "revenue": "kita"
+      },
+      "popularItems": {
+        "title": "Mga Paboritong Item",
+        "noData": "Walang paboritong items pa",
+        "orders": "mga order"
+      },
+      "recentOrders": {
+        "title": "Mga Kamakailang Order",
+        "noData": "Walang kamakailang orders",
+        "table": "Mesa",
+        "items": "mga item"
+      }
+    },
+    "orders": {
+      "title": "Mga Order",
+      "description": "Pamahalaan at subaybayan ang lahat ng customer orders",
+      "loading": "Naglo-load ng orders...",
+      "noOrders": "Walang orders pa",
+      "noFilteredOrders": "Walang orders na tumutugma sa selected filter",
+      "refresh": "I-refresh",
+      "errorFetching": "Nabigong makakuha ng orders",
+      "statusUpdated": "Ang order status ay nag-update sa {status}",
+      "errorUpdating": "Nabigong i-update ang order status",
+      "filters": {
+        "active": "Aktibo",
+        "served": "Inihain",
+        "cancelled": "Kinansela",
+        "all": "Lahat"
+      },
+      "table": {
+        "orderNumber": "Order #",
+        "tableNumber": "Mesa {number}",
+        "items": "Mga Item",
+        "total": "Kabuuan",
+        "status": "Status",
+        "time": "Oras"
+      },
+      "status": {
+        "pending": "Naghihintay",
+        "confirmed": "Kumpirmado",
+        "preparing": "Isinasagawa",
+        "ready": "Handa",
+        "served": "Inihain",
+        "cancelled": "Kinansela"
+      },
+      "details": {
+        "title": "Mga Detalye ng Order",
+        "table": "Mesa",
+        "status": "Kasalukuyang Status",
+        "items": "Mga Item",
+        "subtotal": "Subtotal",
+        "tax": "Buwis",
+        "serviceFee": "Service Fee",
+        "total": "Kabuuan",
+        "updateStatus": "I-update ang Status",
+        "selectStatus": "Piliin ang bagong status",
+        "updateButton": "I-update ang Status",
+        "updating": "Nag-a-update...",
+        "close": "Isara",
+        "confirmStatusUpdate": "Kumpirmahin ang Status Update",
+        "confirmStatusUpdateDescription": "Sigurado ba kayong nais i-update ang order na ito mula {currentStatus} sa {newStatus}?",
+        "cancel": "Kanselahin",
+        "confirm": "Kumpirmahin"
+      },
+      "confirmCancel": "Kumpirmahin ang Pagkansela?"
+    },
+    "menu": {
+      "title": "Menu Management",
+      "description": "Magdagdag, mag-edit, o mag-remove ng menu items",
+      "loading": "Naglo-load ng menu...",
+      "noItems": "Walang menu items pa",
+      "create": "Magdagdag ng Item",
+      "refresh": "I-refresh",
+      "errorFetching": "Nabigong makakuha ng menu",
+      "form": {
+        "createTitle": "Lumikha ng Menu Item",
+        "createDescription": "Magdagdag ng bagong item sa menu",
+        "editTitle": "I-edit ang Menu Item",
+        "editDescription": "I-update ang menu item details",
+        "name": "Pangalan",
+        "namePlaceholder": "Ipasok ang pangalan ng item",
+        "description": "Paglalarawan",
+        "descriptionPlaceholder": "Ilarawan ang menu item",
+        "price": "Presyo",
+        "category": "Kategorya",
+        "categoryPlaceholder": "e.g., Main Course",
+        "imageUrl": "Image URL",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "Ipasok ang valid image URL",
+        "available": "Available",
+        "availableDescription": "Available ba ang item na ito ngayon?",
+        "create": "Lumikha ng Item",
+        "save": "Magsave ng Mga Pagbabago",
+        "cancel": "Kanselahin",
+        "delete": "Alisin",
+        "saving": "Nagsasave...",
+        "createSuccess": "Menu item ay nalikha",
+        "createError": "Nabigong lumikha ng menu item",
+        "updateSuccess": "Menu item ay nag-update",
+        "updateError": "Nabigong i-update ang menu item",
+        "deleteSuccess": "Menu item ay naalis",
+        "deleteError": "Nabigong alisin ang menu item",
+        "deleteConfirmTitle": "Alisin ang Menu Item",
+        "deleteConfirmDescription": "Ang aksyon na ito ay hindi maaaring ibalik. Sigurado ba?",
+        "deleteConfirm": "Alisin"
+      }
+    },
+    "inventory": {
+      "title": "Inventory",
+      "description": "Subaybayan at pamahalaan ang stock levels",
+      "loading": "Naglo-load ng inventory...",
+      "noItems": "Walang inventory items pa",
+      "refresh": "I-refresh",
+      "errorFetching": "Nabigong makakuha ng inventory",
+      "table": {
+        "item": "Item",
+        "stock": "Stock",
+        "unit": "Unit",
+        "threshold": "Threshold",
+        "status": "Status",
+        "lastRestocked": "Huling Nag-restock",
+        "never": "Kailanman"
+      },
+      "status": {
+        "low": "Mababang Stock",
+        "good": "Sa Stock"
+      },
+      "form": {
+        "title": "I-update ang Inventory",
+        "description": "I-update ang stock level para sa {item}",
+        "currentStock": "Kasalukuyang Stock",
+        "threshold": "Low Stock Threshold",
+        "newStock": "Bagong Stock Level",
+        "stockDescription": "Ipasok ang bagong stock level sa {unit}",
+        "update": "I-update ang Stock",
+        "updating": "Nag-a-update...",
+        "cancel": "Kanselahin",
+        "updateSuccess": "Inventory ay nag-update",
+        "updateError": "Nabigong i-update ang inventory"
+      }
+    }
+  }
+}

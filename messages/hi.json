@@ -1,0 +1,340 @@
+{
+  "Menu": {
+    "title": "मेनू",
+    "description": "हमारे स्वादिष्ट व्यंजनों की खोज करें और अपना अगला पसंदीदा व्यंजन खोजें!",
+    "categories": {
+      "appetizers": "एपेटाइजर्स",
+      "beverages": "पेय",
+      "desserts": "मिठाइयाँ",
+      "main-course": "मुख्य कोर्स",
+      "sides": "साइड डिश",
+      "all": "सभी"
+    },
+    "messages": {
+      "searchPlaceholder": "मेनू आइटम खोजें...",
+      "searchAriaLabel": "मेनू आइटम के माध्यम से खोजें",
+      "noSearchResults": "कोई मेनू आइटम नहीं मिला।",
+      "loadingMenu": "मेनू लोड हो रहा है...",
+      "noMenuItems": "कोई मेनू आइटम उपलब्ध नहीं है।",
+      "errorLoadingMenu": "मेनू लोड करने में त्रुटि। कृपया बाद में फिर से कोशिश करें।",
+      "clearSearch": "खोज साफ़ करें।"
+    },
+    "available": "उपलब्ध",
+    "unavailable": "अनुपलब्ध",
+    "tags": "टैग",
+    "quantity": "मात्रा",
+    "subTotal": "उप-कुल",
+    "updateCart": "कार्ट अपडेट करें",
+    "closeDetails": "विवरण बंद करें",
+    "noDescription": "कोई विवरण उपलब्ध नहीं।",
+    "updating": "अपडेट हो रहा है...",
+    "removeFromCart": "कार्ट से हटाएं",
+    "close": "बंद करें",
+    "confirmRemove": "कार्ट से हटाएं?",
+    "confirmAdd": "कार्ट में जोड़ें?",
+    "confirmUpdate": "कार्ट अपडेट करें?",
+    "confirmRemoveDescription": "क्या आप सुनिश्चित हैं कि आप {itemName} को अपने कार्ट से हटाना चाहते हैं?",
+    "confirmAddDescription": "{quantity} {quantity, plural, =1 {आइटम} other {आइटम}} को {itemName} से कार्ट में जोड़ें?",
+    "confirmUpdateDescription": "{itemName} की मात्रा को {oldQuantity} से {newQuantity} में अपडेट करें?",
+    "cancel": "रद्द करें",
+    "confirm": "पुष्टि करें"
+  },
+  "Cart": {
+    "title": "कार्ट",
+    "items": "कार्ट आइटम",
+    "itemCount": "{count, plural, =0 {कोई आइटम नहीं} =1 {1 आइटम} other {# आइटम}}",
+    "specialInstructions": "विशेष निर्देश",
+    "orderSummary": "ऑर्डर सारांश",
+    "subtotal": "उप-कुल",
+    "total": "कुल",
+    "submitOrder": "ऑर्डर सबमिट करें",
+    "messages": {
+      "loadingCart": "कार्ट लोड हो रहा है...",
+      "errorLoadingCart": "कार्ट लोड करने में त्रुटि। कृपया बाद में फिर से कोशिश करें।",
+      "emptyCart": "आपकी कार्ट खाली है। मेनू से कुछ आइटम जोड़ें!",
+      "submitOrderInfo": "आपका ऑर्डर रसोई को भेजा जाएगा।"
+    },
+    "ariaLabel": {
+      "removeItem": "कार्ट से {itemName} हटाएं"
+    },
+    "confirmDelete": "आइटम हटाएं?",
+    "confirmDeleteDescription": "क्या आप सुनिश्चित हैं कि आप {quantity} {quantity, plural, =1 {आइटम} other {आइटम}} को {itemName} से कार्ट से हटाना चाहते हैं?",
+    "confirmSubmitOrder": "अपना ऑर्डर सबमिट करें?",
+    "confirmSubmitOrderDescription": "आप {itemCount, plural, =1 {1 आइटम} other {# आइटम}} को ${total} के कुल के साथ सबमिट करने वाले हैं। आपका ऑर्डर रसोई को भेजा जाएगा।",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं"
+  },
+  "Bill": {
+    "title": "आपका बिल",
+    "orderDetails": "ऑर्डर विवरण",
+    "orderNumber": "ऑर्डर #{number}"
+  },
+  "Navigation": {
+    "home": "होम",
+    "menu": "मेनू",
+    "search": "खोज",
+    "cart": "कार्ट",
+    "bill": "बिल",
+    "settings": "सेटिंग्स",
+    "myAccount": "मेरा खाता",
+    "logout": "लॉग आउट"
+  },
+  "Button": {
+    "continue": "जारी रखें"
+  },
+  "MenuDropdown": {
+    "editProfile": "प्रोफाइल संपादित करें",
+    "language": "भाषा",
+    "currency": "मुद्रा",
+    "darkMode": "डार्क मोड",
+    "logout": "लॉग आउट"
+  },
+  "Common": {
+    "tableNumber": "टेबल #{number}",
+    "subTotal": "उप-कुल",
+    "total": "कुल",
+    "grandTotal": "भव्य कुल",
+    "tax": "कर",
+    "serviceFee": "सेवा शुल्क",
+    "summary": "सारांश",
+    "order": {
+      "pending": "लंबित",
+      "confirmed": "पुष्टि की गई",
+      "preparing": "तैयारी में",
+      "ready": "तैयार",
+      "served": "परोसा गया",
+      "cancelled": "रद्द किया गया"
+    },
+    "noImage": "कोई छवि नहीं",
+    "add": "जोड़ें",
+    "edit": "संपादित करें",
+    "item": "आइटम",
+    "items": "आइटम",
+    "ok": "ठीक है",
+    "cancel": "रद्द करें",
+    "updating": "अपडेट हो रहा है...",
+    "orderCancellation": {
+      "title": "ऑर्डर रद्द करें",
+      "description": "क्या आप सुनिश्चित हैं कि आप इस ऑर्डर को रद्द करना चाहते हैं? यह कार्रवाई पूर्ववत नहीं की जा सकती।",
+      "orderCancelled": "ऑर्डर रद्द कर दिया गया है।"
+    }
+  },
+  "Settings": {
+    "title": "सेटिंग्स",
+    "description": "थीम, भाषा और डिफ़ॉल्ट सहित अपनी प्राथमिकताओं का प्रबंधन करें।",
+    "appearance": {
+      "title": "दिखावट",
+      "description": "इंटरफेस कैसा दिखता है इसे अनुकूलित करें।",
+      "themeLabel": "थीम",
+      "light": "हल्का",
+      "dark": "अंधेरा",
+      "system": "सिस्टम"
+    },
+    "language": {
+      "title": "भाषा",
+      "description": "प्रदर्शन भाषा बदलें।",
+      "selectLabel": "भाषा चुनें",
+      "save": "भाषा सहेजें",
+      "confirm": {
+        "title": "भाषा बदलें",
+        "description": "क्या आप सुनिश्चित हैं कि आप इंटरफेस की भाषा बदलना चाहते हैं? यह पृष्ठ को रिफ्रेश करेगा।",
+        "confirmText": "हाँ, बदलें"
+      }
+    },
+    "reset": {
+      "title": "रीसेट करें",
+      "description": "डिफ़ॉल्ट प्राथमिकताओं को पुनः स्थापित करें।",
+      "button": "सेटिंग्स रीसेट करें",
+      "confirm": {
+        "title": "प्राथमिकताएं रीसेट करें",
+        "description": "यह डिफ़ॉल्ट भाषा और दिखावट की प्राथमिकताओं को पुनः स्थापित करेगा। जारी रखें?",
+        "confirmText": "हाँ, रीसेट करें"
+      }
+    },
+    "admin": {
+      "title": "प्रशासक पहुंच",
+      "description": "ऑर्डर, मेनू और इन्वेंटरी का प्रबंधन करने के लिए एडमिन पैनल तक पहुंचें।",
+      "button": "एडमिन लॉगिन पर जाएं"
+    },
+    "toast": {
+      "languageUpdated": "भाषा अपडेट की गई",
+      "preferencesReset": "प्राथमिकताएं रीसेट की गई"
+    }
+  },
+  "Admin": {
+    "subtitle": "एडमिन पैनल",
+    "nav": {
+      "main": "मुख्य नेविगेशन",
+      "dashboard": "डैशबोर्ड",
+      "orders": "ऑर्डर",
+      "menu": "मेनू",
+      "inventory": "इन्वेंटरी",
+      "logout": "लॉग आउट"
+    },
+    "login": {
+      "title": "एडमिन लॉगिन",
+      "description": "एडमिन डैशबोर्ड तक पहुंचने के लिए साइन इन करें",
+      "username": "उपयोगकर्ता नाम",
+      "password": "पासवर्ड",
+      "submit": "साइन इन करें",
+      "loading": "साइन इन हो रहे हैं...",
+      "success": "लॉगिन सफल",
+      "error": "अमान्य साख",
+      "backToMenu": "मेनू पर वापस जाएं"
+    },
+    "dashboard": {
+      "title": "डैशबोर्ड",
+      "description": "आपके रेस्तरां संचालन का अवलोकन",
+      "loading": "डैशबोर्ड लोड हो रहा है...",
+      "noData": "कोई डेटा उपलब्ध नहीं",
+      "refresh": "रीफ्रेश करें",
+      "errorFetching": "विश्लेषण प्राप्त करने में विफल",
+      "metrics": {
+        "totalRevenue": "कुल राजस्व",
+        "totalOrders": "कुल ऑर्डर",
+        "averageOrder": "औसत ऑर्डर",
+        "ordersToday": "आज के ऑर्डर",
+        "revenue": "राजस्व"
+      },
+      "popularItems": {
+        "title": "लोकप्रिय आइटम",
+        "noData": "अभी तक कोई लोकप्रिय आइटम नहीं",
+        "orders": "ऑर्डर"
+      },
+      "recentOrders": {
+        "title": "हाल के ऑर्डर",
+        "noData": "कोई हाल के ऑर्डर नहीं",
+        "table": "टेबल",
+        "items": "आइटम"
+      }
+    },
+    "orders": {
+      "title": "ऑर्डर",
+      "description": "सभी ग्राहक ऑर्डर का प्रबंधन और ट्रैक करें",
+      "loading": "ऑर्डर लोड हो रहे हैं...",
+      "noOrders": "अभी कोई ऑर्डर नहीं",
+      "noFilteredOrders": "चुने गए फिल्टर से कोई ऑर्डर मेल नहीं खाता",
+      "refresh": "रीफ्रेश करें",
+      "errorFetching": "ऑर्डर प्राप्त करने में विफल",
+      "statusUpdated": "ऑर्डर की स्थिति {status} में अपडेट की गई",
+      "errorUpdating": "ऑर्डर की स्थिति अपडेट करने में विफल",
+      "filters": {
+        "active": "सक्रिय",
+        "served": "परोसा गया",
+        "cancelled": "रद्द किया गया",
+        "all": "सभी"
+      },
+      "table": {
+        "orderNumber": "ऑर्डर #",
+        "tableNumber": "टेबल {number}",
+        "items": "आइटम",
+        "total": "कुल",
+        "status": "स्थिति",
+        "time": "समय"
+      },
+      "status": {
+        "pending": "लंबित",
+        "confirmed": "पुष्टि की गई",
+        "preparing": "तैयारी में",
+        "ready": "तैयार",
+        "served": "परोसा गया",
+        "cancelled": "रद्द किया गया"
+      },
+      "details": {
+        "title": "ऑर्डर विवरण",
+        "table": "टेबल",
+        "status": "वर्तमान स्थिति",
+        "items": "आइटम",
+        "subtotal": "उप-कुल",
+        "tax": "कर",
+        "serviceFee": "सेवा शुल्क",
+        "total": "कुल",
+        "updateStatus": "स्थिति अपडेट करें",
+        "selectStatus": "नई स्थिति चुनें",
+        "updateButton": "स्थिति अपडेट करें",
+        "updating": "अपडेट हो रहा है...",
+        "close": "बंद करें",
+        "confirmStatusUpdate": "स्थिति अपडेट की पुष्टि करें",
+        "confirmStatusUpdateDescription": "क्या आप सुनिश्चित हैं कि आप इस ऑर्डर को {currentStatus} से {newStatus} में अपडेट करना चाहते हैं?",
+        "cancel": "रद्द करें",
+        "confirm": "पुष्टि करें"
+      },
+      "confirmCancel": "रद्दीकरण की पुष्टि करें?"
+    },
+    "menu": {
+      "title": "मेनू प्रबंधन",
+      "description": "मेनू आइटम जोड़ें, संपादित करें या हटाएं",
+      "loading": "मेनू लोड हो रहा है...",
+      "noItems": "अभी कोई मेनू आइटम नहीं",
+      "create": "आइटम जोड़ें",
+      "refresh": "रीफ्रेश करें",
+      "errorFetching": "मेनू प्राप्त करने में विफल",
+      "form": {
+        "createTitle": "मेनू आइटम बनाएं",
+        "createDescription": "मेनू में एक नया आइटम जोड़ें",
+        "editTitle": "मेनू आइटम संपादित करें",
+        "editDescription": "मेनू आइटम विवरण अपडेट करें",
+        "name": "नाम",
+        "namePlaceholder": "आइटम नाम दर्ज करें",
+        "description": "विवरण",
+        "descriptionPlaceholder": "मेनू आइटम का वर्णन करें",
+        "price": "मूल्य",
+        "category": "श्रेणी",
+        "categoryPlaceholder": "उदा। मुख्य कोर्स",
+        "imageUrl": "छवि URL",
+        "imageUrlPlaceholder": "https://example.com/image.jpg",
+        "imageUrlDescription": "एक वैध छवि URL दर्ज करें",
+        "available": "उपलब्ध",
+        "availableDescription": "क्या यह आइटम वर्तमान में उपलब्ध है?",
+        "create": "आइटम बनाएं",
+        "save": "परिवर्तन सहेजें",
+        "cancel": "रद्द करें",
+        "delete": "हटाएं",
+        "saving": "सहेज रहे हैं...",
+        "createSuccess": "मेनू आइटम बनाया गया",
+        "createError": "मेनू आइटम बनाने में विफल",
+        "updateSuccess": "मेनू आइटम अपडेट किया गया",
+        "updateError": "मेनू आइटम अपडेट करने में विफल",
+        "deleteSuccess": "मेनू आइटम हटाया गया",
+        "deleteError": "मेनू आइटम हटाने में विफल",
+        "deleteConfirmTitle": "मेनू आइटम हटाएं",
+        "deleteConfirmDescription": "यह कार्रवाई पूर्ववत नहीं की जा सकती। क्या आप सुनिश्चित हैं?",
+        "deleteConfirm": "हटाएं"
+      }
+    },
+    "inventory": {
+      "title": "इन्वेंटरी",
+      "description": "स्टॉक स्तरों को ट्रैक करें और प्रबंधित करें",
+      "loading": "इन्वेंटरी लोड हो रही है...",
+      "noItems": "अभी कोई इन्वेंटरी आइटम नहीं",
+      "refresh": "रीफ्रेश करें",
+      "errorFetching": "इन्वेंटरी प्राप्त करने में विफल",
+      "table": {
+        "item": "आइटम",
+        "stock": "स्टॉक",
+        "unit": "इकाई",
+        "threshold": "थ्रेसहोल्ड",
+        "status": "स्थिति",
+        "lastRestocked": "आखिरी बार पुनः स्टॉक किया गया",
+        "never": "कभी नहीं"
+      },
+      "status": {
+        "low": "कम स्टॉक",
+        "good": "स्टॉक में"
+      },
+      "form": {
+        "title": "इन्वेंटरी अपडेट करें",
+        "description": "{item} के लिए स्टॉक स्तर अपडेट करें",
+        "currentStock": "वर्तमान स्टॉक",
+        "threshold": "कम स्टॉक थ्रेसहोल्ड",
+        "newStock": "नया स्टॉक स्तर",
+        "stockDescription": "{unit} में नया स्टॉक स्तर दर्ज करें",
+        "update": "स्टॉक अपडेट करें",
+        "updating": "अपडेट हो रहा है...",
+        "cancel": "रद्द करें",
+        "updateSuccess": "इन्वेंटरी अपडेट की गई",
+        "updateError": "इन्वेंटरी अपडेट करने में विफल"
+      }
+    }
+  }
+}
