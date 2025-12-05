@@ -213,10 +213,17 @@
       "description": "Manage and track all customer orders",
       "loading": "Loading orders...",
       "noOrders": "No orders yet",
+      "noFilteredOrders": "No orders match the selected filter",
       "refresh": "Refresh",
       "errorFetching": "Failed to fetch orders",
       "statusUpdated": "Order status updated to {status}",
       "errorUpdating": "Failed to update order status",
+      "filters": {
+        "active": "Active",
+        "served": "Served",
+        "cancelled": "Cancelled",
+        "all": "All"
+      },
       "table": {
         "orderNumber": "Order #",
         "tableNumber": "Table {number}",

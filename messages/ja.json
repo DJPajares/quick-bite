@@ -146,6 +146,21 @@
     }
   },
   "Admin": {
+    "orders": {
+      "title": "注文",
+      "description": "すべての顧客注文を管理・追跡します",
+      "loading": "注文を読み込み中...",
+      "noOrders": "注文はまだありません",
+      "noFilteredOrders": "選択したフィルターに一致する注文がありません",
+      "refresh": "再読み込み",
+      "errorFetching": "注文の取得に失敗しました",
+      "filters": {
+        "active": "アクティブ",
+        "served": "提供済み",
+        "cancelled": "キャンセル済み",
+        "all": "すべて"
+      }
+    },
     "menu": {
       "title": "メニュー管理",
       "description": "メニューアイテムの追加、編集、削除を行います",
