@@ -246,7 +246,11 @@
         "selectStatus": "Select new status",
         "updateButton": "Update Status",
         "updating": "Updating...",
-        "close": "Close"
+        "close": "Close",
+        "confirmStatusUpdate": "Confirm Status Update",
+        "confirmStatusUpdateDescription": "Are you sure you want to update this order from {currentStatus} to {newStatus}?",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
       },
       "confirmCancel": "Confirm Cancellation?"
     },
