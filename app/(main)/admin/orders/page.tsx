@@ -17,12 +17,12 @@ import { AdminOrder } from '@/types/api';
 const POLLING_INTERVAL = 30000; // 30 seconds
 
 export default function AdminOrdersPage() {
+  const t = useTranslations('Admin.orders');
+
   const [orders, setOrders] = useState<AdminOrder[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState<AdminOrder | null>(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const t = useTranslations('Admin.orders');
 
   const fetchOrders = useCallback(
     async (showRefreshIndicator = false) => {
@@ -64,7 +64,10 @@ export default function AdminOrdersPage() {
 
   const handleOrderClick = (order: AdminOrder) => {
     setSelectedOrder(order);
-    setDrawerOpen(true);
+  };
+
+  const handleCloseDrawer = () => {
+    setSelectedOrder(null);
   };
 
   const handleOrderUpdate = () => {
@@ -123,12 +126,14 @@ export default function AdminOrdersPage() {
         ))}
       </div>
 
-      <OrderDetailsDrawer
-        order={selectedOrder}
-        open={drawerOpen}
-        onOpenChange={setDrawerOpen}
-        onUpdate={handleOrderUpdate}
-      />
+      {selectedOrder && (
+        <OrderDetailsDrawer
+          order={selectedOrder}
+          open={true}
+          onOpenChange={handleCloseDrawer}
+          onUpdate={handleOrderUpdate}
+        />
+      )}
     </div>
   );
 }

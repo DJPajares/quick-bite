@@ -2,6 +2,8 @@
  * API Response Types
  */
 
+import { OrderStatusProps } from '@/constants/order';
+
 export interface ApiResponse<T> {
   success: boolean;
   data: T;
@@ -92,7 +94,7 @@ export interface SubmitOrderResponse {
   success: boolean;
   data?: {
     orderId: string;
-    status: string;
+    status: OrderStatusProps;
   };
   message?: string;
 }
@@ -123,7 +125,7 @@ export interface AdminOrder {
     price: number;
     specialInstructions?: string;
   }[];
-  status: string;
+  status: OrderStatusProps;
   subtotal: number;
   tax: number;
   serviceFee: number;
@@ -136,7 +138,7 @@ export interface AdminOrder {
 export type AdminOrdersResponse = ApiResponse<AdminOrder[]>;
 
 export interface UpdateOrderStatusRequest {
-  status: string;
+  status: OrderStatusProps;
 }
 
 export interface UpdateOrderStatusResponse {

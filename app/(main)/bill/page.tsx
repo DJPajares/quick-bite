@@ -12,7 +12,7 @@ import { getBill, getErrorMessage } from '@/lib/api';
 import { getSessionId } from '@/lib/session';
 import { formatCurrency } from '@/lib/utils';
 
-import type { OrderStatus } from '@/constants/order';
+import type { OrderStatusProps } from '@/constants/order';
 
 interface BillItem {
   name: string;
@@ -23,7 +23,7 @@ interface BillItem {
 
 interface BillOrder {
   orderNumber: string;
-  status: OrderStatus;
+  status: OrderStatusProps;
   items: BillItem[];
   subtotal: number;
   tax: number;

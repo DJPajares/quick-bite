@@ -23,31 +23,20 @@ import {
 } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { AdminOrder } from '@/types/api';
-import { ORDER_STATUS } from '@/constants/order';
+import {
+  ORDER_STATUS,
+  ORDER_STATUS_COLORS,
+  OrderStatusProps,
+} from '@/constants/order';
 import { updateOrderStatus } from '@/lib/api';
 import { toast } from 'sonner';
 
 interface OrderDetailsDrawerProps {
-  order: AdminOrder | null;
+  order: AdminOrder;
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onUpdate: () => void;
 }
-
-const statusColors: Record<string, string> = {
-  [ORDER_STATUS.PENDING]:
-    'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
-  [ORDER_STATUS.CONFIRMED]:
-    'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-  [ORDER_STATUS.PREPARING]:
-    'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
-  [ORDER_STATUS.READY]:
-    'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-  [ORDER_STATUS.SERVED]:
-    'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200',
-  [ORDER_STATUS.CANCELLED]:
-    'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
-};
 
 export function OrderDetailsDrawer({
   order,
@@ -55,7 +44,7 @@ export function OrderDetailsDrawer({
   onOpenChange,
   onUpdate,
 }: OrderDetailsDrawerProps) {
-  const [newStatus, setNewStatus] = useState<string>(order?.status || '');
+  const [newStatus, setNewStatus] = useState<OrderStatusProps>(order.status);
   const [isUpdating, setIsUpdating] = useState(false);
   const t = useTranslations('Admin.orders');
 
@@ -90,18 +79,18 @@ export function OrderDetailsDrawer({
         <div className="mx-auto flex min-h-0 w-full max-w-2xl flex-1 flex-col">
           <DrawerHeader className="shrink-0 border-b">
             <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
+              <div className="flex flex-col items-start">
                 <DrawerTitle className="text-2xl">
                   {t('details.title')} #{order.orderNumber}
                 </DrawerTitle>
-                <DrawerDescription className="mt-1.5">
+                <DrawerDescription>
                   {t('details.table')} {order.tableNumber} •{' '}
                   {format(new Date(order.createdAt), 'PPp')}
                 </DrawerDescription>
               </div>
               <Badge
                 variant="outline"
-                className={`${statusColors[order.status] || ''} px-3 py-1.5 text-sm font-medium`}
+                className={`${ORDER_STATUS_COLORS[order.status] || ''} px-3 py-1.5 text-sm font-medium`}
               >
                 {t(`status.${order.status}`)}
               </Badge>
@@ -190,7 +179,12 @@ export function OrderDetailsDrawer({
                       <label className="text-sm font-semibold">
                         {t('details.updateStatus')}
                       </label>
-                      <Select value={newStatus} onValueChange={setNewStatus}>
+                      <Select
+                        value={newStatus}
+                        onValueChange={(value) =>
+                          setNewStatus(value as OrderStatusProps)
+                        }
+                      >
                         <SelectTrigger className="h-11">
                           <SelectValue
                             placeholder={t('details.selectStatus')}

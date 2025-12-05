@@ -22,7 +22,11 @@ import {
 } from '@/components/ui/select';
 import { toast } from 'sonner';
 
-import { ORDER_STATUS } from '@/constants/order';
+import {
+  ORDER_STATUS,
+  ORDER_STATUS_COLORS,
+  OrderStatusProps,
+} from '@/constants/order';
 import { updateOrderStatus } from '@/lib/api';
 
 import { AdminOrder } from '@/types/api';
@@ -33,28 +37,7 @@ interface OrdersTableProps {
   onUpdate: () => void;
 }
 
-const statusColors: Record<string, string> = {
-  [ORDER_STATUS.PENDING]:
-    'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 border-yellow-300 dark:border-yellow-700',
-  [ORDER_STATUS.CONFIRMED]:
-    'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 border-blue-300 dark:border-blue-700',
-  [ORDER_STATUS.PREPARING]:
-    'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 border-purple-300 dark:border-purple-700',
-  [ORDER_STATUS.READY]:
-    'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 border-green-300 dark:border-green-700',
-  [ORDER_STATUS.SERVED]:
-    'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 border-gray-300 dark:border-gray-700',
-  [ORDER_STATUS.CANCELLED]:
-    'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 border-red-300 dark:border-red-700',
-};
-
-const statusOrder = [
-  ORDER_STATUS.PENDING,
-  ORDER_STATUS.CONFIRMED,
-  ORDER_STATUS.PREPARING,
-  ORDER_STATUS.READY,
-  ORDER_STATUS.SERVED,
-];
+const statusOrder = Object.values(ORDER_STATUS);
 
 export function OrdersCard({
   order,
@@ -69,7 +52,7 @@ export function OrdersCard({
   const handleStatusChange = async (
     e: React.MouseEvent,
     orderId: string,
-    newStatus: string,
+    newStatus: OrderStatusProps,
   ) => {
     e.stopPropagation();
 
@@ -101,7 +84,7 @@ export function OrdersCard({
           </Badge>
           <Badge
             variant="outline"
-            className={`${statusColors[order.status] || ''} font-semibold`}
+            className={`${ORDER_STATUS_COLORS[order.status] || ''} font-semibold`}
           >
             {t(`Admin.orders.status.${order.status}`)}
           </Badge>
@@ -171,7 +154,7 @@ export function OrdersCard({
           <Select
             value={order.status}
             disabled={isUpdating}
-            onValueChange={(value) =>
+            onValueChange={(value: OrderStatusProps) =>
               handleStatusChange(
                 new MouseEvent('click') as unknown as React.MouseEvent,
                 order._id,
