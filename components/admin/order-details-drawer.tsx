@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { format } from 'date-fns';
+
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -22,14 +23,17 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
-import { AdminOrder } from '@/types/api';
+import { toast } from 'sonner';
+
+import { updateOrderStatus } from '@/lib/api';
 import {
   ORDER_STATUS,
   ORDER_STATUS_COLORS,
   OrderStatusProps,
 } from '@/constants/order';
-import { updateOrderStatus } from '@/lib/api';
-import { toast } from 'sonner';
+
+import { AdminOrder } from '@/types/api';
+import { formatCurrency } from '@/lib/utils';
 
 interface OrderDetailsDrawerProps {
   order: AdminOrder;
@@ -129,7 +133,7 @@ export function OrderDetailsDrawer({
                           × {item.quantity}
                         </p>
                         <p className="text-base font-semibold">
-                          ${item.price.toFixed(2)}
+                          {formatCurrency({ value: item.price })}
                         </p>
                       </div>
                     </div>
@@ -146,27 +150,31 @@ export function OrderDetailsDrawer({
                     {t('details.subtotal')}
                   </span>
                   <span className="font-medium">
-                    ${order.subtotal.toFixed(2)}
+                    {formatCurrency({ value: order.subtotal })}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">
                     {t('details.tax')}
                   </span>
-                  <span className="font-medium">${order.tax.toFixed(2)}</span>
+                  <span className="font-medium">
+                    {formatCurrency({ value: order.tax })}
+                  </span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">
                     {t('details.serviceFee')}
                   </span>
                   <span className="font-medium">
-                    ${order.serviceFee.toFixed(2)}
+                    {formatCurrency({ value: order.serviceFee })}
                   </span>
                 </div>
                 <Separator />
                 <div className="flex justify-between text-lg">
                   <span className="font-semibold">{t('details.total')}</span>
-                  <span className="font-bold">${order.total.toFixed(2)}</span>
+                  <span className="font-bold">
+                    {formatCurrency({ value: order.total })}
+                  </span>
                 </div>
               </div>
 
